@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useCountingAnimation } from '../hooks/useCountingAnimation';
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
+  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+  
+  // Counting animations for stats
+  const totalSavings = useCountingAnimation(isIntersecting, { end: 1138896, prefix: '$', separator: ',' });
+  const paybackTime = useCountingAnimation(isIntersecting, { end: 130, suffix: ' min' });
+  const trustedBy = useCountingAnimation(isIntersecting, { end: 340 });
+  const avgSavings = useCountingAnimation(isIntersecting, { end: 34512, prefix: '$', separator: ',' });
+  const termsAnalyzed = useCountingAnimation(isIntersecting, { end: 37377, separator: ',' });
+  const adSpend = useCountingAnimation(isIntersecting, { end: 9030993, prefix: '$', separator: ',' });
 
   return (
-    <section className="hero-section bg-white py-20">
+    <section ref={elementRef} className="hero-section bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="text-left">
+          <div className={`text-left animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left' : ''}`}>
                          {/* Main Headline */}
              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-[1.1]">
                AI Negative Keyword<br />
@@ -88,7 +99,7 @@ const Hero: React.FC = () => {
           </div>
 
                      {/* Right Column - Stats Grid */}
-           <div className="bg-gray-50 rounded-2xl p-6 max-w-md mx-auto lg:mx-0">
+           <div className={`bg-gray-50 rounded-2xl p-6 max-w-md mx-auto lg:mx-0 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-200' : ''}`}>
                          <div className="mb-6">
                <div className="flex items-center justify-between mb-2">
                  <div className="flex items-center gap-2">
@@ -107,7 +118,7 @@ const Hero: React.FC = () => {
                  <span className="text-green-500 mr-2">📈</span>
                  <h3 className="text-sm font-semibold text-gray-900">Total Savings</h3>
                </div>
-               <div className="text-2xl font-bold text-gray-900 mb-1">$1,138,896</div>
+               <div className="text-2xl font-bold text-gray-900 mb-1">{totalSavings}</div>
                <p className="text-xs text-gray-600">Reclaimed wasted spend across all accounts</p>
              </div>
 
@@ -119,7 +130,7 @@ const Hero: React.FC = () => {
                    <span className="text-orange-500 mr-1">⏱️</span>
                    <h3 className="text-xs font-semibold text-gray-900">Payback Period</h3>
                  </div>
-                 <div className="text-lg font-bold text-gray-900 mb-1">130 min</div>
+                 <div className="text-lg font-bold text-gray-900 mb-1">{paybackTime}</div>
                  <p className="text-xs text-gray-600">Median time to ROI</p>
                </div>
 
@@ -129,7 +140,7 @@ const Hero: React.FC = () => {
                    <span className="text-purple-500 mr-1">👥</span>
                    <h3 className="text-xs font-semibold text-gray-900">Trusted By</h3>
                  </div>
-                 <div className="text-lg font-bold text-gray-900 mb-1">340</div>
+                 <div className="text-lg font-bold text-gray-900 mb-1">{trustedBy}</div>
                  <p className="text-xs text-gray-600">PPC Pros</p>
                </div>
 
@@ -139,7 +150,7 @@ const Hero: React.FC = () => {
                    <span className="text-green-500 mr-1">💰</span>
                    <h3 className="text-xs font-semibold text-gray-900">Avg Savings</h3>
                  </div>
-                 <div className="text-lg font-bold text-gray-900 mb-1">$34,512</div>
+                 <div className="text-lg font-bold text-gray-900 mb-1">{avgSavings}</div>
                  <p className="text-xs text-gray-600">Per paid customer</p>
                </div>
 
@@ -149,7 +160,7 @@ const Hero: React.FC = () => {
                    <span className="text-blue-500 mr-1">🔍</span>
                    <h3 className="text-xs font-semibold text-gray-900">Terms Analyzed</h3>
                  </div>
-                 <div className="text-lg font-bold text-gray-900 mb-1">37,377</div>
+                 <div className="text-lg font-bold text-gray-900 mb-1">{termsAnalyzed}</div>
                  <p className="text-xs text-gray-600">Last 30 days</p>
                </div>
              </div>
@@ -160,7 +171,7 @@ const Hero: React.FC = () => {
                  <span className="text-purple-500 mr-2">💳</span>
                  <h3 className="text-sm font-semibold text-gray-900">Connected Monthly Ad Spend</h3>
                </div>
-               <div className="text-2xl font-bold text-gray-900 mb-1">$9,030,993</div>
+               <div className="text-2xl font-bold text-gray-900 mb-1">{adSpend}</div>
                <p className="text-xs text-gray-600">30-day ad spend total currently linked to Cascader</p>
              </div>
           </div>

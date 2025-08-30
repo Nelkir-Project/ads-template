@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const PricingSection: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
+  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   const plans = [
     {
@@ -61,9 +63,9 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="bg-gray-50 py-20">
+    <section ref={elementRef} id="pricing" className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             <span className="text-yellow-500">⭐</span> Pricing That <span className="text-blue-600">Pays for Itself</span>. Guaranteed. <span className="text-yellow-500">⭐</span>
           </h2>
@@ -105,7 +107,7 @@ const PricingSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           {plans.map((plan) => (
             <div
               key={plan.name}

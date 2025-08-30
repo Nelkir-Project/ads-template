@@ -1,19 +1,25 @@
 import React from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Header: React.FC = () => {
+  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header 
+      ref={elementRef}
+      className={`bg-white border-b border-gray-200 sticky top-0 z-50 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
             <div className="text-2xl font-bold text-gray-900">
               Cascader
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-8 flex-1 ml-8">
+          <nav className={`hidden md:flex space-x-8 flex-1 ml-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in animate-delay-200' : ''}`}>
             <a href="#how-it-works" className="text-gray-700 hover:text-gray-900 font-medium">
               How it Works
             </a>
@@ -23,7 +29,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className={`flex items-center space-x-4 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}>
             <button className="text-gray-700 hover:text-gray-900 font-medium">
               Sign in
             </button>

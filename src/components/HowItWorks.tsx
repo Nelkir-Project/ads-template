@@ -1,6 +1,8 @@
 import React from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HowItWorks: React.FC = () => {
+  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
   const steps = [
     {
       number: 1,
@@ -41,9 +43,9 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="bg-gray-50 py-20">
+    <section ref={elementRef} id="how-it-works" className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             How We Save You Money 💰
           </h2>
@@ -54,7 +56,10 @@ const HowItWorks: React.FC = () => {
 
         <div className="space-y-16">
           {steps.map((step, index) => (
-            <div key={step.number} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <div 
+              key={step.number} 
+              className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} animate-on-scroll ${isIntersecting ? `animate animate-fade-in-up animate-delay-${200 + index * 100}` : ''}`}
+            >
               {/* Content */}
               <div className="lg:w-1/2">
                 <div className="flex items-center mb-4">
