@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Header: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header 
@@ -13,12 +14,12 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
-            <div className="text-2xl font-bold text-gray-900">
+            <div className="text-xl sm:text-2xl font-bold text-gray-900">
               Cascader
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className={`hidden md:flex space-x-8 flex-1 ml-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in animate-delay-200' : ''}`}>
             <a href="#how-it-works" className="text-gray-700 hover:text-gray-900 font-medium">
               How it Works
@@ -28,8 +29,8 @@ const Header: React.FC = () => {
             </a>
           </nav>
 
-          {/* CTA Buttons */}
-          <div className={`flex items-center space-x-4 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}>
+          {/* Desktop CTA Buttons */}
+          <div className={`hidden md:flex items-center space-x-4 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}>
             <button className="text-gray-700 hover:text-gray-900 font-medium">
               Sign in
             </button>
@@ -43,7 +44,54 @@ const Header: React.FC = () => {
               </span>
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
+              aria-label="Toggle menu"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="#how-it-works"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                How it Works
+              </a>
+              <a
+                href="#pricing"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing
+              </a>
+              <div className="pt-4 pb-2 border-t border-gray-200">
+                <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
+                  Sign in
+                </button>
+                <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors">
+                  Get Started Free
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

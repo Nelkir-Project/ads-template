@@ -63,26 +63,26 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section ref={elementRef} id="pricing" className="bg-gray-50 py-20">
+    <section ref={elementRef} id="pricing" className="bg-gray-50 py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className={`text-center mb-12 sm:mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
             <span className="text-yellow-500">⭐</span> Pricing That <span className="text-blue-600">Pays for Itself</span>. Guaranteed. <span className="text-yellow-500">⭐</span>
           </h2>
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-base sm:text-lg text-gray-600 mb-6 px-4">
             If Cascader doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
-          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold mb-8">
-            <span className="mr-2">📈</span>
-            Average customer saves $35K • Median Subscription Payback in &lt; 3 hours
+          <div className="inline-flex flex-col sm:flex-row items-center bg-green-100 text-green-800 px-4 py-3 sm:py-2 rounded-full font-semibold mb-6 sm:mb-8 mx-4 text-center">
+            <span className="mr-0 sm:mr-2 mb-1 sm:mb-0">📈</span>
+            <span className="text-sm sm:text-base">Average customer saves $35K • Median Subscription Payback in &lt; 3 hours</span>
           </div>
 
           {/* Billing Toggle */}
-          <div className="flex items-center justify-center mb-12">
-            <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-200 flex">
+          <div className="flex items-center justify-center mb-8 sm:mb-12 px-4">
+            <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-200 flex w-full max-w-xs">
               <button
                 onClick={() => setIsYearly(false)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`flex-1 px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   !isYearly 
                     ? 'bg-blue-600 text-white shadow-sm' 
                     : 'text-gray-700 hover:text-gray-900'
@@ -92,14 +92,14 @@ const PricingSection: React.FC = () => {
               </button>
               <button
                 onClick={() => setIsYearly(true)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center ${
+                className={`flex-1 px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center ${
                   isYearly 
                     ? 'bg-blue-600 text-white shadow-sm' 
                     : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
-                Yearly
-                <span className="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                <span>Yearly</span>
+                <span className="ml-1 sm:ml-2 bg-green-100 text-green-800 text-xs px-1 sm:px-2 py-1 rounded-full">
                   Save 20%
                 </span>
               </button>
@@ -107,11 +107,11 @@ const PricingSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4 sm:px-0 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="bg-white rounded-2xl shadow-lg p-8 relative"
+              className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 relative"
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -180,39 +180,39 @@ const PricingSection: React.FC = () => {
         </div>
 
                  {/* Final CTA */}
-         <div className="mt-20">
+         <div className="mt-12 sm:mt-16 lg:mt-20">
            {/* Container with consistent width for both sections */}
-           <div className="max-w-6xl mx-auto">
+           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
              {/* Top headline with highlighted numbers */}
-             <div className="mb-12 text-center">
-               <h3 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+             <div className="mb-8 sm:mb-12 text-center">
+               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
                  If you're managing <span className="text-blue-600 font-bold">$50k in ad spend</span> you could be losing up to <span className="text-red-600 font-bold">$15,000</span> every month
                </h3>
              </div>
 
             {/* Dark CTA section */}
-            <div className="bg-slate-900 rounded-2xl p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="bg-slate-900 rounded-2xl p-6 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
               {/* Left side - Text content */}
-              <div className="text-white">
-                <h4 className="text-2xl font-bold mb-3">
+              <div className="text-white text-center lg:text-left mb-6 lg:mb-0">
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
                   Ready to recover wasted ad spend?
                 </h4>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-300 mb-3 sm:mb-4">
                   Start turning search term waste into profit.
                 </p>
                 
                 {/* Stats */}
-                <div className="text-sm text-gray-400">
+                <div className="text-xs sm:text-sm text-gray-400">
                   <span className="font-semibold">340+</span> advertisers • <span className="font-semibold">$1.1M</span> saved • <span className="font-semibold">Avg $35K</span> per customer
                 </div>
               </div>
 
               {/* Right side - Email form and guarantee */}
               <div className="text-white">
-                {/* Single row form */}
+                {/* Mobile-optimized form */}
                 <div className="bg-white rounded-lg p-3 mb-4">
-                  <div className="flex gap-2 items-center">
+                  <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
                     <input
                       type="email"
                       placeholder="Enter your work email"
@@ -231,7 +231,7 @@ const PricingSection: React.FC = () => {
                 </div>
 
                 {/* Guarantee text */}
-                <p className="text-center text-sm text-yellow-400">
+                <p className="text-center text-xs sm:text-sm text-yellow-400 px-2">
                   ⭐ We Save You More Than We Cost. Guaranteed or You Get Your Money Back. ⭐
                 </p>
               </div>

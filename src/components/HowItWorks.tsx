@@ -43,40 +43,40 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section ref={elementRef} id="how-it-works" className="bg-gray-50 py-20">
+    <section ref={elementRef} id="how-it-works" className="bg-gray-50 py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className={`text-center mb-12 sm:mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
             How We Save You Money 💰
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4">
             Our AI instantly identifies and eliminates money-wasting search terms, transforming your wasted ad spend into high-converting traffic. This is exactly how we do it:
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {steps.map((step, index) => (
             <div 
               key={step.number} 
-              className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} animate-on-scroll ${isIntersecting ? `animate animate-fade-in-up animate-delay-${200 + index * 100}` : ''}`}
+              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} animate-on-scroll ${isIntersecting ? `animate animate-fade-in-up animate-delay-${200 + index * 100}` : ''}`}
             >
               {/* Content */}
-              <div className="lg:w-1/2">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4">
+              <div className="lg:w-1/2 text-center lg:text-left px-4 lg:px-0">
+                <div className="flex flex-col sm:flex-row items-center lg:items-start mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl mr-0 sm:mr-4 mb-3 sm:mb-0">
                     {step.number}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{step.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{step.title}</h3>
                 </div>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
               {/* Image Placeholder */}
-              <div className="lg:w-1/2">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-64 flex items-center justify-center border">
-                  <span className="text-gray-400 text-center">{step.image}</span>
+              <div className="lg:w-1/2 w-full px-4 lg:px-0">
+                <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 h-48 sm:h-64 flex items-center justify-center border">
+                  <span className="text-gray-400 text-center text-sm sm:text-base">{step.image}</span>
                 </div>
               </div>
             </div>
