@@ -22,14 +22,12 @@ const Hero: React.FC = () => {
           <div className={`text-center lg:text-left animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left' : ''}`}>
                          {/* Main Headline */}
              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight lg:leading-[1.1]">
-               AI Negative Keyword<br className="hidden sm:block" />
-               Platform{' '}
-               <span className="text-blue-600">for<br className="hidden sm:block" />Google Ads</span>
+               The Marketing System That Makes<br className="hidden sm:block" />
+               <span className="text-blue-600">Guests Happy</span>
              </h1>
             
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4 lg:px-0">
-              Cascader helps you identify and eliminate irrelevant clicks, reclaiming{' '}
-              <span className="text-blue-600 font-semibold">25-76%</span> of your Google Ads budget.
+              Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discover you, return more often, and spends a little more.
             </p>
 
             {/* Customer Trust Indicators */}
@@ -42,11 +40,11 @@ const Hero: React.FC = () => {
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 rounded-full border-2 border-white"></div>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
-                  <span className="font-semibold">340+ PPC pros trust Cascader</span>
+                  <span className="font-semibold">340+ restaurant owners trust LocalSpot</span>
                 </div>
               </div>
               <div className="flex items-center text-yellow-500">
-                <span className="text-xs sm:text-sm text-gray-600">⭐ Typical payback: &lt; 3 hours</span>
+                <span className="text-xs sm:text-sm text-gray-600">⭐ Typical results: first week</span>
               </div>
             </div>
 
@@ -56,7 +54,7 @@ const Hero: React.FC = () => {
                 <div className="w-full">
                   <input
                     type="email"
-                    placeholder="Enter your work email"
+                    placeholder="Enter your restaurant email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
@@ -75,7 +73,7 @@ const Hero: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center mt-4 text-xs sm:text-sm text-gray-500 gap-2 sm:gap-6">
                 <span className="flex items-center">
                   <span className="text-green-500 mr-1">✓</span>
-                  100 Free Search Terms
+                  Free Marketing Audit
                 </span>
                 <span className="flex items-center">
                   <span className="text-green-500 mr-1">✓</span>
@@ -91,7 +89,7 @@ const Hero: React.FC = () => {
               </span>
               <div className="flex flex-col sm:flex-row items-center sm:items-start">
                 <span>Watch Demo</span>
-                <span className="text-xs sm:text-sm text-gray-500 sm:ml-2">See Cascader in action</span>
+                <span className="text-xs sm:text-sm text-gray-500 sm:ml-2">See LocalSpot in action</span>
               </div>
             </button>
 
@@ -108,7 +106,7 @@ const Hero: React.FC = () => {
                <div className="flex items-center justify-between mb-2">
                  <div className="flex items-center gap-2">
                    <span className="text-base sm:text-lg">📊</span>
-                   <h2 className="text-base sm:text-lg font-bold text-gray-900">Cascader Impact</h2>
+                   <h2 className="text-base sm:text-lg font-bold text-gray-900">LocalSpot Impact</h2>
                  </div>
                  <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">
                    UPDATED DAILY
@@ -120,10 +118,10 @@ const Hero: React.FC = () => {
              <div className="bg-white rounded-lg p-3 sm:p-4 text-left shadow-sm border border-gray-100 mb-3">
                <div className="flex items-center mb-2">
                  <span className="text-green-500 mr-2">📈</span>
-                 <h3 className="text-xs sm:text-sm font-semibold text-gray-900">Total Savings</h3>
+                 <h3 className="text-xs sm:text-sm font-semibold text-gray-900">Revenue Generated</h3>
                </div>
                <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{totalSavings}</div>
-               <p className="text-xs text-gray-600">Reclaimed wasted spend across all accounts</p>
+               <p className="text-xs text-gray-600">Additional revenue across all restaurants</p>
              </div>
 
                          {/* Other Stats - 2x2 Grid */}
@@ -132,10 +130,10 @@ const Hero: React.FC = () => {
                <div className="bg-white rounded-lg p-2 sm:p-3 text-left shadow-sm border border-gray-100">
                  <div className="flex items-center mb-1">
                    <span className="text-orange-500 mr-1">⏱️</span>
-                   <h3 className="text-xs font-semibold text-gray-900">Payback Period</h3>
+                   <h3 className="text-xs font-semibold text-gray-900">Results Time</h3>
                  </div>
                  <div className="text-sm sm:text-lg font-bold text-gray-900 mb-1">{paybackTime}</div>
-                 <p className="text-xs text-gray-600">Median time to ROI</p>
+                 <p className="text-xs text-gray-600">Median time to see results</p>
                </div>
 
                {/* Trusted By */}
@@ -145,24 +143,24 @@ const Hero: React.FC = () => {
                    <h3 className="text-xs font-semibold text-gray-900">Trusted By</h3>
                  </div>
                  <div className="text-sm sm:text-lg font-bold text-gray-900 mb-1">{trustedBy}</div>
-                 <p className="text-xs text-gray-600">PPC Pros</p>
+                 <p className="text-xs text-gray-600">Restaurant Owners</p>
                </div>
 
                {/* Avg Savings */}
                <div className="bg-white rounded-lg p-2 sm:p-3 text-left shadow-sm border border-gray-100">
                  <div className="flex items-center mb-1">
                    <span className="text-green-500 mr-1">💰</span>
-                   <h3 className="text-xs font-semibold text-gray-900">Avg Savings</h3>
+                   <h3 className="text-xs font-semibold text-gray-900">Avg Revenue Boost</h3>
                  </div>
                  <div className="text-sm sm:text-lg font-bold text-gray-900 mb-1">{avgSavings}</div>
-                 <p className="text-xs text-gray-600">Per paid customer</p>
+                 <p className="text-xs text-gray-600">Per restaurant monthly</p>
                </div>
 
                {/* Terms Analyzed */}
                <div className="bg-white rounded-lg p-2 sm:p-3 text-left shadow-sm border border-gray-100">
                  <div className="flex items-center mb-1">
                    <span className="text-blue-500 mr-1">🔍</span>
-                   <h3 className="text-xs font-semibold text-gray-900">Terms Analyzed</h3>
+                   <h3 className="text-xs font-semibold text-gray-900">Reviews Analyzed</h3>
                  </div>
                  <div className="text-sm sm:text-lg font-bold text-gray-900 mb-1">{termsAnalyzed}</div>
                  <p className="text-xs text-gray-600">Last 30 days</p>
@@ -173,10 +171,10 @@ const Hero: React.FC = () => {
              <div className="bg-white rounded-lg p-3 sm:p-4 text-left shadow-sm border border-gray-100">
                <div className="flex items-center mb-2">
                  <span className="text-purple-500 mr-2">💳</span>
-                 <h3 className="text-xs sm:text-sm font-semibold text-gray-900">Connected Monthly Ad Spend</h3>
+                 <h3 className="text-xs sm:text-sm font-semibold text-gray-900">Connected Monthly Revenue</h3>
                </div>
                <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{adSpend}</div>
-               <p className="text-xs text-gray-600">30-day ad spend total currently linked to Cascader</p>
+               <p className="text-xs text-gray-600">30-day revenue total from restaurants using LocalSpot</p>
              </div>
           </div>
         </div>

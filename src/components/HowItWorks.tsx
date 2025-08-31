@@ -6,39 +6,39 @@ const HowItWorks: React.FC = () => {
   const steps = [
     {
       number: 1,
-      title: "Pick a Campaign to Optimize",
-      description: "Select any campaign you want our AI to hyper-optimize.",
-      image: "Campaign Selection Interface"
+      title: "Be the Restaurant Everyone Finds First",
+      description: "Be found in Google, Facebook and Instagram.",
+      features: [
+        "Show up when locals search \"best drinks.\"",
+        "Guests get a text to leave a review → 5-stars climb.",
+        "Specials post to Instagram automatically.",
+        "Diners book online instead of calling."
+      ],
+      image: "Restaurant Discovery Interface"
     },
     {
       number: 2,
-      title: "Target Your Biggest Money Drains",
-      description: "Set your timeframe and spend threshold to focus on the search terms that are burning through your budget the fastest.",
-      image: "Search Terms Selection Interface"
+      title: "Turn Diners Into Regulars",
+      description: "Capture guest info once and give them reasons to return",
+      features: [
+        "A diner joins your VIP club at your restaurant.",
+        "On their birthday, they get a free dessert text.",
+        "Guests see your event and book again.",
+        "A loyalty card in their phone brings them back."
+      ],
+      image: "Customer Retention Interface"
     },
     {
       number: 3,
-      title: "Watch Our AI Expose Money-Wasting Terms",
-      description: "See exactly which search terms are stealing your budget, with exclusion scores, expert rationales, and real spend data.",
-      image: "AI Analysis Results Interface"
-    },
-    {
-      number: 4,
-      title: "Watch Your Savings Soar in Real-Time",
-      description: "Select the terms to exclude and watch as we instantly calculate how much money you'll save every month.",
-      image: "Term Selection Interface"
-    },
-    {
-      number: 5,
-      title: "One Click to Stop the Money Bleed",
-      description: "With a single click, we'll add these terms as negatives to your campaign and shared exclusion lists directly to Google Ads.",
-      image: "Apply Negatives Interface"
-    },
-    {
-      number: 6,
-      title: "See Your ROAS Explode",
-      description: "Watch as we show you exactly how much money you're saving, with the metrics that prove your Return On Ad Spend is about to skyrocket.",
-      image: "Results Summary Interface"
+      title: "Run Smarter, Not Harder",
+      description: "Understand what's happening in your restaurant through reviews and QR menu analytics.",
+      features: [
+        "See top-clicked dishes in your dashboard.",
+        "Learn what guests love (and what they don't) with insights from reviews and QR menus.",
+        "Pairing suggestions help staff upsell.",
+        "Featured dishes spotlight your chef's best."
+      ],
+      image: "Analytics Dashboard Interface"
     }
   ];
 
@@ -47,10 +47,10 @@ const HowItWorks: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-12 sm:mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
-            How We Save You Money 💰
+            How LocalSpot Works 🍽️
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-            Our AI instantly identifies and eliminates money-wasting search terms, transforming your wasted ad spend into high-converting traffic. This is exactly how we do it:
+            Our restaurant marketing system helps you attract more guests, turn them into regulars, and run your restaurant smarter. Here's exactly how we do it:
           </p>
         </div>
 
@@ -68,9 +68,24 @@ const HowItWorks: React.FC = () => {
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{step.title}</h3>
                 </div>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
                   {step.description}
                 </p>
+                
+                {/* Features List */}
+                {step.features && (
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900">Features:</h4>
+                    <ul className="space-y-2">
+                      {step.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start text-gray-600">
+                          <span className="text-green-500 mr-2 mt-1 flex-shrink-0">•</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Image Placeholder */}

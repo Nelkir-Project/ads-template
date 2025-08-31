@@ -8,8 +8,8 @@ const PricingSection: React.FC = () => {
   const plans = [
     {
       name: "Launch",
-      monthlyPrice: 99,
-      yearlyPrice: Math.round(99 * 12 * 0.8), // 20% discount on yearly
+      monthlyPrice: 85,
+      yearlyPrice: Math.round(85 * 12 * 0.8), // 20% discount on yearly
       period: isYearly ? "/year" : "/month",
       description: "AI SEARCH ANALYSIS",
       features: [
@@ -22,12 +22,13 @@ const PricingSection: React.FC = () => {
         "1 seat"
       ],
       cta: "Get Started",
+      stripeLink: "https://buy.stripe.com/bIY9EvfDU94A0gg4gA",
       popular: false
     },
     {
       name: "Growth",
-      monthlyPrice: 249,
-      yearlyPrice: Math.round(249 * 12 * 0.8), // 20% discount on yearly
+      monthlyPrice: 450,
+      yearlyPrice: Math.round(450 * 12 * 0.8), // 20% discount on yearly
       period: isYearly ? "/year" : "/month",
       description: "AI SEARCH ANALYSIS",
       features: [
@@ -40,13 +41,14 @@ const PricingSection: React.FC = () => {
         "3 seats"
       ],
       cta: "Get Started",
+      stripeLink: "https://buy.stripe.com/14A6oHcCM59A7fNgBS5AQ0m",
       popular: true
     },
     {
       name: "Scale",
-      monthlyPrice: 499,
-      yearlyPrice: Math.round(499 * 12 * 0.8), // 20% discount on yearly
-      period: isYearly ? "/year" : "/month",
+      monthlyPrice: null,
+      yearlyPrice: null,
+      period: "",
       description: "AI SEARCH ANALYSIS",
       features: [
         "Up to 115,000 terms / month",
@@ -57,7 +59,8 @@ const PricingSection: React.FC = () => {
         "SEATS",
         "5 seats"
       ],
-      cta: "Get Started",
+      cta: "Get a Demo",
+      stripeLink: null,
       popular: false
     }
   ];
@@ -70,7 +73,7 @@ const PricingSection: React.FC = () => {
             <span className="text-yellow-500">⭐</span> Pricing That <span className="text-blue-600">Pays for Itself</span>. Guaranteed. <span className="text-yellow-500">⭐</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 mb-6 px-4">
-            If Cascader doesn't pay for itself in 60 days, you get your money back. No questions asked.
+            If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center bg-green-100 text-green-800 px-4 py-3 sm:py-2 rounded-full font-semibold mb-6 sm:mb-8 mx-4 text-center">
             <span className="mr-0 sm:mr-2 mb-1 sm:mb-0">📈</span>
@@ -124,10 +127,18 @@ const PricingSection: React.FC = () => {
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{plan.name}</h3>
                 <div className="mb-6">
-                  <span className="text-5xl font-bold text-blue-600">
-                    ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                  </span>
-                  <span className="text-gray-600 text-xl">{plan.period}</span>
+                  {plan.monthlyPrice ? (
+                    <>
+                      <span className="text-5xl font-bold text-blue-600">
+                        ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                      </span>
+                      <span className="text-gray-600 text-xl">{plan.period}</span>
+                    </>
+                  ) : (
+                    <span className="text-3xl font-bold text-gray-900">
+                      Custom Pricing
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -155,9 +166,20 @@ const PricingSection: React.FC = () => {
                 })}
               </div>
 
-              <button className="w-full py-3 px-4 rounded-lg font-semibold transition-colors bg-blue-600 hover:bg-blue-700 text-white">
-                {plan.cta}
-              </button>
+              {plan.stripeLink ? (
+                <a 
+                  href={plan.stripeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-block py-3 px-4 rounded-lg font-semibold transition-colors bg-blue-600 hover:bg-blue-700 text-white text-center"
+                >
+                  {plan.cta}
+                </a>
+              ) : (
+                <button className="w-full py-3 px-4 rounded-lg font-semibold transition-colors bg-gray-600 hover:bg-gray-700 text-white">
+                  {plan.cta}
+                </button>
+              )}
             </div>
           ))}
         </div>
