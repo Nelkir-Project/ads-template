@@ -7,7 +7,7 @@ const router = Router();
 const tokenStore: { [key: string]: any } = {};
 
 // Start Google OAuth flow
-router.get('/auth', (req, res) => {
+router.get('/auth', (_req, res) => {
   try {
     const calendarService = new GoogleCalendarService();
     const authUrl = calendarService.getAuthUrl();
@@ -20,7 +20,7 @@ router.get('/auth', (req, res) => {
 
 // Handle OAuth callback
 router.get('/auth/callback', async (req, res) => {
-  const { code, state } = req.query;
+  const { code } = req.query;
 
   if (!code) {
     return res.status(400).json({ error: 'Authorization code not provided' });
@@ -46,7 +46,7 @@ router.get('/auth/callback', async (req, res) => {
         await calendarService.watchCalendar(process.env.GOOGLE_CALENDAR_ID || 'primary');
         console.log('✅ Calendar webhook setup successful');
       } catch (error) {
-        console.log('⚠️ Calendar webhook setup failed (this is normal for localhost):', error.message);
+        console.log('⚠️ Calendar webhook setup failed (this is normal for localhost):', (error as Error).message);
       }
     } else {
       console.log('⚠️ Skipping webhook setup - HTTPS required. Use ngrok or set FORCE_WEBHOOK=true to override');
@@ -66,7 +66,7 @@ router.get('/auth/callback', async (req, res) => {
 });
 
 // Get upcoming events
-router.get('/events', async (req, res) => {
+router.get('/events', async (_req, res) => {
   try {
     const tokens = tokenStore['default'];
     if (!tokens) {
@@ -88,7 +88,7 @@ router.get('/events', async (req, res) => {
 });
 
 // Setup calendar watch
-router.post('/watch', async (req, res) => {
+router.post('/watch', async (_req, res) => {
   try {
     const tokens = tokenStore['default'];
     if (!tokens) {
@@ -125,7 +125,7 @@ router.post('/watch', async (req, res) => {
 });
 
 // Development: Manual trigger for testing SMS without webhooks
-router.post('/test-sms-trigger', async (req, res) => {
+router.post('/test-sms-trigger', async (_req, res) => {
   try {
     const tokens = tokenStore['default'];
     if (!tokens) {

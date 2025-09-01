@@ -13,7 +13,8 @@
     "check": "prettier --write . && eslint --fix",
     "server": "tsx server/index.ts",
     "server:dev": "tsx watch server/index.ts",
-    "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\""
+    "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",

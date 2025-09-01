@@ -93,7 +93,7 @@ router.post('/test-sms', async (req, res) => {
 });
 
 // Webhook verification endpoint (for Google)
-router.get('/calendar', (req, res) => {
+router.get('/calendar', (_req, res) => {
   res.status(200).send('Webhook endpoint is active');
 });
 

@@ -95,7 +95,7 @@ router.post('/send-topic', async (req, res) => {
 });
 
 // Get SMS service status
-router.get('/status', (req, res) => {
+router.get('/status', (_req, res) => {
   const hasAWSConfig = !!(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY);
   const hasRecipients = !!(process.env.SMS_RECIPIENTS);
   const hasTopicArn = !!(process.env.AWS_SNS_TOPIC_ARN);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface LocalSpotPricingProps {

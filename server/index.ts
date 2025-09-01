@@ -21,7 +21,7 @@ app.use('/api/webhooks', webhookRoutes);
 app.use('/api/sms', smsRoutes);
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
