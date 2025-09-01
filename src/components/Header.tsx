@@ -14,9 +14,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
-            <div className="text-xl sm:text-2xl font-bold text-gray-900">
-              Cascader
-            </div>
+            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
@@ -80,6 +78,13 @@ const Header: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
+              </a>
+              <a
+                href="/admin"
+                className="block px-3 py-2 text-gray-400 hover:text-gray-600 text-sm font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Admin
               </a>
               <div className="pt-4 pb-2 border-t border-gray-200">
                 <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">

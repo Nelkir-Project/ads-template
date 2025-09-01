@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center">
           {/* Logo */}
           <div className="mb-4 sm:mb-0">
-            <div className="text-xl sm:text-2xl font-bold text-gray-900">Cascader</div>
+            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
           </div>
 
           {/* Links */}
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
 
         <div className="text-center sm:text-left mt-4 sm:mt-6">
           <p className="text-gray-500 text-xs sm:text-sm">
-            © 2025 Cascader. All rights reserved.
+            © 2025 LocalSpot. All rights reserved.
           </p>
         </div>
       </div>

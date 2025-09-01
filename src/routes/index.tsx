@@ -2,10 +2,10 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import TestimonialSection from '../components/TestimonialSection'
 import HowItWorks from '../components/HowItWorks'
 import ResultsSection from '../components/ResultsSection'
-import PricingSection from '../components/PricingSection'
+import LocalSpotPricing from '../components/LocalSpotPricing'
+import QualificationSection from '../components/QualificationSection'
 import Footer from '../components/Footer'
 import ScrollPopup from '../components/ScrollPopup'
 import DemoModal from '../components/DemoModal'
@@ -29,10 +29,10 @@ function App() {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <TestimonialSection />
       <HowItWorks />
       <ResultsSection />
-      <PricingSection />
+      <LocalSpotPricing onBookDemo={handleBookDemo} />
+      <QualificationSection onBookDemo={handleBookDemo} />
       <Footer />
       
       {/* Scroll-triggered popup */}

@@ -5,7 +5,7 @@ const StatsSection: React.FC = () => {
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Cascader Impact</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">LocalSpot Impact</h2>
           <p className="text-gray-600 uppercase tracking-wide text-sm font-semibold">UPDATED DAILY</p>
         </div>
 
@@ -50,7 +50,7 @@ const StatsSection: React.FC = () => {
         <div className="text-center mt-12">
           <div className="text-5xl font-bold text-gray-900 mb-2">$12.8M</div>
           <h3 className="text-xl font-semibold text-gray-900 mb-1">Connected Monthly Ad Spend</h3>
-          <p className="text-gray-600">30-day ad spend total currently linked to Cascader</p>
+          <p className="text-gray-600">30-day revenue total currently linked to LocalSpot</p>
         </div>
       </div>
     </section>

@@ -188,7 +188,7 @@ const PricingSection: React.FC = () => {
         <div className="max-w-4xl mx-auto mt-16">
           <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <blockquote className="text-xl text-gray-700 mb-6 italic text-center">
-              "I had no idea I was losing over $3,000 a month on my ads. Cascader fixed it in less than a day."
+              "I had no idea I was losing over $3,000 a month on my ads. LocalSpot fixed it in less than a day."
             </blockquote>
             
             <div className="flex items-center justify-center">

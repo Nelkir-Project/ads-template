@@ -97,7 +97,7 @@ const DemoModal = ({ isOpen, onClose }: DemoModalProps) => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Personalized walkthrough</h3>
-                <p className="text-sm text-gray-600">See exactly how Cascader can optimize your campaigns</p>
+                <p className="text-sm text-gray-600">See exactly how LocalSpot can optimize your campaigns</p>
               </div>
             </div>
 
