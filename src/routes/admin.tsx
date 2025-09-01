@@ -27,7 +27,7 @@ function AdminPage() {
 
     try {
       // Verify password with server
-      const response = await fetch('http://localhost:3001/api/admin/verify', {
+      const response = await fetch('/api/admin/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
