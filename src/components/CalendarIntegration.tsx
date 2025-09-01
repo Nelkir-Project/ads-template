@@ -23,7 +23,7 @@ export function CalendarIntegration() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const API_BASE = 'http://localhost:3001/api';
+  const API_BASE = '/api';
 
   useEffect(() => {
     checkSMSStatus();
