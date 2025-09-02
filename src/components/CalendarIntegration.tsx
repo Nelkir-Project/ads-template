@@ -22,12 +22,24 @@ export function CalendarIntegration() {
   const [smsStatus, setSmsStatus] = useState<SMSStatus | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
 
   const API_BASE = '/api';
 
   useEffect(() => {
     checkSMSStatus();
   }, []);
+
+  // Auto-refresh events every 30 seconds when authorized
+  useEffect(() => {
+    if (!isAuthorized) return;
+
+    const interval = setInterval(() => {
+      refreshEvents();
+    }, 30000); // Refresh every 30 seconds
+
+    return () => clearInterval(interval);
+  }, [isAuthorized]);
 
   const checkSMSStatus = async () => {
     try {
@@ -78,6 +90,24 @@ export function CalendarIntegration() {
     }
   };
 
+  const refreshEvents = async (showIndicator = false) => {
+    if (!isAuthorized) return;
+    
+    if (showIndicator) setRefreshing(true);
+    
+    try {
+      const response = await fetch(`${API_BASE}/calendar/events`);
+      if (response.ok) {
+        const data = await response.json();
+        setEvents(data.events);
+      }
+    } catch (error) {
+      console.error('Error refreshing events:', error);
+    } finally {
+      if (showIndicator) setRefreshing(false);
+    }
+  };
+
   const setupCalendarWatch = async () => {
     setLoading(true);
     try {
@@ -88,6 +118,8 @@ export function CalendarIntegration() {
       
       if (response.ok) {
         setMessage('✅ Calendar watching enabled! SMS notifications will be sent for new bookings.');
+        // Refresh events after setting up watch
+        await refreshEvents();
       } else {
         setMessage(`❌ Failed to setup calendar watch: ${data.error}`);
       }
@@ -266,7 +298,16 @@ export function CalendarIntegration() {
       {/* Recent Events */}
       {events.length > 0 && (
         <div className="p-4 border rounded-lg">
-          <h3 className="text-lg font-semibold mb-3">📅 Recent Calendar Events</h3>
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="text-lg font-semibold">📅 Recent Calendar Events</h3>
+            <button
+              onClick={() => refreshEvents(true)}
+              disabled={loading || refreshing}
+              className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 disabled:opacity-50"
+            >
+              {refreshing ? '🔄 Refreshing...' : '🔄 Refresh'}
+            </button>
+          </div>
           <div className="space-y-2">
             {events.map((event) => (
               <div key={event.id} className="p-3 bg-gray-50 rounded">
