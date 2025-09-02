@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { googleCalendarRoutes } from './routes/calendar';
-import { webhookRoutes } from './routes/webhooks';
-import { smsRoutes } from './routes/sms';
+import { googleCalendarRoutes } from './routes/calendar.js';
+import { webhookRoutes } from './routes/webhooks.js';
+import { smsRoutes } from './routes/sms.js';
 
 dotenv.config();
 

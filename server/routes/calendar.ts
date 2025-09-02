@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { GoogleCalendarService } from '../services/googleCalendar';
+import { GoogleCalendarService } from '../services/googleCalendar.js';
 
 const router = Router();
 
