@@ -33,15 +33,15 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
             
             {/* LocalSpot Header */}
-            <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
-            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
-          </div>
+             <div className={`flex items-center mt-4 mb-6 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
+             <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
+           </div>
 
             {/* What's included */}
             <div className="mb-6">
               <h4 className="text-lg font-normal text-gray-900 mb-3">What's included</h4>
               
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 {[
                   "Custom Website with SEO that brings people in",
                   "Reservation System with No Cover Fees",
@@ -65,7 +65,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
               </div>
 
               {/* Bonus items */}
-              <div className="mt-3 space-y-1.5">
+              <div className="mt-1 space-y-1">
                 {[
                   { label: "Bonus 1:", text: "+24 Branded QR Menu Kit" },
                   { label: "Bonus 2:", text: "Professional Photoshoot" },
