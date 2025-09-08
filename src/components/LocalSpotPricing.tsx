@@ -15,12 +15,12 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
   };
 
   return (
-    <section ref={elementRef} id="pricing" className="bg-gray-50 py-12 sm:py-16 lg:py-20">
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={elementRef} id="pricing" className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className={`text-center mb-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-5xl font-normal text-gray-900 mb-2 whitespace-nowrap text-center">
+        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+          <h2 className="text-5xl font-normal text-gray-900 mb-4 whitespace-nowrap text-center">
             Pricing That Pays for Itself. Guaranteed.
           </h2>
           <p className="text-2xl font-normal text-gray-600 whitespace-nowrap">
@@ -29,7 +29,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
         </div>
 
         {/* Pricing Card */}
-        <div className={`animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
+        <div className={`max-w-xl mx-auto animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
             
             {/* LocalSpot Header */}
@@ -39,7 +39,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-normal text-gray-900">LocalSpot</h3>
+              <h3 className="text-xl font-normal text-gray-900">LocalSpot</h3>
             </div>
 
             {/* What's included */}
