@@ -33,11 +33,9 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
             
             {/* LocalSpot Header */}
-            <div className="flex items-center mb-6">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-              <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
-              </div>
-            </div>
+            <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
+            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
+          </div>
 
             {/* What's included */}
             <div className="mb-6">
