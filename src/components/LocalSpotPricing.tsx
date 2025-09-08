@@ -20,10 +20,10 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
         
         {/* Header */}
         <div className={`mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-5xl font-normal text-gray-900 mb-4 whitespace-nowrap text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-900 mb-4 text-center">
             Pricing That Pays for Itself. Guaranteed.
           </h2>
-          <p className="text-2xl font-normal text-gray-600 whitespace-nowrap text-center">
+          <p className="text-lg sm:text-xl lg:text-2xl font-normal text-gray-600 text-center">
             If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
         </div>
