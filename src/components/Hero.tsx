@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useCountingAnimation } from '../hooks/useCountingAnimation';
+import { openCalendarBooking } from '../utils/calendarUtils';
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -60,7 +61,10 @@ const Hero: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                   />
                 </div>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors group">
+                <button 
+                  onClick={openCalendarBooking}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors group"
+                >
                   <span className="flex items-center justify-center">
                     Get Started Free
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform">

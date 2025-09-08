@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { openCalendarBooking } from '../utils/calendarUtils';
 
 const Header: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
@@ -32,7 +33,10 @@ const Header: React.FC = () => {
             <button className="text-gray-700 hover:text-gray-900 font-medium">
               Sign in
             </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors group">
+            <button 
+              onClick={openCalendarBooking}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors group"
+            >
               <span className="flex items-center justify-center">
                 Get Started Free
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform">
@@ -90,7 +94,10 @@ const Header: React.FC = () => {
                 <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
                   Sign in
                 </button>
-                <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors">
+                <button 
+                  onClick={openCalendarBooking}
+                  className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                >
                   Get Started Free
                 </button>
               </div>

@@ -39,9 +39,8 @@ const DemoModal = ({ isOpen, onClose }: DemoModalProps) => {
   }
 
   const handleBookDemo = () => {
-    // In a real implementation, this would open Calendly
-    // For now, we'll just show an alert or redirect
-    window.open('https://calendly.com/your-calendly-link', '_blank')
+    // Open the Payfud Calendly booking page
+    window.open('https://calendly.com/payfud/intro', '_blank', 'noopener,noreferrer')
     onClose()
   }
 
