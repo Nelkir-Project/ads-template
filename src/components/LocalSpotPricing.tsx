@@ -20,7 +20,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
         
         {/* Header */}
         <div className={`text-center mb-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-5xl font-normal text-gray-900 mb-2 whitespace-nowrap">
+          <h2 className="text-5xl font-normal text-gray-900 mb-2 whitespace-nowrap text-center">
             Pricing That Pays for Itself. Guaranteed.
           </h2>
           <p className="text-2xl font-normal text-gray-600 whitespace-nowrap">
