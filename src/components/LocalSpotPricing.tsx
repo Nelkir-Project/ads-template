@@ -19,11 +19,11 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className={`text-center mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+        <div className={`mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
           <h2 className="text-5xl font-normal text-gray-900 mb-4 whitespace-nowrap text-center">
             Pricing That Pays for Itself. Guaranteed.
           </h2>
-          <p className="text-2xl font-normal text-gray-600 whitespace-nowrap">
+          <p className="text-2xl font-normal text-gray-600 whitespace-nowrap text-center">
             If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
         </div>
@@ -34,12 +34,11 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
             
             {/* LocalSpot Header */}
             <div className="flex items-center mb-6">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-gray-900">LocalSpot</h3>
             </div>
 
             {/* What's included */}
