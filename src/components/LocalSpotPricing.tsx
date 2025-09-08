@@ -16,21 +16,21 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
 
   return (
     <section ref={elementRef} id="pricing" className="bg-gray-50 py-12 sm:py-16 lg:py-20">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className={`text-center mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <div className={`text-center mb-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+          <h2 className="text-5xl font-normal text-gray-900 mb-2 whitespace-nowrap">
             Pricing That Pays for Itself. Guaranteed.
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-2xl font-normal text-gray-600 whitespace-nowrap">
             If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
         </div>
 
         {/* Pricing Card */}
         <div className={`animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
-          <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 border border-gray-200">
+          <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
             
             {/* LocalSpot Header */}
             <div className="flex items-center mb-6">
@@ -39,12 +39,12 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">LocalSpot</h3>
+              <h3 className="text-2xl font-normal text-gray-900">LocalSpot</h3>
             </div>
 
             {/* What's included */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">What's included</h4>
+            <div className="mb-6">
+              <h4 className="text-lg font-normal text-gray-900 mb-3">What's included</h4>
               
               <div className="space-y-1.5">
                 {[
@@ -70,7 +70,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
               </div>
 
               {/* Bonus items */}
-              <div className="mt-6 space-y-1.5">
+              <div className="mt-3 space-y-1.5">
                 {[
                   { label: "Bonus 1:", text: "+24 Branded QR Menu Kit" },
                   { label: "Bonus 2:", text: "Professional Photoshoot" },
@@ -84,7 +84,7 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
                       </svg>
                     </div>
                     <span className="text-gray-700 text-sm leading-relaxed">
-                      <span className="font-semibold text-orange-600">{bonus.label}</span> {bonus.text}
+                      <span className="font-normal text-gray-700">{bonus.label}</span> {bonus.text}
                     </span>
                   </div>
                 ))}
@@ -96,15 +96,15 @@ const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
               <div className="text-sm text-gray-600 mb-2">
                 Value <span className="line-through">$5,500</span>/month
               </div>
-              <div className="text-2xl font-bold text-gray-900">
-                Today's Cost: Just <span className="text-blue-600">$499/Month</span>
+              <div className="text-2xl font-normal text-gray-900">
+                Today's Cost: Just $499/Month
               </div>
             </div>
 
             {/* CTA Button */}
             <button 
               onClick={handleGetDemo}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center group"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-normal py-4 px-6 rounded-lg transition-colors flex items-center justify-center group"
             >
               Get a Free Demo
               <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
