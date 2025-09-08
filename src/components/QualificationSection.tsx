@@ -19,10 +19,10 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Two Column Layout */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
           
           {/* Left Column - Not For You */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8">
+          <div className="bg-white rounded-2xl p-6 sm:p-8">
             <div className="flex items-center mb-6">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">
                 <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
           </div>
 
           {/* Right Column - For You */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8">
+          <div className="bg-white rounded-2xl p-6 sm:p-8">
             <div className="flex items-center mb-6">
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">
                 <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
         </div>
 
         {/* Team Introduction */}
-        <div className={`mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
+        <div className={`mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-4 max-w-4xl mx-auto">
             {/* Horizontal layout with profile, content, and buttons */}
             <div className="flex items-center gap-4">
@@ -153,7 +153,7 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
         </div>
 
         {/* Main Headline */}
-        <div className={`text-center mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-300' : ''}`}>
+        <div className={`text-center mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-300' : ''}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Every empty table is a missed opportunity.
           </h2>
@@ -163,13 +163,13 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
         </div>
 
         {/* Final CTA */}
-        <div className={`bg-gray-50 rounded-2xl p-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-400' : ''}`}>
+        <div className={`bg-gray-900 rounded-2xl p-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-400' : ''}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Column - Text Content */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to pack your spot?</h3>
-              <p className="text-lg text-gray-600 mb-6">Start turning first-time guests into VIP members</p>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-2xl font-bold text-white mb-4">Ready to pack your spot?</h3>
+              <p className="text-lg text-gray-300 mb-6">Start turning first-time guests into VIP members</p>
+              <p className="text-sm text-gray-300">
                 We make you more money than we cost. Guaranteed or Your Money Back.
               </p>
             </div>
