@@ -7,20 +7,7 @@ const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
-  // Debug logger for mobile video
-  const logVideo = (type: string) => (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    const v = e.currentTarget;
-    console.log(`[HeroVideo:${type}]`, {
-      readyState: v.readyState,
-      networkState: v.networkState,
-      currentTime: v.currentTime,
-      paused: v.paused,
-      muted: v.muted,
-      videoWidth: v.videoWidth,
-      videoHeight: v.videoHeight,
-      src: v.currentSrc,
-    });
-  };
+  // (debug logger removed)
 
   return (
     <section ref={elementRef} className="hero-section py-12 sm:py-16 lg:py-20">
