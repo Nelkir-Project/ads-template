@@ -1,17 +1,12 @@
 import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { openCalendarBooking } from '../utils/calendarUtils';
 
-interface LocalSpotPricingProps {
-  onBookDemo?: () => void;
-}
-
-const LocalSpotPricing: React.FC<LocalSpotPricingProps> = ({ onBookDemo }) => {
+const LocalSpotPricing: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   const handleGetDemo = () => {
-    if (onBookDemo) {
-      onBookDemo();
-    }
+    openCalendarBooking();
   };
 
   return (

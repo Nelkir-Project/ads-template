@@ -26,8 +26,8 @@ const ResultsSection: React.FC = () => {
         </div>
 
         {/* Green Tag */}
-        <div className={`mb-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-100' : ''}`}>
-          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium text-sm">
+        <div className={`mb-8 text-center animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-100' : ''}`}>
+          <div className="inline-flex items-center bg-green-100 text-green-800 px-6 py-3 rounded-full font-medium text-lg">
             Real Results, Real Growth
           </div>
         </div>

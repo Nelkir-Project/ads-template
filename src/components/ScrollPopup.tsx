@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useScrollDirection } from '../hooks/useScrollDirection'
+import { openCalendarBooking } from '../utils/calendarUtils'
 
-interface ScrollPopupProps {
-  onBookDemo: () => void
-}
-
-const ScrollPopup = ({ onBookDemo }: ScrollPopupProps) => {
+const ScrollPopup = () => {
   const { showPopup, hidePopup } = useScrollDirection(200)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -22,7 +19,7 @@ const ScrollPopup = ({ onBookDemo }: ScrollPopupProps) => {
   }
 
   const handleBookDemo = () => {
-    onBookDemo()
+    openCalendarBooking()
     handleClose()
   }
 
@@ -52,18 +49,18 @@ const ScrollPopup = ({ onBookDemo }: ScrollPopupProps) => {
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
           {/* Profile images */}
           <div className="flex -space-x-1 sm:-space-x-2 flex-shrink-0">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
-              B
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
+              M
             </div>
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
-              R
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
+              F
             </div>
           </div>
 
           {/* Content */}
           <div className="flex-1 text-center sm:text-left">
             <h3 className="font-normal text-gray-900 text-xs sm:text-sm mb-1">
-              Meet with Brandyn and Rick for a personalized walkthrough
+              Meet with Maria or Federico for a personalized walkthrough
             </h3>
             <div className="flex items-center justify-center sm:justify-start text-xs text-gray-500">
               <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

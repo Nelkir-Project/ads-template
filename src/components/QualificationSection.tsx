@@ -1,17 +1,12 @@
 import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { openCalendarBooking } from '../utils/calendarUtils';
 
-interface QualificationSectionProps {
-  onBookDemo?: () => void;
-}
-
-const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo }) => {
+const QualificationSection: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   const handleGetDemo = () => {
-    if (onBookDemo) {
-      onBookDemo();
-    }
+    openCalendarBooking();
   };
 
   return (
@@ -108,49 +103,6 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
           </div>
         </div>
 
-        {/* Team Introduction */}
-        <div className={`mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
-          <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-4 max-w-4xl mx-auto">
-            {/* Horizontal layout with profile, content, and buttons */}
-            <div className="flex items-center gap-4">
-              {/* Profile images */}
-              <div className="flex -space-x-2 flex-shrink-0">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-white flex items-center justify-center text-white font-normal text-sm">
-                  B
-                </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-600 border-2 border-white flex items-center justify-center text-white font-normal text-sm">
-                  R
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1">
-                <h4 className="font-normal text-gray-900 text-sm mb-1">
-                  Meet with Brandyn and Rick for a personalized walkthrough
-                </h4>
-                <div className="flex items-center text-xs text-gray-500">
-                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Limited availability this week — reserve your spot
-                </div>
-              </div>
-
-              {/* Action button */}
-              <div className="flex-shrink-0">
-                <button
-                  onClick={handleGetDemo}
-                  className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group"
-                >
-                  Book Your Demo
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Main Headline */}
         <div className={`text-center mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-300' : ''}`}>
@@ -174,13 +126,8 @@ const QualificationSection: React.FC<QualificationSectionProps> = ({ onBookDemo 
               </p>
             </div>
             
-            {/* Right Column - Email and Button */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your work email"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
+            {/* Right Column - Button Only */}
+            <div className="flex justify-center lg:justify-end">
               <button 
                 onClick={handleGetDemo}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-normal py-3 px-6 rounded-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"

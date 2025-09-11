@@ -24,14 +24,31 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 
 	useEffect(() => {
 		// Try to start playback on mount (muted + playsInline allows autoplay on mobile)
-		ref.current?.play().catch(() => {})
+		const video = ref.current
+		if (video) {
+			// Ensure video is loaded before attempting play
+			if (video.readyState >= 3) {
+				video.play().catch((err) => {
+					console.log('[VideoHero] Autoplay failed:', err)
+				})
+			} else {
+				// Wait for video to be ready
+				const handleCanPlay = () => {
+					video.play().catch((err) => {
+						console.log('[VideoHero] Autoplay failed after canplay:', err)
+					})
+				}
+				video.addEventListener('canplay', handleCanPlay, { once: true })
+				return () => video.removeEventListener('canplay', handleCanPlay)
+			}
+		}
 	}, [])
 
 	return (
-		<div className={`relative w-full aspect-video overflow-hidden bg-black ${containerClassName ?? ''}`}>
+		<div className={`relative w-full overflow-hidden bg-black ${containerClassName ?? ''}`} style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
 			<video
 				ref={ref}
-				className={`absolute inset-0 w-full h-full object-cover ${className ?? ''}`}
+				className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
 				autoPlay
 				muted
 				playsInline
@@ -39,6 +56,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 				preload="metadata"
 				poster={poster}
 				controls={controls}
+				{...{ 'webkit-playsinline': 'true' } as any}
 				onLoadedMetadata={() => console.log('[VideoHero] loadedmetadata')}
 				onCanPlay={() => console.log('[VideoHero] canplay')}
 				onError={(e) => {
