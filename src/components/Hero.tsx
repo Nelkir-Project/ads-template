@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { openCalendarBooking } from '../utils/calendarUtils';
+import VideoHero from './VideoHero';
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
+  // Debug logger for mobile video
+  const logVideo = (type: string) => (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    const v = e.currentTarget;
+    console.log(`[HeroVideo:${type}]`, {
+      readyState: v.readyState,
+      networkState: v.networkState,
+      currentTime: v.currentTime,
+      paused: v.paused,
+      muted: v.muted,
+      videoWidth: v.videoWidth,
+      videoHeight: v.videoHeight,
+      src: v.currentSrc,
+    });
+  };
+
   return (
-    <section ref={elementRef} className="hero-section bg-white py-12 sm:py-16 lg:py-20">
+    <section ref={elementRef} className="hero-section py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Video - Shown only on mobile, before title - Full Width */}
         <div className="lg:hidden mb-8 animate-on-scroll">
-          <div className="w-full h-64 sm:h-80 bg-black overflow-hidden">
-            <video 
-              className="w-full h-full object-cover"
-              controls
-              preload="metadata"
-              playsInline
-              muted
-            >
-              <source
-                src="https://payfud-local-storage.s3.us-east-1.amazonaws.com/videos/Branzini+Hero.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <VideoHero />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -115,21 +117,8 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column - Video (Desktop) / Hidden on Mobile - Bigger Size */}
-          <div className={`hidden lg:block w-full max-w-lg xl:max-w-xl mx-auto lg:mx-0 mt-8 lg:mt-0 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-200' : ''}`}>
-            <div className="w-full h-80 xl:h-96 bg-black rounded-lg overflow-hidden">
-              <video 
-                className="w-full h-full object-cover"
-                controls
-                preload="metadata"
-                poster=""
-              >
-                <source
-                  src="https://payfud-local-storage.s3.us-east-1.amazonaws.com/videos/Branzini+Hero.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div className={`hidden lg:block w-full max-w-xl mx-auto lg:mx-0 mt-8 lg:mt-0 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-200' : ''}`}>
+            <VideoHero />
           </div>
         </div>
       </div>
