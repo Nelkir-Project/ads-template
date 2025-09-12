@@ -4,8 +4,8 @@
 
 /**
  * Opens the Calendly booking page in a new tab
- * Uses the Payfud intro meeting link: https://calendly.com/payfud/intro
+ * Uses the LocalSpot demo link: https://calendly.com/hello-localspot/demo
  */
 export const openCalendarBooking = (): void => {
-  window.open('https://calendly.com/payfud/intro', '_blank', 'noopener,noreferrer');
+  window.open('https://calendly.com/hello-localspot/demo', '_blank', 'noopener,noreferrer');
 };
