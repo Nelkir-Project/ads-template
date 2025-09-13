@@ -1,72 +1,72 @@
-import { Router } from 'express';
-import { GoogleCalendarService } from '../services/googleCalendar.js';
+import express, { Router } from 'express';
 import { SMSService } from '../services/smsService.js';
+import { CalendlyService } from '../services/calendlyService.js';
 
 const router = Router();
-const calendarService = new GoogleCalendarService();
 const smsService = new SMSService();
+const calendlyService = new CalendlyService();
 
-// Store tokens (in production, use proper database)
-const tokenStore: { [key: string]: any } = {};
+// (Removed Google Calendar webhook; migrated to Calendly)
 
-// Google Calendar webhook endpoint
-router.post('/calendar', async (req, res) => {
+// Calendly webhook endpoint
+// Use raw body for signature verification on this route only
+router.post('/calendly', express.raw({ type: 'application/json' }), async (req, res) => {
   try {
-    // Verify webhook (optional but recommended)
-    const channelId = req.headers['x-goog-channel-id'];
-    const channelToken = req.headers['x-goog-channel-token'];
-    const resourceId = req.headers['x-goog-resource-id'];
-    const resourceUri = req.headers['x-goog-resource-uri'];
-    const resourceState = req.headers['x-goog-resource-state'];
+    const signatureHeader = req.headers['calendly-webhook-signature'] as string | undefined;
+    const secret = process.env.CALENDLY_WEBHOOK_SECRET;
+    const rawBody = Buffer.isBuffer(req.body) ? req.body.toString('utf8') : typeof req.body === 'string' ? req.body : JSON.stringify(req.body || {});
 
-    console.log('📅 Calendar webhook received:', {
-      channelId,
-      channelToken,
-      resourceId,
-      resourceUri,
-      resourceState
-    });
-
-    // Only process sync and exists states (new/updated events)
-    if (resourceState !== 'sync' && resourceState !== 'exists') {
-      return res.status(200).send('OK');
+    // Verify signature if secret configured
+    const valid = calendlyService.verifySignature(signatureHeader, rawBody, secret);
+    if (!valid) {
+      return res.status(400).send('Invalid signature');
     }
 
-    // Get stored tokens
-    const tokens = tokenStore['default'];
-    if (!tokens) {
-      console.error('❌ No tokens available for calendar access');
-      return res.status(401).json({ error: 'No authorization tokens' });
+    const data = JSON.parse(rawBody || '{}');
+    const eventType = data?.event;
+
+    // Only process relevant events
+    if (eventType !== 'invitee.created' && eventType !== 'invitee.canceled') {
+      return res.status(200).send('Ignored');
     }
 
-    calendarService.setCredentials(tokens);
+    const info = calendlyService.extractClientInfo(data);
 
-    // Get recent events to find new bookings
-    const calendarId = process.env.GOOGLE_CALENDAR_ID || 'primary';
-    const events = await calendarService.listEvents(calendarId, 5);
+    // Build normalized event object for message formatting
+    const normalizedEvent: any = {
+      id: info.eventId || 'calendly-event',
+      summary: info.eventTitle || (eventType === 'invitee.canceled' ? 'Canceled Appointment' : 'New Appointment'),
+      start: info.startTime ? { dateTime: info.startTime } : undefined,
+      end: info.endTime ? { dateTime: info.endTime } : undefined,
+      location: info.location || undefined,
+    };
 
-    // Find events created in the last 5 minutes (likely new bookings)
-    const recentEvents = events.filter((event: any) => {
-      const createdTime = new Date(event.created || event.updated);
-      const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
-      return createdTime > fiveMinutesAgo;
-    });
+    let clientSent = false;
+    let businessSent = false;
 
-    // Send SMS for each new booking
-    for (const event of recentEvents) {
-      const result = await smsService.processCalendarBooking(event);
-      
-      console.log(`📱 Booking processed for event ${event.id}:`, {
-        clientSent: result.clientSent,
-        businessSent: result.businessSent,
-        clientPhone: result.clientPhone ? result.clientPhone.replace(/\d(?=\d{4})/g, '*') : 'none'
-      });
+    if (eventType === 'invitee.created') {
+      if (info.clientPhone) {
+        const clientMessage = smsService.formatClientConfirmationMessage(normalizedEvent, info.clientName);
+        clientSent = await smsService.sendSMS(info.clientPhone, clientMessage);
+      }
     }
 
-    res.status(200).send('OK');
+    // Business notification
+    const businessPhone = process.env.BUSINESS_NOTIFICATION_PHONE;
+    const sendBusinessCopy = process.env.SEND_BUSINESS_COPY === 'true';
+    if (sendBusinessCopy && businessPhone && info.clientPhone) {
+      const businessMessage = smsService.formatBusinessNotificationMessage(
+        normalizedEvent,
+        info.clientName,
+        info.clientPhone
+      );
+      businessSent = await smsService.sendSMS(businessPhone, businessMessage);
+    }
+
+    res.status(200).json({ processed: true, clientSent, businessSent });
   } catch (error) {
-    console.error('❌ Error processing calendar webhook:', error);
-    res.status(500).json({ error: 'Webhook processing failed' });
+    console.error('❌ Error processing Calendly webhook:', error);
+    res.status(500).json({ error: 'Calendly webhook processing failed' });
   }
 });
 
@@ -92,9 +92,6 @@ router.post('/test-sms', async (req, res) => {
   }
 });
 
-// Webhook verification endpoint (for Google)
-router.get('/calendar', (_req, res) => {
-  res.status(200).send('Webhook endpoint is active');
-});
+// (Removed Google webhook verification endpoint)
 
 export { router as webhookRoutes };

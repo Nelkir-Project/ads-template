@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { googleCalendarRoutes } from './routes/calendar.js';
 import { webhookRoutes } from './routes/webhooks.js';
 import { smsRoutes } from './routes/sms.js';
 
@@ -13,10 +12,8 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.raw({ type: 'application/json' }));
 
 // Routes
-app.use('/api/calendar', googleCalendarRoutes);
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api/sms', smsRoutes);
 
@@ -41,7 +38,7 @@ app.post('/api/admin/verify', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📅 Google Calendar webhook endpoint: http://localhost:${PORT}/api/webhooks/calendar`);
+  console.log(`📅 Calendly webhook endpoint: http://localhost:${PORT}/api/webhooks/calendly`);
 });
 
 export default app;

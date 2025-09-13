@@ -1,7 +1,7 @@
-import AWS from 'aws-sdk';
+import twilio from 'twilio';
 
 export class SMSService {
-  private sns: AWS.SNS;
+  private twilioClient: any;
 
   // Common phone number patterns (E.164 and various formats)
   private static phonePatterns = [
@@ -14,32 +14,32 @@ export class SMSService {
   ];
 
   constructor() {
-    // Configure AWS
-    AWS.config.update({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: process.env.AWS_REGION || 'us-east-1'
-    });
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
 
-    this.sns = new AWS.SNS();
+    if (!accountSid || !authToken) {
+      console.warn('⚠️ Twilio credentials are not fully configured. Set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN');
+    }
+
+    this.twilioClient = twilio(accountSid, authToken);
   }
 
   // Send SMS to a single phone number
   async sendSMS(phoneNumber: string, message: string): Promise<boolean> {
-    const params = {
-      Message: message,
-      PhoneNumber: phoneNumber,
-      MessageAttributes: {
-        'AWS.SNS.SMS.SMSType': {
-          DataType: 'String',
-          StringValue: 'Transactional'
-        }
-      }
-    };
+    const fromNumber = process.env.TWILIO_FROM_NUMBER;
+
+    if (!fromNumber) {
+      console.error('❌ TWILIO_FROM_NUMBER is not configured');
+      return false;
+    }
 
     try {
-      const result = await this.sns.publish(params).promise();
-      console.log('📱 SMS sent successfully to', phoneNumber.replace(/\d(?=\d{4})/g, '*'), ':', result.MessageId);
+      const result = await this.twilioClient.messages.create({
+        to: phoneNumber,
+        from: fromNumber,
+        body: message,
+      });
+      console.log('📱 SMS sent successfully to', phoneNumber.replace(/\d(?=\d{4})/g, '*'), ':', result.sid);
       return true;
     } catch (error) {
       console.error('❌ Error sending SMS:', error);
@@ -60,34 +60,10 @@ export class SMSService {
     return { success, failed };
   }
 
-  // Send SMS using SNS Topic (if you prefer topic-based messaging)
-  async sendSMSToTopic(message: string, topicArn?: string): Promise<boolean> {
-    const arn = topicArn || process.env.AWS_SNS_TOPIC_ARN;
-    
-    if (!arn) {
-      console.error('❌ No SNS Topic ARN provided');
-      return false;
-    }
-
-    const params = {
-      Message: message,
-      TopicArn: arn,
-      MessageAttributes: {
-        'AWS.SNS.SMS.SMSType': {
-          DataType: 'String',
-          StringValue: 'Transactional'
-        }
-      }
-    };
-
-    try {
-      const result = await this.sns.publish(params).promise();
-      console.log('📱 SMS sent to topic successfully:', result.MessageId);
-      return true;
-    } catch (error) {
-      console.error('❌ Error sending SMS to topic:', error);
-      return false;
-    }
+  // Topic-based SMS is not applicable for Twilio; keep noop for API compatibility
+  async sendSMSToTopic(_message: string, _topicArn?: string): Promise<boolean> {
+    console.warn('⚠️ sendSMSToTopic is not supported with Twilio. Use sendSMS instead.');
+    return false;
   }
 
   /**
