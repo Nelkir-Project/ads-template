@@ -53,7 +53,7 @@ router.post('/send-bulk', async (req, res) => {
     const result = await smsService.sendBulkSMS(phoneNumbers, message);
     
     res.json({ 
-      message: 'Bulk SMS processing completed',
+      message: 'Bulk SMS processing',
       results: result,
       totalRecipients: phoneNumbers.length
     });
