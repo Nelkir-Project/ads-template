@@ -59,34 +59,7 @@ export function CalendarIntegration() {
     }
   };
 
-  const testCalendarSMS = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${API_BASE}/calendar/test-sms-trigger`, {
-        method: 'POST',
-      });
 
-      const data = await response.json();
-      
-      if (response.ok) {
-        setMessage(`✅ Calendar SMS test completed! Processed ${data.eventsProcessed} events. Check logs for details.`);
-      } else {
-        setMessage(`❌ Calendar SMS test failed: ${data.error}`);
-      }
-    } catch (error) {
-      console.error('Error testing calendar SMS:', error);
-      setMessage('❌ Failed to test calendar SMS');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const formatEventTime = (event: CalendarEvent) => {
-    const startTime = new Date(event.start?.dateTime || event.start?.date || '');
-    const endTime = new Date(event.end?.dateTime || event.end?.date || '');
-    
-    return `${startTime.toLocaleDateString()} ${startTime.toLocaleTimeString()} - ${endTime.toLocaleTimeString()}`;
-  };
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -182,7 +155,7 @@ export function CalendarIntegration() {
         
         <div className="mt-4 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
           <h4 className="font-semibold text-yellow-800 mb-2">💡 Example Calendly Payload (invitee.created):</h4>
-          <div className="text-sm text-yellow-700 font-mono bg-white p-2 rounded">{{"event":"invitee.created","payload":{"invitee":{"name":"John Doe","sms_reminder_number":"+1-234-567-8900"},"event_type":{"name":"Consultation"},"start_time":"2025-01-01T10:00:00Z","end_time":"2025-01-01T10:30:00Z"}}}</div>
+          <div className="text-sm text-yellow-700 font-mono bg-white p-2 rounded">{`{"event":"invitee.created","payload":{"invitee":{"name":"John Doe","sms_reminder_number":"+1-234-567-8900"},"event_type":{"name":"Consultation"},"start_time":"2025-01-01T10:00:00Z","end_time":"2025-01-01T10:30:00Z"}}`}</div>
         </div>
         <div className="mt-4 p-3 bg-blue-50 rounded border-l-4 border-blue-400">
           <h4 className="font-semibold text-blue-800 mb-2">🔒 HTTPS Requirement for Live Webhooks:</h4>
