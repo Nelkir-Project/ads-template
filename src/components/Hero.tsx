@@ -1,9 +1,7 @@
 import React from 'react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import VideoHero from './VideoHero';
 
 const Hero: React.FC = () => {
-  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   // (debug logger removed)
 
@@ -14,10 +12,10 @@ const Hero: React.FC = () => {
         <VideoHero />
       </div>
       
-      <section ref={elementRef} className="hero-section py-8 sm:py-16 lg:py-20">
+      <section className="hero-section py-8 sm:py-16 lg:py-20">
         {/* Mobile Layout - Keep existing mobile design */}
         <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-left animate-on-scroll relative z-10">
+          <div className="text-left relative z-10">
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
               The system that brings guests back
@@ -51,7 +49,7 @@ const Hero: React.FC = () => {
 
         {/* Desktop Layout - New Figma Design */}
         <div className="hidden lg:block max-w-4xl mx-auto px-8">
-          <div className={`text-center animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
+          <div className="text-center">
             {/* Main Headline - Figma: opacity 0.9 */}
             <h1 className="text-5xl xl:text-6xl font-normal leading-tight mb-8" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
               The System That Brings Guests Back
@@ -75,7 +73,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Video Container - Figma: gray background #D9D9D9 */}
-            <div className={`w-full max-w-4xl mx-auto animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
+            <div className="w-full max-w-4xl mx-auto">
               <div className="bg-gray-300 rounded-lg overflow-hidden" style={{ backgroundColor: '#D9D9D9' }}>
                 <VideoHero />
               </div>
