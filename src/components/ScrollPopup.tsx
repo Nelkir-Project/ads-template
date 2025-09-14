@@ -49,12 +49,16 @@ const ScrollPopup = () => {
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
           {/* Profile images */}
           <div className="flex -space-x-1 sm:-space-x-2 flex-shrink-0">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
-              M
-            </div>
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 border-2 border-white flex items-center justify-center text-white font-normal text-xs sm:text-sm">
-              F
-            </div>
+            <img 
+              src="/PP Maria.jpg" 
+              alt="Maria"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
+            />
+            <img 
+              src="/federico.jpeg" 
+              alt="Federico"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
+            />
           </div>
 
           {/* Content */}
