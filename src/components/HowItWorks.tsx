@@ -55,10 +55,10 @@ const HowItWorks: React.FC = () => {
               <div className="hidden lg:block">
                 {/* Section Header - Centered */}
                 <div className="text-center mb-18">
-                  <h2 className="text-5xl font-normal leading-tight mb-4" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
+                  <h2 className="text-4xl font-normal leading-tight mb-4" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
                     {section.title}
                   </h2>
-                  <p className="text-2xl leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                  <p className="text-xl leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
                     {section.subtitle}
                   </p>
                 </div>
@@ -81,12 +81,12 @@ const HowItWorks: React.FC = () => {
                     <div className="space-y-6">
                       {/* Features */}
                       <div>
-                        <h4 className="text-lg font-normal text-gray-900 mb-4">Features:</h4>
+                        <h4 className="text-base font-normal text-gray-900 mb-4">Features:</h4>
                         <ul className="space-y-3">
                           {section.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-start">
                               <span className="text-black mr-3 mt-1 flex-shrink-0">•</span>
-                              <span className="text-base text-gray-700 leading-relaxed">{feature}</span>
+                              <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
                             </li>
                           ))}
                         </ul>

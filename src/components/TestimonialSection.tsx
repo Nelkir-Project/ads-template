@@ -36,7 +36,7 @@ const TestimonialSection: React.FC = () => {
           
           {/* Desktop Layout - New Figma Design */}
           <div className="hidden lg:block">
-            <blockquote className="text-4xl lg:text-5xl leading-tight mb-16 text-center" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+            <blockquote className="text-3xl lg:text-4xl leading-tight mb-16 text-center" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
               "I was constantly worried about getting people through the door. With LocalSpot our restaurant stays busy and I finally have the time to focus on training my staff and making service even better".
             </blockquote>
             
@@ -45,8 +45,8 @@ const TestimonialSection: React.FC = () => {
                 <img src="/Screenshot 2025-08-31 at 3.58.18 PM 1.png" alt="Karolyn" className="w-full h-full rounded-full object-cover" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-gray-900 text-lg" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Karolyn</div>
-                <div className="text-gray-600 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Restaurant Manager</div>
+                <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Karolyn</div>
+                <div className="text-gray-600 text-sm" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Restaurant Manager</div>
               </div>
             </div>
           </div>

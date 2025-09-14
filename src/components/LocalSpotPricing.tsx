@@ -27,10 +27,10 @@ const LocalSpotPricing: React.FC = () => {
 
           {/* Desktop Header - Match Figma */}
           <div className="hidden lg:block text-center max-w-4xl mx-auto">
-            <h2 className="text-5xl xl:text-6xl font-normal mb-2" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+            <h2 className="text-4xl xl:text-5xl font-normal mb-2" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
               Pricing That Pays for Itself. Guaranteed.
             </h2>
-            <p className="text-xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+            <p className="text-lg font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
               If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
             </p>
           </div>
@@ -93,9 +93,9 @@ const LocalSpotPricing: React.FC = () => {
 
               {/* Done for you section */}
               <div className="mb-6">
-                <h4 className="text-2xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Done for you</h4>
+                <h4 className="text-xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Done for you</h4>
                 
-                <div className="space-y-1 text-lg mb-8" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                <div className="space-y-1 text-base mb-8" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                   <div className="flex items-start leading-relaxed">
                     <span className="mr-2">✅</span>
                     <span>Custom Professional Website</span>
@@ -157,19 +157,19 @@ const LocalSpotPricing: React.FC = () => {
 
               {/* Pricing */}
               <div className="mb-4">
-                <div className="text-2xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                <div className="text-xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                   Total Proven Value: $42,000
                 </div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Today: Just $5,999</span>
-                  <span className="text-xl ml-4" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Annual pre-pay</span>
+                  <span className="text-2xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Today: Just $5,999</span>
+                  <span className="text-lg ml-4" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Annual pre-pay</span>
                 </div>
               </div>
 
               {/* CTA Button */}
               <button 
                 onClick={handleGetDemo}
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded text-xl font-normal hover:bg-blue-700 transition-colors duration-200 mb-6 flex items-center justify-center gap-3"
+                className="w-full bg-blue-600 text-white py-4 px-6 rounded text-lg font-normal hover:bg-blue-700 transition-colors duration-200 mb-6 flex items-center justify-center gap-3"
                 style={{ backgroundColor: '#1B51CF' }}
               >
                 <span>Get a Free Demo</span>
@@ -182,10 +182,10 @@ const LocalSpotPricing: React.FC = () => {
 
               {/* Bottom sections */}
               <div className="space-y-6 text-center">
-                <p className="text-xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                <p className="text-lg font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                   5 of 10 Spots Available
                 </p>
-                <p className="text-xl" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                <p className="text-lg" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                   🤝 60-Day Money-back Guarantee*
                 </p>
               </div>

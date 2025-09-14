@@ -104,22 +104,22 @@ const Hero: React.FC = () => {
         <div className="hidden lg:block max-w-4xl mx-auto px-8">
           <div className={`text-center animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
             {/* Main Headline - Figma: opacity 0.9 */}
-            <h1 className="text-6xl xl:text-7xl font-normal leading-tight mb-8" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
+            <h1 className="text-5xl xl:text-6xl font-normal leading-tight mb-8" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
               The System That Brings Guests Back
             </h1>
             
             {/* Subtitle - Figma: opacity 0.65 */}
-            <p className="text-xl xl:text-2xl mb-16 max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+            <p className="text-lg xl:text-xl mb-16 max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
               Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discovers you, return more often, and spends a little more.
             </p>
 
             {/* Trust Indicators Bar - positioned above video */}
             <div className="flex items-center justify-center mb-6">
               <div className="bg-white px-6 py-3 rounded-lg shadow-sm flex items-center gap-8">
-                <span className="text-sm" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                <span className="text-xs" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   +10,000 Diners Love LocalSpot
                 </span>
-                <span className="text-sm" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                <span className="text-xs" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   20 days
                 </span>
               </div>
