@@ -19,7 +19,7 @@ const TestimonialSection: React.FC = () => {
             
             <div className="flex items-center justify-center">
               <div className="w-15 h-15 bg-gray-300 rounded-full mr-5 flex items-center justify-center">
-                <img src="/karolyn.png" alt="Karolyn" className="w-full h-full rounded-full object-cover" />
+                <img src="/Karolyn.png" alt="Karolyn" className="w-full h-full rounded-full object-cover" />
               </div>
               <div className="text-left">
                 <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Karolyn</div>
