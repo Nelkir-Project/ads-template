@@ -19,10 +19,10 @@ const TestimonialSection: React.FC = () => {
             
             <div className="flex items-center justify-center">
               <div className="w-15 h-15 bg-gray-300 rounded-full mr-5 flex items-center justify-center">
-                <img src="/Screenshot 2025-08-31 at 3.58.18 PM 1.png" alt="Karolyn" className="w-full h-full rounded-full object-cover" />
+                <img src="/PP Maria.jpg" alt="Maria" className="w-full h-full rounded-full object-cover" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Karolyn</div>
+                <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Maria</div>
                 <div className="text-gray-600 text-sm" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Restaurant Manager</div>
               </div>
             </div>

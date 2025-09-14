@@ -9,6 +9,7 @@ type VideoHeroProps = {
 }
 
 const DEFAULT_SRCS = [
+	'/video.mp4',
 	'https://payfud-local-storage.s3.us-east-1.amazonaws.com/videos/Branzini+Hero.mp4',
 	'https://www.w3schools.com/html/mov_bbb.mp4',
 ]
