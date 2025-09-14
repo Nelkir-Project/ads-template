@@ -10,16 +10,16 @@ const Hero: React.FC = () => {
   return (
     <>
       {/* Mobile Video - Full width, no margins, directly after header */}
-      <div className="lg:hidden w-full">
+      <div className="lg:hidden w-full mb-8">
         <VideoHero />
       </div>
       
-      <section ref={elementRef} className="hero-section py-12 sm:py-16 lg:py-20">
+      <section ref={elementRef} className="hero-section py-8 sm:py-16 lg:py-20">
         {/* Mobile Layout - Keep existing mobile design */}
         <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-left animate-on-scroll">
+          <div className="text-left animate-on-scroll relative z-10">
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
               The system that brings guests back
             </h1>
             
