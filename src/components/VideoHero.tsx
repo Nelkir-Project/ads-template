@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 type VideoHeroProps = {
 	className?: string
@@ -23,38 +23,15 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 }) => {
 	const ref = useRef<HTMLVideoElement>(null)
 
-	useEffect(() => {
-		// Try to start playback on mount (muted + playsInline allows autoplay on mobile)
-		const video = ref.current
-		if (video) {
-			// Ensure video is loaded before attempting play
-			if (video.readyState >= 3) {
-				video.play().catch((err) => {
-					console.log('[VideoHero] Autoplay failed:', err)
-				})
-			} else {
-				// Wait for video to be ready
-				const handleCanPlay = () => {
-					video.play().catch((err) => {
-						console.log('[VideoHero] Autoplay failed after canplay:', err)
-					})
-				}
-				video.addEventListener('canplay', handleCanPlay, { once: true })
-				return () => video.removeEventListener('canplay', handleCanPlay)
-			}
-		}
-	}, [])
-
 	return (
 		<div className={`relative w-full overflow-hidden bg-black ${containerClassName ?? ''}`} style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
 			<video
 				ref={ref}
 				className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
-				autoPlay
 				muted
 				playsInline
 				loop
-				preload="metadata"
+				preload="auto"
 				poster={poster}
 				controls={controls}
 				{...{ 'webkit-playsinline': 'true' } as any}

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialSection: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      // Set video to start at 2 seconds instead of the beginning
+      videoRef.current.currentTime = 1;
+    }
+  }, []);
 
   return (
     <section ref={elementRef} className="bg-white py-12 sm:py-16">
@@ -104,12 +112,12 @@ const TestimonialSection: React.FC = () => {
                {/* Video below name and rating */}
                <div className="w-full mb-4">
                  <video 
+                   ref={videoRef}
                    src="/Testimonial.mp4" 
                    className="w-full aspect-video object-cover rounded-lg"
                    controls
                    muted
-                   preload="metadata"
-                   poster="https://payfud.com/wp-content/uploads/2024/08/Screenshot-2024-08-23-at-5.50.01-PM.png"
+                   preload="auto"
                  >
                    Your browser does not support the video tag.
                  </video>
