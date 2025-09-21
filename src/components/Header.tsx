@@ -28,11 +28,8 @@ const Header: React.FC = () => {
             </a>
           </nav>
 
-          {/* Desktop CTA Buttons */}
-          <div className={`hidden md:flex items-center space-x-4 animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}>
-            <button className="text-gray-700 hover:text-gray-900 font-medium">
-              Sign in
-            </button>
+          {/* Desktop CTA Button */}
+          <div className={`hidden md:flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}>
             <button 
               onClick={openCalendarBooking}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors group"
@@ -83,20 +80,10 @@ const Header: React.FC = () => {
               >
                 Pricing
               </a>
-              <a
-                href="/admin"
-                className="block px-3 py-2 text-gray-400 hover:text-gray-600 text-sm font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Admin
-              </a>
               <div className="pt-4 pb-2 border-t border-gray-200">
-                <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-gray-900 font-medium">
-                  Sign in
-                </button>
                 <button 
                   onClick={openCalendarBooking}
-                  className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
                 >
                   Get Started Free
                 </button>
