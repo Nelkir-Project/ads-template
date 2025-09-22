@@ -1,20 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useScrollDirection } from '../hooks/useScrollDirection'
 import { openCalendarBooking } from '../utils/calendarUtils'
+import { isPopupDismissed, dismissPopup } from '../utils/popupUtils'
 
 const ScrollPopup = () => {
   const { showPopup, hidePopup } = useScrollDirection(200)
   const [isVisible, setIsVisible] = useState(false)
+  const [isDismissed, setIsDismissed] = useState(() => isPopupDismissed())
 
   // Handle popup visibility with animation
   useEffect(() => {
-    if (showPopup && !isVisible) {
+    if (showPopup && !isVisible && !isDismissed) {
       setIsVisible(true)
     }
-  }, [showPopup, isVisible])
+  }, [showPopup, isVisible, isDismissed])
 
   const handleClose = () => {
     setIsVisible(false)
+    setIsDismissed(true)
+    dismissPopup()
     setTimeout(hidePopup, 300) // Wait for animation to complete
   }
 
@@ -23,11 +27,8 @@ const ScrollPopup = () => {
     handleClose()
   }
 
-  const handleMaybeLater = () => {
-    handleClose()
-  }
 
-  if (!showPopup && !isVisible) return null
+  if (!showPopup && !isVisible || isDismissed) return null
 
   return (
     <div className={`fixed bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 z-50 ${
@@ -74,17 +75,11 @@ const ScrollPopup = () => {
             </div>
           </div>
 
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 flex-shrink-0 w-full sm:w-auto">
-            <button
-              onClick={handleMaybeLater}
-              className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-600 hover:text-gray-800 transition-colors order-2 sm:order-1"
-            >
-              Maybe Later
-            </button>
+          {/* Action button */}
+          <div className="flex-shrink-0 w-full sm:w-auto">
             <button
               onClick={handleBookDemo}
-              className="bg-gray-900 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group order-1 sm:order-2"
+              className="bg-gray-900 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group w-full sm:w-auto"
             >
               Book Your Demo
               <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
