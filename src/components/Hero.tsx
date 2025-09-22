@@ -73,9 +73,24 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Video Container - Figma: gray background #D9D9D9 */}
-            <div className="w-full max-w-4xl mx-auto">
+            <div className="w-full max-w-4xl mx-auto mb-16">
               <div className="bg-gray-300 rounded-lg overflow-hidden" style={{ backgroundColor: '#D9D9D9' }}>
                 <VideoHero controls={true} />
+              </div>
+            </div>
+
+            {/* Restaurant Trust Section */}
+            <div className="w-full max-w-4xl mx-auto">
+              <div className="text-center">
+                <h3 className="text-lg font-normal mb-8" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                  Some of the Restaurants That Trust us in the Tampa Bay Area
+                </h3>
+                <div className="flex items-center justify-center gap-8 lg:gap-12">
+                  <img src="/coffee.png" alt="Coffee restaurant" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+                  <img src="/avenue.png" alt="Avenue restaurant" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+                  <img src="/malai.png" alt="Malai restaurant" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+                  <img src="/branini.png" alt="Branzini restaurant" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+                </div>
               </div>
             </div>
           </div>
