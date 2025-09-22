@@ -13,7 +13,7 @@ export function useVideoIntersectionObserver(
   const { threshold = 0.3, rootMargin = '0px', enableSound = true } = options
   const [isIntersecting, setIsIntersecting] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const { registerVideo, playVideo } = useVideoManager()
+  const { registerVideo, canAutoPlay, playVideo, pauseVideo } = useVideoManager()
 
   useEffect(() => {
     const video = videoRef.current
@@ -28,14 +28,18 @@ export function useVideoIntersectionObserver(
         setIsIntersecting(isVisible)
         
         if (isVisible) {
-          // Video is in view - enable sound and play through manager
+          // Video is in view - enable sound and try to auto-play
           if (enableSound) {
             video.muted = false
           }
-          playVideo(video)
+          
+          // Only auto-play if no other video is currently playing
+          if (canAutoPlay(video)) {
+            playVideo(video, false) // false = auto-play, not manual
+          }
         } else {
-          // Video is out of view - pause
-          video.pause()
+          // Video is out of view - always pause (regardless of how it started)
+          pauseVideo(video)
         }
       },
       { threshold, rootMargin }
@@ -46,7 +50,7 @@ export function useVideoIntersectionObserver(
     return () => {
       observer.unobserve(video)
     }
-  }, [threshold, rootMargin, enableSound, registerVideo, playVideo])
+  }, [threshold, rootMargin, enableSound, registerVideo, canAutoPlay, playVideo, pauseVideo])
 
   return {
     videoRef,
