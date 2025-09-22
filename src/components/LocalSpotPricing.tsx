@@ -42,8 +42,8 @@ const LocalSpotPricing: React.FC = () => {
           <div className="block lg:hidden max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
               <div className="text-center mb-6">
-                <div className="text-2xl font-bold text-gray-900 mb-2">$5,999</div>
-                <p className="text-gray-600">Annual pre-pay</p>
+                <div className="text-2xl font-bold text-gray-900 mb-2">Contact for Pricing</div>
+                <p className="text-gray-600">Flexible payment options</p>
               </div>
 
               <div className="space-y-2 mb-6">
@@ -141,28 +141,30 @@ const LocalSpotPricing: React.FC = () => {
                     <span>Dedicated Customer Support</span>
                   </div>
                   <div className="flex items-start leading-relaxed">
-                    <span className="mr-2">🎁</span>
-                    <span>Bonus 1: x24 Branded QR Menu Kit</span>
+                    <span className="mr-2 text-orange-500">🎁</span>
+                    <span><strong>Bonus 1:</strong> x24 Branded QR Menu Kit</span>
                   </div>
                   <div className="flex items-start leading-relaxed">
-                    <span className="mr-2">🎁</span>
-                    <span>Bonus 2: Professional Photoshoot</span>
+                    <span className="mr-2 text-orange-500">🎁</span>
+                    <span><strong>Bonus 2:</strong> Professional Photoshoot</span>
                   </div>
                   <div className="flex items-start leading-relaxed">
-                    <span className="mr-2">🎁</span>
-                    <span>Bonus 3: Full Set-up</span>
+                    <span className="mr-2 text-orange-500">🎁</span>
+                    <span><strong>Bonus 3:</strong> Full Set-up</span>
                   </div>
                 </div>
               </div>
 
               {/* Pricing */}
-              <div className="mb-4">
+              <div className="mb-6">
                 <div className="text-xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
-                  Total Proven Value: $42,000
+                  Total Proven Value: Substantial ROI
                 </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Today: Just $5,999</span>
-                  <span className="text-lg ml-4" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Annual pre-pay</span>
+                <div className="mb-2">
+                  <span className="text-2xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Contact us for pricing</span>
+                </div>
+                <div className="text-base" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                  Flexible payment options available
                 </div>
               </div>
 
