@@ -75,7 +75,9 @@ const ResultsSection: React.FC = () => {
               {/* Top Right - Bring first-time visitors back */}
               <div className="bg-blue-600 rounded-3xl p-8 text-white shadow-sm">
                 <div className="w-12 h-12 bg-white bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
-                  <img src="/Frame 15425.png" alt="Reload icon" className="w-6 h-6" />
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
                 </div>
                 <h3 className="font-semibold mb-3 text-lg text-white">Bring first-time visitors back</h3>
                 <p className="text-blue-100 leading-relaxed">
@@ -128,8 +130,10 @@ const ResultsSection: React.FC = () => {
 
             {/* Top Right - Bring first-time visitors back */}
             <div className="bg-blue-600 rounded-lg p-6 text-white shadow-sm">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4">
-                <img src="/Frame 15425.png" alt="Reload icon" className="w-10 h-10" />
+              <div className="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
               </div>
               <h3 className="font-semibold mb-2">Bring first-time visitors back</h3>
               <p className="text-blue-100 text-sm leading-relaxed">
