@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import React from 'react'
+import { useVideoIntersectionObserver } from '../hooks/useVideoIntersectionObserver'
 
 type VideoHeroProps = {
 	className?: string
@@ -21,14 +22,17 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 	poster,
 	controls = false,
 }) => {
-	const ref = useRef<HTMLVideoElement>(null)
+	const { videoRef } = useVideoIntersectionObserver({ 
+		threshold: 0.3, 
+		enableSound: true 
+	})
 
 	return (
 		<div className={`relative w-full overflow-hidden bg-black ${containerClassName ?? ''}`} style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
 			<video
-				ref={ref}
+				ref={videoRef}
 				className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
-				muted
+				muted={false}
 				playsInline
 				loop
 				preload="auto"

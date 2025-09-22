@@ -1,9 +1,13 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useVideoIntersectionObserver } from '../hooks/useVideoIntersectionObserver';
 
 const TestimonialSection: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const { videoRef } = useVideoIntersectionObserver({ 
+    threshold: 0.3, 
+    enableSound: true 
+  });
 
   useEffect(() => {
     if (videoRef.current) {
@@ -116,7 +120,7 @@ const TestimonialSection: React.FC = () => {
                    src="/Testimonial.mp4" 
                    className="w-full aspect-video object-cover rounded-lg"
                    controls
-                   muted
+                   muted={false}
                    preload="auto"
                  >
                    Your browser does not support the video tag.
