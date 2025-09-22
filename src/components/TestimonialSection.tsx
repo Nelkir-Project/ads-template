@@ -20,78 +20,14 @@ const TestimonialSection: React.FC = () => {
     <section ref={elementRef} className="bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Qualification Section */}
-        <div className={`grid md:grid-cols-2 gap-8 mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
-          {/* Left Column - Not for you */}
-          <div className="bg-white p-6 rounded-lg border border-gray-200">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">LocalSpot is not for you if...</h3>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <span className="text-red-600 font-bold mr-2 mt-1">✕</span>
-                <p className="text-gray-700">You're fine spending tons of time on marketing and don't mind figuring out complicated stuff by yourself.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-red-600 font-bold mr-2 mt-1">✕</span>
-                <p className="text-gray-700">You're okay with empty tables some days and don't care about getting more steady customers.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-red-600 font-bold mr-2 mt-1">✕</span>
-                <p className="text-gray-700">Slow days don't stress you out, and you're happy with how things are going.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-red-600 font-bold mr-2 mt-1">✕</span>
-                <p className="text-gray-700">You don't want easy tech that can help your restaurant grow and stand out.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - For you */}
-          <div className="bg-white p-6 rounded-lg border border-gray-200">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">LocalSpot is for you if...</h3>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <span className="text-green-600 font-bold mr-2 mt-1">✓</span>
-                <p className="text-gray-700">You want more time for yourself instead of constantly worrying about marketing.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-green-600 font-bold mr-2 mt-1">✓</span>
-                <p className="text-gray-700">You love seeing your restaurant full of happy regulars who come back again and again like old friends.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-green-600 font-bold mr-2 mt-1">✓</span>
-                <p className="text-gray-700">You want more people on slow days so you feel stuck or don't know how to make it happen.</p>
-              </div>
-              <div className="flex items-start">
-                <span className="text-green-600 font-bold mr-2 mt-1">✓</span>
-                <p className="text-gray-700">You're excited to try advanced tools that help your restaurant make more money without all the tech headaches.</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Testimonials Title */}
-        <div className={`text-center mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-400' : ''}`}>
+        <div className={`text-center mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Testimonials</h2>
         </div>
 
         {/* Google Reviews Grid */}
-        <div className={`grid lg:grid-cols-2 gap-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-600' : ''}`}>
+        <div className={`grid lg:grid-cols-2 gap-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-400' : ''}`}>
           {/* Left Column */}
           <div className="space-y-6">
              {/* Doreen Foster Review - Video Testimonial */}
