@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useVideoManager } from '../contexts/VideoManagerContext'
 
 interface UseVideoIntersectionObserverOptions {
   threshold?: number
@@ -12,10 +13,14 @@ export function useVideoIntersectionObserver(
   const { threshold = 0.3, rootMargin = '0px', enableSound = true } = options
   const [isIntersecting, setIsIntersecting] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const { registerVideo, playVideo } = useVideoManager()
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
+
+    // Register this video with the manager
+    registerVideo(video)
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -23,13 +28,11 @@ export function useVideoIntersectionObserver(
         setIsIntersecting(isVisible)
         
         if (isVisible) {
-          // Video is in view - play and enable sound if specified
+          // Video is in view - enable sound and play through manager
           if (enableSound) {
             video.muted = false
           }
-          video.play().catch((error) => {
-            console.log('Video play failed:', error)
-          })
+          playVideo(video)
         } else {
           // Video is out of view - pause
           video.pause()
@@ -43,7 +46,7 @@ export function useVideoIntersectionObserver(
     return () => {
       observer.unobserve(video)
     }
-  }, [threshold, rootMargin, enableSound])
+  }, [threshold, rootMargin, enableSound, registerVideo, playVideo])
 
   return {
     videoRef,
