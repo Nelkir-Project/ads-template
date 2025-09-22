@@ -42,8 +42,10 @@ const LocalSpotPricing: React.FC = () => {
           <div className="block lg:hidden max-w-xl mx-auto">
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
               <div className="text-center mb-6">
-                <div className="text-2xl font-bold text-gray-900 mb-2">Contact for Pricing</div>
-                <p className="text-gray-600">Flexible payment options</p>
+                <div className="flex justify-center mb-4">
+                  <img src="/Group 15212.png" alt="LocalSpot" className="h-8" />
+                </div>
+                <p className="text-gray-600">What's included</p>
               </div>
 
               <div className="space-y-2 mb-6">
@@ -91,9 +93,9 @@ const LocalSpotPricing: React.FC = () => {
                 <img src="/Group 15212.png" alt="LocalSpot" className="h-9" />
               </div>
 
-              {/* Done for you section */}
+              {/* What's included section */}
               <div className="mb-6">
-                <h4 className="text-xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Done for you</h4>
+                <h4 className="text-xl font-normal mb-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>What's included</h4>
                 
                 <div className="space-y-1 text-base mb-8" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                   <div className="flex items-start leading-relaxed">
