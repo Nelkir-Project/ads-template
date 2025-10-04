@@ -20,10 +20,10 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className={`hidden md:flex space-x-8 flex-1 ml-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in animate-delay-200' : ''}`}>
-            <a href="#how-it-works" className="text-gray-700 hover:text-gray-900 font-medium">
+            <a href="#how-it-works" className="text-gray-700 hover:text-gray-900">
               How it Works
             </a>
-            <a href="#pricing" className="text-gray-700 hover:text-gray-900 font-medium">
+            <a href="#pricing" className="text-gray-700 hover:text-gray-900">
               Pricing
             </a>
           </nav>
@@ -68,14 +68,14 @@ const Header: React.FC = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a
                 href="#how-it-works"
-                className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 How it Works
               </a>
               <a
                 href="#pricing"
-                className="block px-3 py-2 text-gray-700 hover:text-gray-900 font-medium"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
