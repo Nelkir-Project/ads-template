@@ -45,7 +45,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section ref={elementRef} id="how-it-works" className="bg-gray-50 py-12 sm:py-16 lg:py-20">
+    <section ref={elementRef} id="how-it-works" className="bg-white py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="space-y-16 sm:space-y-24 lg:space-y-28">
           {sections.map((section, index) => (
