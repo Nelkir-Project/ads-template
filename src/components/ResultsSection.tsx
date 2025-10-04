@@ -30,19 +30,21 @@ const ResultsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Layout - Keep Original */}
+          {/* Mobile/Tablet Layout */}
           <div className="lg:hidden">
             <blockquote className="text-xl sm:text-2xl text-gray-800 mb-6 leading-relaxed max-w-4xl">
-              "I was constantly worried about wasted ad spend eating into our profits. <span className="font-semibold">With LocalSpot</span> our campaigns stay profitable and I finally have the time to focus on scaling our business and improving our marketing strategy".
+              "I was constantly worried about getting people through the door. <span className="font-semibold">With LocalSpot</span> our restaurant stays busy and I finally have the time to focus on training my staff and making service even better".
             </blockquote>
             
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center">
-                <span className="text-gray-600 font-bold text-sm">SM</span>
-              </div>
+              <img 
+                src="/new.png" 
+                alt="Karolyn" 
+                className="w-12 h-12 rounded-full mr-4 object-cover"
+              />
               <div>
-                <div className="font-semibold text-gray-900">Sarah</div>
-                <div className="text-gray-600 text-sm">Marketing Director</div>
+                <div className="font-semibold text-gray-900">Karolyn</div>
+                <div className="text-gray-600 text-sm">Restaurant Manager</div>
               </div>
             </div>
           </div>

@@ -11,9 +11,23 @@ const Footer: React.FC = () => {
       
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}>
         <div className="flex flex-col sm:flex-row justify-between items-center">
-          {/* Logo */}
-          <div className="mb-4 sm:mb-0">
-            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
+          {/* Logo and Contact */}
+          <div className="mb-4 sm:mb-0 text-center sm:text-left">
+            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0" />
+            <div className="space-y-1">
+              <a 
+                href="mailto:hello@localspot.ai" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors text-sm"
+              >
+                hello@localspot.ai
+              </a>
+              <a 
+                href="tel:+17272805723" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors text-sm"
+              >
+                +1 (727) 280-5723
+              </a>
+            </div>
           </div>
 
           {/* Links */}
