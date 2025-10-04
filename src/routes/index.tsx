@@ -6,6 +6,7 @@ import TestimonialSection from '../components/TestimonialSection'
 import ResultsSection from '../components/ResultsSection'
 import LocalSpotPricing from '../components/LocalSpotPricing'
 import QualificationSection from '../components/QualificationSection'
+import FinalCTA from '../components/FinalCTA'
 import Footer from '../components/Footer'
 import ScrollPopup from '../components/ScrollPopup'
 
@@ -23,6 +24,7 @@ function App() {
       <LocalSpotPricing />
       <QualificationSection />
       <TestimonialSection />
+      <FinalCTA />
       <Footer />
       
       {/* Scroll-triggered popup */}
