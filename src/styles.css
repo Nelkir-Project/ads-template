@@ -17,6 +17,53 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-display: swap;
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 24px;
+  }
+}
+
+h1 {
+  font-size: 28px;
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 24px;
+  }
+}
+
+blockquote {
+  font-size: 24px;
+}
+
+@media (min-width: 1024px) {
+  blockquote {
+    font-size: 48px;
+  }
 }
 
 code {
