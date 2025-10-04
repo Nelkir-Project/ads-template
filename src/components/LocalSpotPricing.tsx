@@ -107,7 +107,7 @@ const LocalSpotPricing: React.FC = () => {
           </div>
 
           {/* Desktop Card */}
-          <div className="hidden lg:block max-w-sm mx-auto">
+          <div className="hidden lg:block mx-auto" style={{ width: '43vw', maxWidth: '619px' }}>
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
               {/* Logo and Title */}
               <div className="flex items-center gap-2 mb-4">
