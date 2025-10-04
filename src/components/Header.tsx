@@ -20,10 +20,10 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className={`hidden md:flex space-x-8 flex-1 ml-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in animate-delay-200' : ''}`}>
-            <a href="#how-it-works" className="text-gray-700 hover:text-gray-900">
+            <a href="#how-it-works" className="text-gray-700 hover:text-gray-900" style={{ fontSize: '17px' }}>
               How it Works
             </a>
-            <a href="#pricing" className="text-gray-700 hover:text-gray-900">
+            <a href="#pricing" className="text-gray-700 hover:text-gray-900" style={{ fontSize: '17px' }}>
               Pricing
             </a>
           </nav>

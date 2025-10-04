@@ -64,16 +64,6 @@ h3 {
   }
 }
 
-blockquote {
-  font-size: 24px;
-}
-
-@media (min-width: 1024px) {
-  blockquote {
-    font-size: 48px;
-  }
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
