@@ -84,8 +84,8 @@ const HowItWorks: React.FC = () => {
                         <h4 className="text-base font-normal text-gray-900 mb-4">Features:</h4>
                         <ul className="space-y-3">
                           {section.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start">
-                              <span className="text-black mr-3 flex-shrink-0 leading-relaxed">•</span>
+                            <li key={featureIndex} className="flex items-baseline">
+                              <span className="text-black mr-3 flex-shrink-0">•</span>
                               <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
                             </li>
                           ))}
@@ -144,8 +144,8 @@ const HowItWorks: React.FC = () => {
                       <h4 className="font-normal text-gray-900 text-lg">Features:</h4>
                       <ul className="space-y-0.5">
                         {section.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start text-gray-700">
-                            <span className="text-black mr-3 flex-shrink-0 leading-snug">•</span>
+                          <li key={featureIndex} className="flex items-baseline text-gray-700">
+                            <span className="text-black mr-3 flex-shrink-0">•</span>
                             <span className="text-base leading-snug">{feature}</span>
                           </li>
                         ))}
