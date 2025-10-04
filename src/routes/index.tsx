@@ -19,10 +19,10 @@ function App() {
       <Header />
       <Hero />
       <HowItWorks />
-      <TestimonialSection />
       <ResultsSection />
       <LocalSpotPricing />
       <QualificationSection />
+      <TestimonialSection />
       <Footer />
       
       {/* Scroll-triggered popup */}
