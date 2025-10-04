@@ -14,16 +14,18 @@ const ResultsSection: React.FC = () => {
           {/* Desktop Layout - New Figma Design */}
           <div className="hidden lg:block">
             <blockquote className="text-3xl lg:text-4xl leading-tight mb-16 max-w-5xl" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
-              "I had no idea I was missing out over $25,000 a month. LocalSpot brought new guests in less than a week."
+              "I was constantly worried about getting people through the door. With LocalSpot our restaurant stays busy and I finally have the time to focus on training my staff and making service even better".
             </blockquote>
             
             <div className="flex items-center">
-              <div className="w-15 h-15 bg-gray-300 rounded-full mr-5 flex items-center justify-center">
-                <span className="text-gray-600 font-bold text-base">MM</span>
-              </div>
+              <img 
+                src="/new.png" 
+                alt="Karolyn" 
+                className="w-15 h-15 rounded-full mr-5 object-cover"
+              />
               <div>
-                <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Michael</div>
-                <div className="text-gray-600 text-sm" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Restaurant Owner</div>
+                <div className="font-semibold text-gray-900 text-base" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Karolyn</div>
+                <div className="text-gray-600 text-sm" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Restaurant Manager</div>
               </div>
             </div>
           </div>
