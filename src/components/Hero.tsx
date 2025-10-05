@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
                     <img src="/federico.jpeg" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                     <img src="/Karolyn.png" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                   </div>
-                  <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                  <span className="text-xs lg:text-base" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                     +10,000 Diners Love LocalSpot
                   </span>
                 </div>
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                 {/* Right Column - Google Reviews */}
                 <div className="flex items-center gap-3">
                   <img src="/google.png" alt="Google Reviews" className="h-6 w-auto" />
-                  <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                  <span className="text-xs lg:text-base" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                     5.0 Stars in Google Reviews
                   </span>
                 </div>
