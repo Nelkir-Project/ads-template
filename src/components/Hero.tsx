@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
               
               {/* Right Column - Google Reviews */}
               <div className="bg-white px-4 py-2 rounded-lg shadow-sm flex items-center gap-3" style={{ height: '33px' }}>
-                <img src="/google.png" alt="Google Reviews" className="h-5 w-auto" />
+                <img src="/image 2018.png" alt="Google Reviews" className="h-5 w-auto" />
                 <span className="text-xs lg:text-base whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   5.0 Stars in Google Reviews
                 </span>
