@@ -63,12 +63,26 @@ const Hero: React.FC = () => {
             {/* Trust Indicators Bar - positioned above video */}
             <div className="flex items-center justify-center mb-6">
               <div className="bg-white px-6 py-3 rounded-lg shadow-sm flex items-center gap-8">
-                <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                  +10,000 Diners Love LocalSpot
-                </span>
-                <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                  20 days
-                </span>
+                {/* Left Column - Overlapping Images + Text */}
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    <img src="/new.png" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                    <img src="/PP Maria.jpg" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                    <img src="/federico.jpeg" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                    <img src="/Karolyn.png" alt="Customer" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                  </div>
+                  <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                    +10,000 Diners Love LocalSpot
+                  </span>
+                </div>
+                
+                {/* Right Column - Google Reviews */}
+                <div className="flex items-center gap-3">
+                  <img src="/google.png" alt="Google Reviews" className="h-6 w-auto" />
+                  <span style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                    5.0 Stars in Google Reviews
+                  </span>
+                </div>
               </div>
             </div>
 
