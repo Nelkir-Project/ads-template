@@ -29,7 +29,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✗
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   You're afraid to try new things or resist change.
                 </span>
               </div>
@@ -38,7 +38,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✗
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   You're not serious about growing your restaurant.
                 </span>
               </div>
@@ -47,7 +47,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✗
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   You'd rather waste hours testing random ideas than following a system that works.
                 </span>
               </div>
@@ -72,7 +72,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✓
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   Your restaurant is already bringing in steady sales but you know it could do way more.
                 </span>
               </div>
@@ -81,7 +81,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✓
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   You're a full-service restaurant that cares about guests, not just transactions.
                 </span>
               </div>
@@ -90,7 +90,7 @@ const QualificationSection: React.FC = () => {
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✓
                 </div>
-                <span className="text-gray-700 text-sm leading-relaxed">
+                <span className="text-gray-700 leading-relaxed">
                   You're excited to try new ways to fill seats and keep guests coming back.
                 </span>
               </div>

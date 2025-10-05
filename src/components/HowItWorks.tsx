@@ -86,7 +86,7 @@ const HowItWorks: React.FC = () => {
                           {section.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-baseline">
                               <span className="text-black mr-3 flex-shrink-0">•</span>
-                              <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
+                              <span className="text-gray-700 leading-relaxed">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -146,7 +146,7 @@ const HowItWorks: React.FC = () => {
                         {section.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-baseline text-gray-700">
                             <span className="text-black mr-3 flex-shrink-0">•</span>
-                            <span className="text-base leading-snug">{feature}</span>
+                            <span className="leading-snug">{feature}</span>
                           </li>
                         ))}
                       </ul>
