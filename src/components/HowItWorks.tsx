@@ -7,9 +7,10 @@ const HowItWorks: React.FC = () => {
   
   const sections = [
     {
-      title: "Be the Restaurant Everyone Visits",
+      title: "Get More Customers to Your Restaurant",
       subtitle: "Be found in Google, Facebook and Instagram.",
       features: [
+        "Get a Custom Website Design for your restaurant.",
         "Show up when diners search things like \"best bar\".",
         "Be the \"this restaurant has great reviews, let's go\".",
         "Keep your Social Media Fresh with Automated Posts.",
@@ -19,7 +20,7 @@ const HowItWorks: React.FC = () => {
       imageFirst: true
     },
     {
-      title: "Turn First-time Visitors Into Regulars", 
+      title: "Turn First-Time Diners Into Loyal Guests", 
       subtitle: "Capture guest info and give them reasons to return",
       features: [
         "Let diners join your VIP club at your restaurant.",
@@ -31,7 +32,7 @@ const HowItWorks: React.FC = () => {
       imageFirst: false
     },
     {
-      title: "Run Smarter, Not Harder",
+      title: "Turn Your Menu Into a Sales Tool",
       subtitle: "Understand what's happening in your restaurant when you are out",
       features: [
         "View restaurant performance in your dashboard.",

@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           <div className="text-left relative z-10">
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
-              The system that brings guests back
+              Marketing, Menu & Reservation System for Restaurants
             </h1>
             
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           <div className="text-center">
             {/* Main Headline - Figma: opacity 0.9 */}
             <h1 className="text-5xl xl:text-6xl font-normal leading-tight mb-8" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
-              The System That Brings Guests Back
+              Marketing, Menu & Reservation System for Restaurants
             </h1>
             
             {/* Subtitle - Figma: opacity 0.65 */}
