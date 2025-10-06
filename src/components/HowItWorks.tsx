@@ -9,6 +9,7 @@ const HowItWorks: React.FC = () => {
     {
       title: "Get More Customers to Your Restaurant",
       subtitle: "Be found in Google, Facebook and Instagram.",
+      featuresLabel: "A Digital Marketing Strategy That Helps You:",
       features: [
         "Get a Custom Website Design for your restaurant.",
         "Show up when diners search things like \"best bar\".",
@@ -22,6 +23,7 @@ const HowItWorks: React.FC = () => {
     {
       title: "Turn First-Time Diners Into Loyal Guests", 
       subtitle: "Capture guest info and give them reasons to return",
+      featuresLabel: "A Loyalty Program for Restaurants That Helps You:",
       features: [
         "Let diners join your VIP club at your restaurant.",
         "Send a text message on their birthday with an offer.",
@@ -34,6 +36,7 @@ const HowItWorks: React.FC = () => {
     {
       title: "Turn Your Menu Into a Sales Tool",
       subtitle: "Understand what's happening in your restaurant when you are out",
+      featuresLabel: "Smart Menu Insights That Help You:",
       features: [
         "View restaurant performance in your dashboard.",
         "Learn what guests love (and what they don't) with insights from reviews and QR menus.",
@@ -82,7 +85,7 @@ const HowItWorks: React.FC = () => {
                     <div className="space-y-6">
                       {/* Features */}
                       <div>
-                        <h4 className="text-base font-normal text-gray-900 mb-4">Features:</h4>
+                        <h4 className="text-base font-normal text-gray-900 mb-4">{section.featuresLabel}</h4>
                         <ul className="space-y-3">
                           {section.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-baseline">
@@ -142,7 +145,7 @@ const HowItWorks: React.FC = () => {
                     
                     {/* Features */}
                     <div className="space-y-4 px-4">
-                      <h4 className="font-normal text-gray-900 text-lg">Features:</h4>
+                      <h4 className="font-normal text-gray-900 text-lg">{section.featuresLabel}</h4>
                       <ul className="space-y-0.5">
                         {section.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-baseline text-gray-700">
