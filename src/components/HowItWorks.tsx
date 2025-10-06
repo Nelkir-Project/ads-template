@@ -62,7 +62,7 @@ const HowItWorks: React.FC = () => {
                   <h2 className="text-4xl font-normal leading-tight mb-4" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
                     {section.title}
                   </h2>
-                  <p className="text-xl leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                  <p className="text-xl font-bold leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
                     {section.subtitle}
                   </p>
                 </div>
@@ -139,7 +139,7 @@ const HowItWorks: React.FC = () => {
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-left" style={{fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 700}}>
                       {section.title}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-6 text-left">
+                    <p className="text-lg font-bold text-gray-600 mb-6 text-left">
                       {section.subtitle}
                     </p>
                     
