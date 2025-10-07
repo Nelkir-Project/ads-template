@@ -117,7 +117,7 @@ router.get('/callback', async (req, res) => {
 
     console.log('✅ Calendly OAuth successful');
 
-    // Get user URI for webhook creation
+    // Get organization for webhook creation
     const userResponse = await axios.get('https://api.calendly.com/users/me', {
       headers: {
         'Authorization': `Bearer ${access_token}`,
@@ -125,7 +125,6 @@ router.get('/callback', async (req, res) => {
       },
     });
 
-    const userUri = userResponse.data.resource.uri;
     const organization = userResponse.data.resource.current_organization;
 
     // Create webhook subscription - pointing to AWS Lambda (30-min follow-up system)
@@ -139,7 +138,7 @@ router.get('/callback', async (req, res) => {
           url: webhookUrl,
           events: ['invitee.created', 'invitee.canceled'],
           organization: organization,
-          user: userUri,
+          scope: 'organization',
           signing_key: signingKey,
         },
         {
