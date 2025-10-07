@@ -98,12 +98,30 @@ function isValidPhoneNumber(phone: string): boolean {
  * Extract client name from Calendly payload
  */
 function extractClientName(payload: any): string {
-  const invitee = payload?.invitee || {};
+  // Try first_name only
+  if (payload?.first_name) return payload.first_name;
   
+  // Try invitee object (older payload format)
+  const invitee = payload?.invitee || {};
+  if (invitee.first_name) return invitee.first_name;
+  
+  // Fall back to full name if first_name not available
+  if (payload?.name) return payload.name;
   if (invitee.name) return invitee.name;
   
-  if (invitee.first_name || invitee.last_name) {
-    return `${invitee.first_name || ''} ${invitee.last_name || ''}`.trim();
+  // Check questions_and_answers for name
+  const qas = payload?.questions_and_answers;
+  if (Array.isArray(qas)) {
+    for (const qa of qas) {
+      const question = (qa?.question || '').toLowerCase();
+      if (question.includes('name') && !question.includes('restaurant')) {
+        const answer = qa?.answer;
+        if (answer && typeof answer === 'string') {
+          // If it's a full name, extract first name
+          return answer.split(' ')[0];
+        }
+      }
+    }
   }
   
   return 'Valued Client';

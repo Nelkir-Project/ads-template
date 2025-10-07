@@ -76,18 +76,23 @@ Resources:
   # Lambda Functions
   CalendlyWebhookFunction:
     Type: AWS::Serverless::Function
+    DependsOn: FollowUpStateMachine
     Properties:
       FunctionName: CalendlyWebhookHandler
-      CodeUri: functions/
-      Handler: calendly-webhook.handler
+      CodeUri: dist/
+      Handler: functions/calendly-webhook.handler
       Environment:
         Variables:
           CALENDLY_WEBHOOK_SECRET: !Ref CalendlyWebhookSecret
+          STATE_MACHINE_ARN: !GetAtt FollowUpStateMachine.Arn
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ConversationsTable
-        - SNSPublishMessagePolicy:
-            TopicName: '*'
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: '*'
       Events:
         CalendlyWebhook:
           Type: Api
@@ -116,8 +121,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: IncomingSMSHandler
-      CodeUri: functions/
-      Handler: incoming-sms.handler
+      CodeUri: dist/
+      Handler: functions/incoming-sms.handler
       Environment:
         Variables:
           BUSINESS_NOTIFICATION_TOPIC_ARN: !Ref BusinessNotificationTopicArn
@@ -154,13 +159,16 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: FollowUpSender
-      CodeUri: functions/
-      Handler: follow-up-sender.handler
+      CodeUri: dist/
+      Handler: functions/follow-up-sender.handler
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ConversationsTable
-        - SNSPublishMessagePolicy:
-            TopicName: '*'
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: '*'
 
   # Step Functions State Machine for 30-minute delay
   FollowUpStateMachine:
