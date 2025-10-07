@@ -24,7 +24,7 @@ const requireApiKey = (req: Request, res: Response, next: NextFunction) => {
 const getCalendlyConfig = () => ({
   clientId: process.env.CALENDLY_CLIENT_ID,
   clientSecret: process.env.CALENDLY_CLIENT_SECRET,
-  redirectUri: process.env.CALENDLY_REDIRECT_URI || 'http://localhost:3001/api/auth/calendly/callback',
+  redirectUri: process.env.CALENDLY_REDIRECT_URI || 'https://localspot.ai/api/auth/calendly/callback',
 });
 
 // Store tokens temporarily (in production, use a database)
@@ -128,8 +128,8 @@ router.get('/callback', async (req, res) => {
     const userUri = userResponse.data.resource.uri;
     const organization = userResponse.data.resource.current_organization;
 
-    // Create webhook subscription
-    const webhookUrl = process.env.CALENDLY_WEBHOOK_URL || 'http://localhost:3001/api/webhooks/calendly';
+    // Create webhook subscription - pointing to AWS Lambda (30-min follow-up system)
+    const webhookUrl = process.env.CALENDLY_WEBHOOK_URL || 'https://txy797kg90.execute-api.us-east-1.amazonaws.com/prod/calendly';
     const signingKey = process.env.CALENDLY_WEBHOOK_SECRET || 'your-signing-secret';
 
     try {

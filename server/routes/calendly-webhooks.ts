@@ -28,7 +28,7 @@ const requireApiKey = (req: Request, res: Response, next: NextFunction) => {
 router.get('/list', requireApiKey, async (_req, res) => {
   try {
     // Get token from query or from stored tokens
-    const tokenResponse = await fetch('http://localhost:3001/api/auth/calendly/token');
+    const tokenResponse = await fetch('https://localspot.ai/api/auth/calendly/token');
     
     if (!tokenResponse.ok) {
       return res.status(401).json({ error: 'Not authorized with Calendly' });
@@ -78,7 +78,7 @@ router.delete('/:webhookId', requireApiKey, async (req, res) => {
     const { webhookId } = req.params;
 
     // Get token
-    const tokenResponse = await fetch('http://localhost:3001/api/auth/calendly/token');
+    const tokenResponse = await fetch('https://localspot.ai/api/auth/calendly/token');
     
     if (!tokenResponse.ok) {
       return res.status(401).json({ error: 'Not authorized with Calendly' });
@@ -120,7 +120,7 @@ router.post('/create', requireApiKey, async (req, res) => {
     }
 
     // Get token
-    const tokenResponse = await fetch('http://localhost:3001/api/auth/calendly/token');
+    const tokenResponse = await fetch('https://localspot.ai/api/auth/calendly/token');
     
     if (!tokenResponse.ok) {
       return res.status(401).json({ error: 'Not authorized with Calendly' });
