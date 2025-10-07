@@ -25,7 +25,7 @@ const requireApiKey = (req: Request, res: Response, next: NextFunction) => {
  * GET /api/calendly-webhooks/list
  * Requires: x-api-key header
  */
-router.get('/list', requireApiKey, async (req, res) => {
+router.get('/list', requireApiKey, async (_req, res) => {
   try {
     // Get token from query or from stored tokens
     const tokenResponse = await fetch('http://localhost:3001/api/auth/calendly/token');

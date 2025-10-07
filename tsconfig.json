@@ -1,5 +1,6 @@
 {
-  "include": ["**/*.ts", "**/*.tsx", "eslint.config.js", "prettier.config.js", "vite.config.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "server/**/*.ts", "eslint.config.js", "prettier.config.js", "vite.config.js"],
+  "exclude": ["aws-lambda/**/*", "node_modules", "dist"],
   
   "compilerOptions": {
     "target": "ES2022",

@@ -1,0 +1,27 @@
+# AWS Lambda functions (deployed separately to AWS)
+aws-lambda/
+
+# Development files
+*.md
+!README.md
+
+# Test files
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Documentation
+ARCHITECTURE.md
+AWS_SETUP_GUIDE.md
+CALENDLY_OAUTH_SETUP.md
+CHANGES_SUMMARY.md
+DEBUG_STEPS.md
+DEPLOYMENT_PROFILES.md
+ENV_SETUP.md
+PROJECT_SUMMARY.md
+QUICK_START.md
+START_SERVER.md
+TEST_ENDPOINTS.md
+TESTING.md
+
