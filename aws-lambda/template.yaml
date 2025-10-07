@@ -1,0 +1,271 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SMS Automation System using AWS SNS, Lambda, DynamoDB, and Step Functions
+
+Parameters:
+  CalendlyWebhookSecret:
+    Type: String
+    NoEcho: true
+    Description: Calendly webhook signature secret
+  
+  OriginationNumber:
+    Type: String
+    Description: AWS SNS origination phone number (E.164 format, e.g., +1234567890)
+  
+  IncomingSMSTopicArn:
+    Type: String
+    Description: ARN of existing SNS topic connected to your phone number for incoming SMS
+  
+  BusinessName:
+    Type: String
+    Default: Our Business
+    Description: Business name for SMS messages
+  
+  BusinessNotificationTopicArn:
+    Type: String
+    Default: ''
+    Description: Optional SNS topic ARN for business notifications
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs20.x
+    MemorySize: 512
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        CONVERSATIONS_TABLE: !Ref ConversationsTable
+        ORIGINATION_NUMBER: !Ref OriginationNumber
+        BUSINESS_NAME: !Ref BusinessName
+
+Resources:
+  # DynamoDB Tables
+  ConversationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: SMSConversations
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: phoneNumber
+          AttributeType: S
+        - AttributeName: conversationId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: phoneNumber
+          KeyType: HASH
+        - AttributeName: conversationId
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Project
+          Value: SMS-Automation
+
+  # API Gateway for webhooks
+  WebhookApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Cors:
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,calendly-webhook-signature'"
+        AllowOrigin: "'*'"
+
+  # Lambda Functions
+  CalendlyWebhookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: CalendlyWebhookHandler
+      CodeUri: functions/
+      Handler: calendly-webhook.handler
+      Environment:
+        Variables:
+          CALENDLY_WEBHOOK_SECRET: !Ref CalendlyWebhookSecret
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ConversationsTable
+        - SNSPublishMessagePolicy:
+            TopicName: '*'
+      Events:
+        CalendlyWebhook:
+          Type: Api
+          Properties:
+            RestApiId: !Ref WebhookApi
+            Path: /calendly
+            Method: POST
+  
+  # Separate policy to allow Step Functions invocation (breaks circular dependency)
+  CalendlyWebhookStepFunctionsPolicy:
+    Type: AWS::IAM::Policy
+    DependsOn: FollowUpStateMachine
+    Properties:
+      PolicyName: StepFunctionsExecutionPolicy
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - states:StartExecution
+            Resource: !GetAtt FollowUpStateMachine.Arn
+      Roles:
+        - !Ref CalendlyWebhookFunctionRole
+
+  IncomingSMSFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: IncomingSMSHandler
+      CodeUri: functions/
+      Handler: incoming-sms.handler
+      Environment:
+        Variables:
+          BUSINESS_NOTIFICATION_TOPIC_ARN: !Ref BusinessNotificationTopicArn
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ConversationsTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sns:Publish
+              Resource: !Ref BusinessNotificationTopicArn
+              Condition:
+                StringNotEquals:
+                  'aws:SourceArn': ''
+
+  # Subscription to existing SNS topic
+  IncomingSMSSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Protocol: lambda
+      TopicArn: !Ref IncomingSMSTopicArn
+      Endpoint: !GetAtt IncomingSMSFunction.Arn
+
+  # Permission for SNS to invoke Lambda
+  IncomingSMSInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref IncomingSMSFunction
+      Action: lambda:InvokeFunction
+      Principal: sns.amazonaws.com
+      SourceArn: !Ref IncomingSMSTopicArn
+
+  FollowUpSenderFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FollowUpSender
+      CodeUri: functions/
+      Handler: follow-up-sender.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ConversationsTable
+        - SNSPublishMessagePolicy:
+            TopicName: '*'
+
+  # Step Functions State Machine for 30-minute delay
+  FollowUpStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      Name: SMSFollowUpStateMachine
+      DefinitionUri: statemachine/follow-up.asl.json
+      DefinitionSubstitutions:
+        FollowUpSenderFunctionArn: !GetAtt FollowUpSenderFunction.Arn
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref FollowUpSenderFunction
+      Type: STANDARD
+
+  # Custom resource to update Lambda environment with State Machine ARN
+  UpdateCalendlyLambdaConfig:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: UpdateCalendlyLambdaConfigHelper
+      Runtime: python3.11
+      Handler: index.handler
+      Role: !GetAtt UpdateLambdaConfigRole.Arn
+      Timeout: 30
+      Code:
+        ZipFile: |
+          import boto3
+          import cfnresponse
+          import os
+          
+          lambda_client = boto3.client('lambda')
+          
+          def handler(event, context):
+              try:
+                  if event['RequestType'] in ['Create', 'Update']:
+                      function_name = event['ResourceProperties']['FunctionName']
+                      state_machine_arn = event['ResourceProperties']['StateMachineArn']
+                      
+                      # Get current environment variables
+                      response = lambda_client.get_function_configuration(FunctionName=function_name)
+                      env_vars = response.get('Environment', {}).get('Variables', {})
+                      
+                      # Add STATE_MACHINE_ARN
+                      env_vars['STATE_MACHINE_ARN'] = state_machine_arn
+                      
+                      # Update Lambda function
+                      lambda_client.update_function_configuration(
+                          FunctionName=function_name,
+                          Environment={'Variables': env_vars}
+                      )
+                      
+                      cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
+                  else:
+                      cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
+              except Exception as e:
+                  print(f"Error: {str(e)}")
+                  cfnresponse.send(event, context, cfnresponse.FAILED, {'Error': str(e)})
+  
+  UpdateLambdaConfigRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: UpdateLambdaConfig
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - lambda:GetFunctionConfiguration
+                  - lambda:UpdateFunctionConfiguration
+                Resource: !GetAtt CalendlyWebhookFunction.Arn
+  
+  TriggerLambdaUpdate:
+    Type: Custom::LambdaEnvUpdate
+    DependsOn:
+      - CalendlyWebhookFunction
+      - FollowUpStateMachine
+      - UpdateCalendlyLambdaConfig
+    Properties:
+      ServiceToken: !GetAtt UpdateCalendlyLambdaConfig.Arn
+      FunctionName: !Ref CalendlyWebhookFunction
+      StateMachineArn: !GetAtt FollowUpStateMachine.Arn
+
+Outputs:
+  CalendlyWebhookUrl:
+    Description: URL for Calendly webhook
+    Value: !Sub 'https://${WebhookApi}.execute-api.${AWS::Region}.amazonaws.com/prod/calendly'
+  
+  ConversationsTableName:
+    Description: Name of the DynamoDB conversations table
+    Value: !Ref ConversationsTable
+  
+  StateMachineArn:
+    Description: ARN of the follow-up state machine
+    Value: !GetAtt FollowUpStateMachine.Arn
+  
+  IncomingSMSFunctionArn:
+    Description: ARN of the IncomingSMS Lambda function (already subscribed to your topic)
+    Value: !GetAtt IncomingSMSFunction.Arn
+

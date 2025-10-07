@@ -1,0 +1,23 @@
+{
+  "name": "sms-automation-lambdas",
+  "version": "1.0.0",
+  "description": "AWS Lambda functions for SMS automation with Calendly",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "sam build && sam deploy --guided",
+    "local": "sam local start-api"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.600.0",
+    "@aws-sdk/client-sfn": "^3.600.0",
+    "@aws-sdk/client-sns": "^3.600.0",
+    "@aws-sdk/lib-dynamodb": "^3.600.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.138",
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.0"
+  }
+}
+

@@ -1,10 +1,14 @@
+import dotenv from 'dotenv';
+
+// Load .env FIRST before any other imports
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import { webhookRoutes } from './routes/webhooks.js';
 import { smsRoutes } from './routes/sms.js';
-
-dotenv.config();
+import { calendlyRoutes } from './routes/calendly.js';
+import { calendlyWebhooksRoutes } from './routes/calendly-webhooks.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,6 +20,8 @@ app.use(express.json());
 // Routes
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api/sms', smsRoutes);
+app.use('/api/auth/calendly', calendlyRoutes);
+app.use('/api/calendly-webhooks', calendlyWebhooksRoutes);
 
 // Health check
 app.get('/health', (_req, res) => {

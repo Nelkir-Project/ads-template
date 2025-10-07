@@ -1,0 +1,36 @@
+{
+  "Comment": "State machine to wait 30 minutes and send follow-up SMS if client hasn't responded",
+  "StartAt": "Wait30Minutes",
+  "States": {
+    "Wait30Minutes": {
+      "Type": "Wait",
+      "Seconds": 1800,
+      "Next": "SendFollowUp"
+    },
+    "SendFollowUp": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${FollowUpSenderFunctionArn}",
+        "Payload": {
+          "detail.$": "$"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "End": true
+    }
+  }
+}
+
+
