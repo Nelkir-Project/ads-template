@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useVideoIntersectionObserver } from '../hooks/useVideoIntersectionObserver'
 
 type VideoHeroProps = {
@@ -7,6 +7,7 @@ type VideoHeroProps = {
 	srcs?: string[]
 	poster?: string
 	controls?: boolean
+	priority?: boolean // If true, preload even on mobile (for above-the-fold content)
 }
 
 const DEFAULT_SRCS = [
@@ -15,17 +16,50 @@ const DEFAULT_SRCS = [
 	'https://www.w3schools.com/html/mov_bbb.mp4',
 ]
 
+// Detect if user is on mobile device
+const isMobileDevice = (): boolean => {
+	if (typeof window === 'undefined') return false
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+		|| window.innerWidth < 768
+}
+
+// Detect slow connection
+const isSlowConnection = (): boolean => {
+	if (typeof navigator === 'undefined' || !('connection' in navigator)) return false
+	const conn = (navigator as any).connection
+	return conn?.effectiveType === 'slow-2g' || conn?.effectiveType === '2g' || conn?.saveData === true
+}
+
 const VideoHero: React.FC<VideoHeroProps> = ({
 	className,
 	containerClassName,
 	srcs = DEFAULT_SRCS,
 	poster,
 	controls = false,
+	priority = false,
 }) => {
+	const [isMobile, setIsMobile] = useState(false)
+	const [slowConnection, setSlowConnection] = useState(false)
+	
+	useEffect(() => {
+		setIsMobile(isMobileDevice())
+		setSlowConnection(isSlowConnection())
+	}, [])
+
 	const { videoRef } = useVideoIntersectionObserver({ 
 		threshold: 0.3, 
 		enableSound: true 
 	})
+
+	// Adaptive preload strategy:
+	// - Slow connection: none (only load when user clicks play)
+	// - Mobile (normal speed): metadata (only load video info, not content)
+	// - Desktop or priority content: auto (preload entire video)
+	const getPreloadStrategy = (): 'none' | 'metadata' | 'auto' => {
+		if (slowConnection) return 'none'
+		if (isMobile && !priority) return 'metadata'
+		return 'auto'
+	}
 
 	return (
 		<div className={`relative w-full overflow-hidden bg-black ${containerClassName ?? ''}`} style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
@@ -35,7 +69,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 				muted={false}
 				playsInline
 				loop
-				preload="auto"
+				preload={getPreloadStrategy()}
 				poster={poster}
 				controls={controls}
 				{...{ 'webkit-playsinline': 'true' } as any}

@@ -17,6 +17,8 @@ export async function sendSMS(
   }
 
   try {
+    console.log(`Sending SMS to ${phoneNumber} from ${ORIGINATION_NUMBER}`);
+    
     const command = new PublishCommand({
       Message: message,
       PhoneNumber: phoneNumber,
@@ -24,6 +26,10 @@ export async function sendSMS(
         'AWS.SNS.SMS.SMSType': {
           DataType: 'String',
           StringValue: 'Transactional',
+        },
+        'AWS.SNS.SMS.OriginationNumber': {
+          DataType: 'String',
+          StringValue: ORIGINATION_NUMBER,
         },
         'AWS.MM.SMS.OriginationNumber': {
           DataType: 'String',
@@ -33,7 +39,7 @@ export async function sendSMS(
     });
 
     const response = await snsClient.send(command);
-    console.log('SMS sent successfully:', response.MessageId);
+    console.log(`SMS sent successfully from ${ORIGINATION_NUMBER}:`, response.MessageId);
     return true;
   } catch (error) {
     console.error('Error sending SMS:', error);

@@ -57,7 +57,7 @@ const TestimonialSection: React.FC = () => {
                    className="w-full aspect-video object-cover rounded-lg"
                    controls
                    muted={false}
-                   preload="auto"
+                   preload="metadata"
                  >
                    Your browser does not support the video tag.
                  </video>

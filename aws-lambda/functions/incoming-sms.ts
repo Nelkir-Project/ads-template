@@ -27,8 +27,11 @@ export const handler: SNSHandler = async (event: SNSEvent) => {
       const fromNumber = message.originationNumber;
       const messageBody = message.messageBody;
 
-      console.log('Processing SMS from:', fromNumber);
+      console.log('═══════════════════════════════════════');
+      console.log('📱 INCOMING SMS');
+      console.log('From:', fromNumber);
       console.log('Message:', messageBody);
+      console.log('═══════════════════════════════════════');
 
       // Get the latest conversation for this phone number
       const conversation = await getLatestConversation(fromNumber);

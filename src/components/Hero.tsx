@@ -9,7 +9,11 @@ const Hero: React.FC = () => {
     <>
       {/* Mobile Video - Full width, no margins, directly after header */}
       <div className="lg:hidden w-full mb-8">
-        <VideoHero controls={true} />
+        <VideoHero 
+          controls={true} 
+          priority={true}
+          poster="/holyimage.png"
+        />
       </div>
       
       <section className="hero-section py-8 sm:py-16 lg:py-20">
@@ -87,7 +91,11 @@ const Hero: React.FC = () => {
             {/* Video Container - Figma: gray background #D9D9D9 */}
             <div className="w-full max-w-4xl mx-auto mb-16">
               <div className="bg-gray-300 rounded-lg overflow-hidden" style={{ backgroundColor: '#D9D9D9' }}>
-                <VideoHero controls={true} />
+                <VideoHero 
+                  controls={true} 
+                  priority={true}
+                  poster="/holyimage.png"
+                />
               </div>
             </div>
 
