@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center text-yellow-500">
-                <span className="text-gray-600 text-xs sm:text-sm">⭐ Typical payback: 20 days</span>
+                <span className="text-gray-600" style={{ fontSize: '15px' }}>⭐ Typical payback: 20 days</span>
               </div>
             </div>
 
