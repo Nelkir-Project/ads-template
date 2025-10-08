@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         <VideoHero 
           controls={true} 
           priority={true}
-          poster="/holyimage.png"
+          poster="/mainposter.jpg"
         />
       </div>
       
@@ -69,10 +69,10 @@ const Hero: React.FC = () => {
               {/* Left Column - Overlapping Images + Text */}
               <div className="bg-white px-4 py-2 rounded-lg shadow-sm flex items-center gap-3" style={{ height: '33px' }}>
                 <div className="flex -space-x-2">
-                  <img src="/new.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/PP Maria.jpg" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/federico.jpeg" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/Karolyn.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+                  <img src="/1.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+                  <img src="/2.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+                  <img src="/3.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+                  <img src="/4.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
                 </div>
                 <span className="text-xs lg:text-base whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   +10,000 Diners Love LocalSpot
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
                 <VideoHero 
                   controls={true} 
                   priority={true}
-                  poster="/holyimage.png"
+                  poster="/mainposter.jpg"
                 />
               </div>
             </div>
