@@ -33,10 +33,10 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 rounded-full border-2 border-white"></div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 rounded-full border-2 border-white"></div>
+                  <img src="/1.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+                  <img src="/2.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+                  <img src="/3.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+                  <img src="/4.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
                   <span className="font-normal">340+ restaurant owners trust LocalSpot</span>
@@ -69,10 +69,10 @@ const Hero: React.FC = () => {
               {/* Left Column - Overlapping Images + Text */}
               <div className="bg-white px-4 py-2 rounded-lg shadow-sm flex items-center gap-3" style={{ height: '33px' }}>
                 <div className="flex -space-x-2">
-                  <img src="/1.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/2.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/3.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
-                  <img src="/4.png" alt="Customer" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+                  <img src="/1.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
+                  <img src="/2.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
+                  <img src="/3.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
+                  <img src="/4.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
                 </div>
                 <span className="text-xs lg:text-base whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   +10,000 Diners Love LocalSpot
