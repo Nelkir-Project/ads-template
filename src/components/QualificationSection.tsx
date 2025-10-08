@@ -27,28 +27,37 @@ const QualificationSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✗
+                  ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  You're afraid to try new things or resist change.
+                  You're fine spending tons of time on marketing and don't mind figuring out complicated stuff by yourself.
                 </span>
               </div>
               
               <div className="flex items-start">
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✗
+                  ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  You're not serious about growing your restaurant.
+                  You're okay with empty tables some days and don't care about getting more steady customers.
                 </span>
               </div>
               
               <div className="flex items-start">
                 <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✗
+                  ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  You'd rather waste hours testing random ideas than following a system that works.
+                  Slow days don't stress you out, and you're happy with how things are going.
+                </span>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                  ❌
+                </div>
+                <span className="text-gray-700 leading-relaxed">
+                  You don't want easy tech that can help your restaurant grow and stand out.
                 </span>
               </div>
             </div>
@@ -70,28 +79,37 @@ const QualificationSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✓
+                  ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  Your restaurant is already bringing in steady sales but you know it could do way more.
+                  You want more time for yourself instead of constantly worrying about marketing.
                 </span>
               </div>
               
               <div className="flex items-start">
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✓
+                  ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  You're a full-service restaurant that cares about guests, not just transactions.
+                  You love seeing your restaurant full of happy regulars who come back again and again like old friends.
                 </span>
               </div>
               
               <div className="flex items-start">
                 <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
-                  ✓
+                  ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
-                  You're excited to try new ways to fill seats and keep guests coming back.
+                  You want more people on slow days but feel stuck or don't know how to make it happen.
+                </span>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                  ✅
+                </div>
+                <span className="text-gray-700 leading-relaxed">
+                  You're excited to try advanced tools that help your restaurant make more money without all the tech headaches.
                 </span>
               </div>
             </div>

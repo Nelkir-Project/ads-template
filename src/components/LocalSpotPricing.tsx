@@ -51,7 +51,7 @@ const LocalSpotPricing: React.FC = () => {
                 <span className="font-semibold text-gray-900">LocalSpot</span>
               </div>
 
-              <h3 className="text-sm font-semibold mb-3" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Done for you</h3>
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">Done for you</h3>
 
               <div className="space-y-1 mb-4">
                 {[
@@ -76,17 +76,15 @@ const LocalSpotPricing: React.FC = () => {
                     ) : (
                       <span className="text-orange-500 flex-shrink-0">🎁</span>
                     )}
-                    <span className="leading-tight" style={{ fontSize: '20px', color: 'rgba(0, 0, 0, 0.8)' }}>{feature.text}</span>
+                    <span className="text-gray-700 leading-tight">{feature.text}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mb-4">
-                <p className="text-sm font-medium mb-1" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Total Proven Value: $42,000</p>
-                <p className="text-lg font-semibold flex items-baseline gap-1" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
-                  <span>Get it for $499/month</span>
-                  <span className="text-xs font-normal" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Annual pre-pay</span>
-                </p>
+                <p className="text-sm font-medium text-gray-900 mb-1">Total Proven Value: $42,000</p>
+                <p className="text-lg font-semibold text-gray-900">Get it for $499/month</p>
+                <p className="text-xs text-gray-600">Annual pre-pay</p>
               </div>
 
               <button 
@@ -121,7 +119,7 @@ const LocalSpotPricing: React.FC = () => {
                 <span className="font-semibold text-gray-900">LocalSpot</span>
               </div>
 
-              <h3 className="text-base font-semibold mb-3" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Done for you</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Done for you</h3>
 
               <div className="space-y-1 mb-5">
                 {[
@@ -146,17 +144,15 @@ const LocalSpotPricing: React.FC = () => {
                     ) : (
                       <span className="text-orange-500 flex-shrink-0">🎁</span>
                     )}
-                    <span className="leading-tight" style={{ fontSize: '20px', color: 'rgba(0, 0, 0, 0.8)' }}>{feature.text}</span>
+                    <span className="text-gray-700 leading-tight">{feature.text}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mb-5">
-                <p className="text-sm font-medium mb-1" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Total Proven Value: $42,000</p>
-                <p className="text-xl font-semibold flex items-baseline gap-1" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
-                  <span>Get it for $499/month</span>
-                  <span className="text-sm font-normal" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Annual pre-pay</span>
-                </p>
+                <p className="text-sm font-medium text-gray-900 mb-1">Total Proven Value: $42,000</p>
+                <p className="text-xl font-semibold text-gray-900 mb-0.5">Get it for $499/month</p>
+                <p className="text-sm text-gray-600">Annual pre-pay</p>
               </div>
 
               <button 
