@@ -85,51 +85,77 @@ function ConfirmationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 py-12">
-      <div className="max-w-2xl w-full">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
-          <div className="px-8 py-12 sm:px-12 sm:py-16">
-            {/* Profile Image */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-semibold">
-                  {appointmentData.inviteeName ? appointmentData.inviteeName.charAt(0).toUpperCase() : 'L'}
+      <div className="w-full" style={{ maxWidth: '590px' }}>
+        <div className="bg-white rounded-3xl border overflow-hidden" style={{ 
+          borderColor: 'rgba(0, 0, 0, 0.1)',
+          borderWidth: '1px'
+        }}>
+          <div className="px-16 py-16 flex flex-col gap-12">
+            {/* Top Section - Profile + Text */}
+            <div className="flex flex-col gap-8">
+              {/* Profile Image + Headings */}
+              <div className="flex flex-col gap-4">
+                {/* Profile Image */}
+                <div className="flex justify-center">
+                  <div className="relative w-12 h-12">
+                    <img 
+                      src="/PP Maria.jpg" 
+                      alt="Profile"
+                      className="w-12 h-12 rounded-full border-2 border-white object-cover"
+                      style={{ borderRadius: '46px' }}
+                    />
+                    <div 
+                      className="absolute w-4 h-4 rounded-full border-2 border-white"
+                      style={{ 
+                        bottom: 0,
+                        right: 0,
+                        backgroundColor: '#5EC269'
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
-              </div>
-            </div>
 
-            {/* Main Heading */}
-            <div className="text-center mb-12">
-              <h1 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-3">
-                {appointmentData.eventTypeName || 'Discovery Call'} Confirmed
-              </h1>
-              <p className="text-lg text-gray-600">
-                You are scheduled with {appointmentData.inviteeName || 'our team'}
-              </p>
-            </div>
-
-            {/* Date and Time Section */}
-            {appointmentData.eventStartTime && (
-              <div className="mb-12 flex items-start gap-4 justify-center">
-                <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Date and Time</h3>
-                  <p className="text-base text-gray-600">{formatDateTime(appointmentData.eventStartTime)}</p>
+                {/* Headings */}
+                <div className="text-center flex flex-col gap-1">
+                  <h1 className="text-2xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
+                    {appointmentData.eventTypeName || 'Discovery Call'} Confirmed
+                  </h1>
+                  <p className="text-base" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                    You are scheduled with {appointmentData.inviteeName || 'Sergio Naranjo'}
+                  </p>
                 </div>
               </div>
-            )}
 
-            {/* Email Confirmation Message */}
-            <div className="text-center mb-8">
-              <p className="text-base text-gray-600">
-                A calendar confirmation has been sent to your email address
-              </p>
+              {/* Date and Time Section */}
+              {appointmentData.eventStartTime && (
+                <div 
+                  className="rounded px-10 py-6 flex items-center gap-2"
+                  style={{ backgroundColor: '#F9FBFF' }}
+                >
+                  <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ opacity: 0.8 }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <div className="flex flex-col">
+                    <p className="text-base font-medium" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                      Date and Time
+                    </p>
+                    <p className="text-base" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>
+                      {formatDateTime(appointmentData.eventStartTime)}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Email Confirmation Message */}
+              <div className="text-center">
+                <p className="text-base" style={{ color: 'rgba(0, 0, 0, 1)' }}>
+                  A calendar confirmation has been sent to your email address
+                </p>
+              </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-12 flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleGoHome}
                 className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
