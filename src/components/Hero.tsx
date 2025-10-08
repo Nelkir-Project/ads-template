@@ -31,19 +31,21 @@ const Hero: React.FC = () => {
 
             {/* Customer Trust Indicators */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
+              <div className="relative flex items-center">
+                <div className="flex -space-x-2 relative z-10">
                   <img src="/1.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/2.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/3.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/4.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                 </div>
-                <div className="text-[11px] sm:text-sm text-gray-600">
-                  <span className="font-normal">340+ restaurant owners trust LocalSpot</span>
+                <div className="bg-white px-3 py-1 ml-2 rounded relative z-0">
+                  <span className="text-xs sm:text-sm font-normal whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                    +10,000 Diners Love LocalSpot
+                  </span>
                 </div>
               </div>
               <div className="flex items-center text-yellow-500">
-                <span className="text-gray-600 text-[11px] sm:text-sm">⭐ Typical results: first week</span>
+                <span className="text-gray-600 text-xs sm:text-sm">⭐ Typical payback: 20 days</span>
               </div>
             </div>
 
