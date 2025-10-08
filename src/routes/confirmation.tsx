@@ -117,10 +117,10 @@ function ConfirmationPage() {
 
                 {/* Headings */}
                 <div className="text-center flex flex-col gap-1">
-                  <h1 className="text-2xl font-normal" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
+                  <h1 className="font-normal" style={{ color: 'rgba(0, 0, 0, 0.9)', fontSize: '20px' }}>
                     {appointmentData.eventTypeName || 'Discovery Call'} Confirmed
                   </h1>
-                  <p className="text-base" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                  <p style={{ color: 'rgba(0, 0, 0, 0.65)', fontSize: '16px' }}>
                     You are scheduled with {appointmentData.inviteeName || 'Sergio Naranjo'}
                   </p>
                 </div>
@@ -159,6 +159,7 @@ function ConfirmationPage() {
               <button
                 onClick={handleGoHome}
                 className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                style={{ fontSize: '20px' }}
               >
                 Back to Home
               </button>
@@ -166,6 +167,7 @@ function ConfirmationPage() {
               <button
                 onClick={handleReschedule}
                 className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                style={{ fontSize: '20px' }}
               >
                 Reschedule Call
               </button>
