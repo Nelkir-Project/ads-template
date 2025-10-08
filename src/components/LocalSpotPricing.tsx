@@ -76,7 +76,7 @@ const LocalSpotPricing: React.FC = () => {
                     ) : (
                       <span className="text-orange-500 flex-shrink-0">🎁</span>
                     )}
-                    <span className="text-gray-700 leading-tight">{feature.text}</span>
+                    <span className="text-gray-700 leading-tight text-xl">{feature.text}</span>
                   </div>
                 ))}
               </div>
@@ -144,7 +144,7 @@ const LocalSpotPricing: React.FC = () => {
                     ) : (
                       <span className="text-orange-500 flex-shrink-0">🎁</span>
                     )}
-                    <span className="text-gray-700 leading-tight">{feature.text}</span>
+                    <span className="text-gray-700 leading-tight text-xl">{feature.text}</span>
                   </div>
                 ))}
               </div>
