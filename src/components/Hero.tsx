@@ -31,19 +31,19 @@ const Hero: React.FC = () => {
 
             {/* Customer Trust Indicators */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 px-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   <img src="/1.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/2.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/3.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                   <img src="/4.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                 </div>
-                <div className="text-xs sm:text-sm text-gray-600">
+                <div className="text-[11px] sm:text-sm text-gray-600">
                   <span className="font-normal">340+ restaurant owners trust LocalSpot</span>
                 </div>
               </div>
               <div className="flex items-center text-yellow-500">
-                <span className="text-gray-600">⭐ Typical results: first week</span>
+                <span className="text-gray-600 text-[11px] sm:text-sm">⭐ Typical results: first week</span>
               </div>
             </div>
 
