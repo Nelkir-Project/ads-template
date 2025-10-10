@@ -9,6 +9,7 @@ import { webhookRoutes } from './routes/webhooks.js';
 import { smsRoutes } from './routes/sms.js';
 import { calendlyRoutes } from './routes/calendly.js';
 import { calendlyWebhooksRoutes } from './routes/calendly-webhooks.js';
+import { conversationRoutes } from './routes/conversations.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ app.use('/api/webhooks', webhookRoutes);
 app.use('/api/sms', smsRoutes);
 app.use('/api/auth/calendly', calendlyRoutes);
 app.use('/api/calendly-webhooks', calendlyWebhooksRoutes);
+app.use('/api/conversations', conversationRoutes);
 
 // Health check
 app.get('/health', (_req, res) => {
@@ -38,6 +40,18 @@ app.post('/api/admin/verify', (req, res) => {
   } else {
     res.status(401).json({ valid: false, error: 'Invalid password' });
   }
+});
+
+// AWS configuration check endpoint (for debugging)
+app.get('/api/admin/aws-config', (req, res) => {
+  const config = {
+    aws_region: process.env.AWS_REGION || 'not set',
+    aws_credentials: !!(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY),
+    origination_number: process.env.ORIGINATION_NUMBER ? 'configured' : 'not set',
+    conversations_table: process.env.CONVERSATIONS_TABLE_NAME || 'SMSConversations (default)',
+  };
+  
+  res.json(config);
 });
 
 

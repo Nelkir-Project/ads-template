@@ -17,6 +17,9 @@
     "vercel-build": "npm run build"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.907.0",
+    "@aws-sdk/client-sns": "^3.907.0",
+    "@aws-sdk/lib-dynamodb": "^3.907.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.2.2",
     "@tanstack/react-router": "^1.130.2",

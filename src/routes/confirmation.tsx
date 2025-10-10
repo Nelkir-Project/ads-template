@@ -1,6 +1,17 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 
+// Declare gtag global function for TypeScript
+declare global {
+  interface Window {
+    gtag: (
+      command: string,
+      eventName: string,
+      params?: { [key: string]: string | number | boolean }
+    ) => void
+  }
+}
+
 export const Route = createFileRoute('/confirmation')({
   component: ConfirmationPage,
 })
@@ -38,6 +49,16 @@ function ConfirmationPage() {
 
     setAppointmentData(data)
     setLoading(false)
+  }, [])
+
+  // Fire Google Ads conversion event when confirmation page loads
+  useEffect(() => {
+    // Check if gtag is available
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17583032542/J2ZqCMCuyaobEN6Rn8BB'
+      })
+    }
   }, [])
 
   const handleGoHome = () => {

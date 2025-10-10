@@ -1,16 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
 import { CalendarIntegration } from '../components/CalendarIntegration'
+import { ConversationsManager } from '../components/ConversationsManager'
 
 export const Route = createFileRoute('/admin')({
   component: AdminPage,
 })
+
+type AdminTab = 'calendar' | 'conversations'
 
 function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [activeTab, setActiveTab] = useState<AdminTab>('calendar')
 
   // Check if already authenticated (stored in sessionStorage)
   useEffect(() => {
@@ -152,12 +156,37 @@ function AdminPage() {
               </button>
             </div>
           </div>
+
+          {/* Tab Navigation */}
+          <div className="flex space-x-8 border-t border-gray-200">
+            <button
+              onClick={() => setActiveTab('calendar')}
+              className={
+                activeTab === 'calendar'
+                  ? 'border-b-2 border-indigo-600 text-indigo-600 py-4 px-1 text-sm font-medium'
+                  : 'border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium'
+              }
+            >
+              📅 Calendar Integration
+            </button>
+            <button
+              onClick={() => setActiveTab('conversations')}
+              className={
+                activeTab === 'conversations'
+                  ? 'border-b-2 border-indigo-600 text-indigo-600 py-4 px-1 text-sm font-medium'
+                  : 'border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium'
+              }
+            >
+              💬 SMS Conversations
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Admin Content */}
       <div className="py-8">
-        <CalendarIntegration />
+        {activeTab === 'calendar' && <CalendarIntegration />}
+        {activeTab === 'conversations' && <ConversationsManager />}
       </div>
     </div>
   )

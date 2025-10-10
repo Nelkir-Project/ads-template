@@ -1,0 +1,10 @@
+{
+  "originationNumber": "+351912096676",
+  "destinationNumber": "+18336935813",
+  "messageBody": "Test message from script",
+  "messageKeyword": "TEST",
+  "inboundMessageId": "test-123456"
+}
+
+
+
