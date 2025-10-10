@@ -157,10 +157,10 @@ function ConfirmationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <div className="flex flex-col">
-                    <p className="text-base font-medium" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                    <p className="font-medium" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
                       Date and Time
                     </p>
-                    <p className="text-base" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>
+                    <p style={{ color: 'rgba(0, 0, 0, 0.7)' }}>
                       {formatDateTime(appointmentData.eventStartTime)}
                     </p>
                   </div>
@@ -169,7 +169,7 @@ function ConfirmationPage() {
 
               {/* Email Confirmation Message */}
               <div className="text-center">
-                <p className="text-base" style={{ color: 'rgba(0, 0, 0, 1)' }}>
+                <p style={{ color: 'rgba(0, 0, 0, 1)' }}>
                   A calendar confirmation has been sent to your email address
                 </p>
               </div>
@@ -179,7 +179,7 @@ function ConfirmationPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleGoHome}
-                className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors heading-text"
                 style={{ fontSize: '20px' }}
               >
                 Back to Home
@@ -187,7 +187,7 @@ function ConfirmationPage() {
               
               <button
                 onClick={handleReschedule}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors heading-text"
                 style={{ fontSize: '20px' }}
               >
                 Reschedule Call
@@ -198,7 +198,7 @@ function ConfirmationPage() {
 
         {/* Footer Note */}
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-gray-500">
             Need help? Contact us at{' '}
             <a href="mailto:hello@localspot.com" className="text-blue-600 hover:text-blue-700 font-medium underline">
               hello@localspot.com

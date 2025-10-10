@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
               Marketing, Menu & Reservation System for Restaurants
             </h1>
             
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
+            <p className="text-gray-600 mb-6 sm:mb-8 px-4">
               Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discover you, return more often, and spends a little more.
             </p>
 
@@ -39,13 +39,13 @@ const Hero: React.FC = () => {
                   <img src="/4.png" alt="Customer" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                 </div>
                 <div className="bg-white px-3 py-1 ml-2 rounded relative z-0">
-                  <span className="text-xs sm:text-sm font-normal whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                  <span className="font-normal whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                     +10,000 Diners Love LocalSpot
                   </span>
                 </div>
               </div>
               <div className="flex items-center text-yellow-500">
-                <span className="text-gray-600" style={{ fontSize: '15px' }}>⭐ Typical payback: 20 days</span>
+                <span className="text-gray-600">⭐ Typical payback: 20 days</span>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
             </h1>
             
             {/* Subtitle - Figma: opacity 0.65 */}
-            <p className="text-lg xl:text-xl mb-16 max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+            <p className="mb-16 max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
               Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discovers you, return more often, and spends a little more.
             </p>
 
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
                   <img src="/3.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
                   <img src="/4.png" alt="Customer" className="w-6 h-6 rounded-full object-cover" />
                 </div>
-                <span className="text-xs lg:text-base whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                <span className="whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   +10,000 Diners Love LocalSpot
                 </span>
               </div>
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
               {/* Right Column - Google Reviews */}
               <div className="bg-white px-4 py-2 rounded-lg shadow-sm flex items-center gap-3" style={{ height: '33px' }}>
                 <img src="/image 2018.png" alt="Google Reviews" className="h-5 w-auto" />
-                <span className="text-xs lg:text-base whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                <span className="whitespace-nowrap" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   5.0 Stars in Google Reviews
                 </span>
               </div>
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
             {/* Restaurant Trust Section */}
             <div className="w-full max-w-4xl mx-auto">
               <div className="text-center">
-                <h3 className="text-lg font-medium mb-8" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                <h3 className="font-medium mb-8" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
                   Some of the Restaurants That Trust us in the Tampa Bay Area
                 </h3>
                 <div className="flex items-center justify-center gap-8 lg:gap-12">

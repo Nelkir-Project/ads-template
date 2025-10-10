@@ -20,10 +20,16 @@ body {
   font-size: 16px;
 }
 
-@media (min-width: 1024px) {
-  body {
-    font-size: 24px;
-  }
+/* Ensure all body text elements are 16px - use !important to override Tailwind */
+/* Exclude elements that should remain as titles/subtitles */
+/* .subtitle-text, .heading-text, and .testimonial-quote classes are used to exclude elements from this rule */
+p:not(.subtitle-text):not(.heading-text), 
+span:not(h1 span):not(h2 span):not(h3 span):not(.subtitle-text):not(.heading-text), 
+li, 
+blockquote:not(.testimonial-quote), 
+label, 
+a {
+  font-size: 16px !important;
 }
 
 h1, h2, h3 {

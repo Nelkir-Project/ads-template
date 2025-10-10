@@ -62,7 +62,7 @@ const HowItWorks: React.FC = () => {
                   <h2 className="text-4xl font-normal leading-tight mb-4" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
                     {section.title}
                   </h2>
-                  <p className="text-xl font-bold leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                  <p className="subtitle-text text-xl font-bold leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
                     {section.subtitle}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ const HowItWorks: React.FC = () => {
                     <div className="space-y-6">
                       {/* Features */}
                       <div>
-                        <h4 className="text-base font-normal text-gray-900 mb-4">{section.featuresLabel}</h4>
+                        <h4 className="font-normal text-gray-900 mb-4">{section.featuresLabel}</h4>
                         <ul className="space-y-3">
                           {section.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-baseline">
@@ -139,13 +139,13 @@ const HowItWorks: React.FC = () => {
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-left" style={{fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 700}}>
                       {section.title}
                     </h3>
-                    <p className="text-lg font-bold text-gray-600 mb-6 text-left">
+                    <p className="subtitle-text text-lg font-bold text-gray-600 mb-6 text-left">
                       {section.subtitle}
                     </p>
                     
                     {/* Features */}
                     <div className="space-y-4 px-4">
-                      <h4 className="font-normal text-gray-900 text-lg">{section.featuresLabel}</h4>
+                      <h4 className="font-normal text-gray-900">{section.featuresLabel}</h4>
                       <ul className="space-y-0.5">
                         {section.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-baseline text-gray-700">

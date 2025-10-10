@@ -18,7 +18,7 @@ const FinalCTA: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-4">
             Every empty table is a missed opportunity.
           </h2>
-          <p className="text-3xl sm:text-4xl font-normal text-gray-900">
+          <p className="subtitle-text text-3xl sm:text-4xl font-normal text-gray-900">
             LocalSpot helps you fill them.
           </p>
         </div>
@@ -29,8 +29,8 @@ const FinalCTA: React.FC = () => {
             {/* Left Column - Text Content */}
             <div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Ready to pack your spot?</h3>
-              <p className="text-lg text-gray-600 mb-6">Start turning first-time guests into VIP members</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-gray-600 mb-6">Start turning first-time guests into VIP members</p>
+              <p className="text-gray-600">
                 We make you more money than we cost. Guaranteed or Your Money Back.
               </p>
             </div>

@@ -64,10 +64,10 @@ const ScrollPopup = () => {
 
           {/* Content */}
           <div className="flex-1 text-center sm:text-left">
-            <h3 className="font-normal text-gray-900 text-xs sm:text-sm mb-1">
+            <h3 className="font-normal text-gray-900 mb-1">
               Meet with Maria or Federico for a personalized walkthrough
             </h3>
-            <div className="flex items-center justify-center sm:justify-start text-xs text-gray-500">
+            <div className="flex items-center justify-center sm:justify-start text-gray-500">
               <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -79,7 +79,7 @@ const ScrollPopup = () => {
           <div className="flex-shrink-0 w-full sm:w-auto">
             <button
               onClick={handleBookDemo}
-              className="bg-gray-900 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group w-full sm:w-auto"
+              className="bg-gray-900 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group w-full sm:w-auto"
             >
               Book Your Demo
               <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

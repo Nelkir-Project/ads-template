@@ -72,12 +72,12 @@ const PricingSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
             <span className="text-yellow-500">⭐</span> Pricing That <span className="text-blue-600">Pays for Itself</span>. Guaranteed. <span className="text-yellow-500">⭐</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 mb-6 px-4">
+          <p className="text-gray-600 mb-6 px-4">
             If LocalSpot doesn't pay for itself in 60 days, you get your money back. No questions asked.
           </p>
           <div className="inline-flex flex-col sm:flex-row items-center bg-green-100 text-green-800 px-4 py-3 sm:py-2 rounded-full font-semibold mb-6 sm:mb-8 mx-4 text-center">
             <span className="mr-0 sm:mr-2 mb-1 sm:mb-0">📈</span>
-            <span className="text-sm sm:text-base">Average customer saves $35K • Median Subscription Payback in &lt; 3 hours</span>
+            <span>Average customer saves $35K • Median Subscription Payback in &lt; 3 hours</span>
           </div>
 
           {/* Billing Toggle */}
@@ -85,7 +85,7 @@ const PricingSection: React.FC = () => {
             <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-200 flex w-full max-w-xs">
               <button
                 onClick={() => setIsYearly(false)}
-                className={`flex-1 px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`flex-1 px-3 sm:px-4 py-2 rounded-md font-medium transition-colors ${
                   !isYearly 
                     ? 'bg-blue-600 text-white shadow-sm' 
                     : 'text-gray-700 hover:text-gray-900'
@@ -95,14 +95,14 @@ const PricingSection: React.FC = () => {
               </button>
               <button
                 onClick={() => setIsYearly(true)}
-                className={`flex-1 px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center ${
+                className={`flex-1 px-3 sm:px-4 py-2 rounded-md font-medium transition-colors flex items-center justify-center ${
                   isYearly 
                     ? 'bg-blue-600 text-white shadow-sm' 
                     : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
                 <span>Yearly</span>
-                <span className="ml-1 sm:ml-2 bg-green-100 text-green-800 text-xs px-1 sm:px-2 py-1 rounded-full">
+                <span className="ml-1 sm:ml-2 bg-green-100 text-green-800 px-1 sm:px-2 py-1 rounded-full">
                   Save 20%
                 </span>
               </button>
@@ -118,7 +118,7 @@ const PricingSection: React.FC = () => {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold">
                     Most Popular
                   </span>
                 </div>
@@ -129,13 +129,13 @@ const PricingSection: React.FC = () => {
                 <div className="mb-6">
                   {plan.monthlyPrice ? (
                     <>
-                      <span className="text-5xl font-bold text-blue-600">
+                      <span className="heading-text text-5xl font-bold text-blue-600">
                         ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                       </span>
-                      <span className="text-gray-600 text-xl">{plan.period}</span>
+                      <span className="text-gray-600">{plan.period}</span>
                     </>
                   ) : (
-                    <span className="text-3xl font-bold text-gray-900">
+                    <span className="heading-text text-3xl font-bold text-gray-900">
                       Custom Pricing
                     </span>
                   )}
@@ -150,10 +150,10 @@ const PricingSection: React.FC = () => {
                     <div key={index} className={isHeader ? "pt-4 first:pt-0" : ""}>
                       {isHeader ? (
                         <div className="mb-2">
-                          <span className="text-sm font-bold text-gray-900 uppercase tracking-wide">{feature}</span>
+                          <span className="font-bold text-gray-900 uppercase tracking-wide">{feature}</span>
                         </div>
                       ) : (
-                        <div className="text-gray-700 text-sm pl-0">
+                        <div className="text-gray-700 pl-0">
                           {feature.startsWith('Up to') ? (
                             <span><span className="font-semibold">{feature.split(' ')[2]}</span> {feature.split(' ').slice(3).join(' ')}</span>
                           ) : (
@@ -187,7 +187,7 @@ const PricingSection: React.FC = () => {
         {/* Bottom Testimonial */}
         <div className="max-w-4xl mx-auto mt-16">
           <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
-            <blockquote className="text-xl text-gray-700 mb-6 italic text-center">
+            <blockquote className="testimonial-quote text-xl text-gray-700 mb-6 italic text-center">
               "I had no idea I was losing over $3,000 a month on my ads. LocalSpot fixed it in less than a day."
             </blockquote>
             
@@ -195,7 +195,7 @@ const PricingSection: React.FC = () => {
               <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
               <div className="text-left">
                 <div className="font-semibold text-gray-900">Garret Hecker</div>
-                <div className="text-gray-600 text-sm">Founder, Second Source Inc.</div>
+                <div className="text-gray-600">Founder, Second Source Inc.</div>
               </div>
             </div>
           </div>
@@ -225,7 +225,7 @@ const PricingSection: React.FC = () => {
                 </p>
                 
                 {/* Stats */}
-                <div className="text-xs sm:text-sm text-gray-400">
+                <div className="text-gray-400">
                   <span className="font-semibold">340+</span> advertisers • <span className="font-semibold">$1.1M</span> saved • <span className="font-semibold">Avg $35K</span> per customer
                 </div>
               </div>
@@ -238,9 +238,9 @@ const PricingSection: React.FC = () => {
                     <input
                       type="email"
                       placeholder="Enter your work email"
-                      className="flex-1 px-3 py-2 border-0 focus:outline-none text-gray-900 text-sm bg-transparent"
+                      className="flex-1 px-3 py-2 border-0 focus:outline-none text-gray-900 bg-transparent"
                     />
-                    <button className="inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full sm:w-auto shrink-0 h-11 sm:h-12 bg-slate-50 text-slate-900 hover:text-slate-900 hover:bg-slate-100 shadow-md sm:shadow-lg hover:shadow-xl shadow-slate-900/20 sm:shadow-slate-900/30 font-medium text-sm sm:text-base py-5 sm:py-6 px-6 sm:px-8 rounded-lg group" type="submit">
+                    <button className="inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full sm:w-auto shrink-0 h-11 sm:h-12 bg-slate-50 text-slate-900 hover:text-slate-900 hover:bg-slate-100 shadow-md sm:shadow-lg hover:shadow-xl shadow-slate-900/20 sm:shadow-slate-900/30 font-medium py-5 sm:py-6 px-6 sm:px-8 rounded-lg group" type="submit">
                       <span className="flex items-center justify-center">
                         Reclaim Your Budget
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform">
@@ -253,7 +253,7 @@ const PricingSection: React.FC = () => {
                 </div>
 
                 {/* Guarantee text */}
-                <p className="text-center text-xs sm:text-sm text-yellow-400 px-2">
+                <p className="text-center text-yellow-400 px-2">
                   ⭐ We Save You More Than We Cost. Guaranteed or You Get Your Money Back. ⭐
                 </p>
               </div>

@@ -17,13 +17,13 @@ const Footer: React.FC = () => {
             <div className="space-y-1">
               <a 
                 href="mailto:hello@localspot.ai" 
-                className="block text-gray-700 hover:text-blue-600 transition-colors text-sm"
+                className="block text-gray-700 hover:text-blue-600 transition-colors"
               >
                 hello@localspot.ai
               </a>
               <a 
                 href="tel:+17272805723" 
-                className="block text-gray-700 hover:text-blue-600 transition-colors text-sm"
+                className="block text-gray-700 hover:text-blue-600 transition-colors"
               >
                 +1 (727) 280-5723
               </a>
@@ -32,20 +32,20 @@ const Footer: React.FC = () => {
 
           {/* Links */}
           <div className="flex space-x-6 sm:space-x-8">
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
               Terms
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
               Privacy
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
               About
             </a>
           </div>
         </div>
 
         <div className="text-center sm:text-left mt-4 sm:mt-6">
-          <p className="text-gray-500 text-xs sm:text-sm">
+          <p className="text-gray-500">
             © 2025 LocalSpot. All rights reserved.
           </p>
         </div>

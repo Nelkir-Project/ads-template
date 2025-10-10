@@ -26,7 +26,7 @@ const QualificationSection: React.FC = () => {
             
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-red-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -35,7 +35,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-red-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -44,7 +44,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-red-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -53,7 +53,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-red-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-red-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ❌
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -78,7 +78,7 @@ const QualificationSection: React.FC = () => {
             
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-green-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -87,7 +87,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-green-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -96,7 +96,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-green-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
@@ -105,7 +105,7 @@ const QualificationSection: React.FC = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="text-green-500 text-lg font-normal mr-3 mt-0.5 flex-shrink-0">
+                <div className="text-green-500 font-normal mr-3 mt-0.5 flex-shrink-0">
                   ✅
                 </div>
                 <span className="text-gray-700 leading-relaxed">
