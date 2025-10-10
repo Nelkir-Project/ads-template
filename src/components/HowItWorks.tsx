@@ -17,7 +17,7 @@ const HowItWorks: React.FC = () => {
         "Keep your Social Media Fresh with Automated Posts.",
         "Get more diners booking online instead of calling."
       ],
-      image: "/Be the restaurant everyone visits.png",
+      image: "/Get More Customers to Your Restaurant.jpg",
       imageFirst: true
     },
     {
@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
         "Promote offers during slow hours.",
         "Use a fun loyalty program to bring them back."
       ],
-      image: "/Turn First Time Visitors 1.png",
+      image: "/Turn First-Time Diners Into Loyal Guests.jpg",
       imageFirst: false
     },
     {
@@ -70,18 +70,18 @@ const HowItWorks: React.FC = () => {
                 {/* Content Grid */}
                 <div className="grid grid-cols-12 gap-16 items-center">
                   {/* Image */}
-                  <div className={`col-span-7 ${section.imageFirst ? 'order-1' : 'order-2'}`}>
+                  <div className={`col-span-6 ${section.imageFirst ? 'order-1' : 'order-2'}`}>
                     <div className="relative">
                       <img 
                         src={section.image} 
                         alt={section.title}
-                        className="w-full h-80 object-cover rounded-3xl"
+                        className="w-full h-auto object-contain rounded-3xl"
                       />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className={`col-span-5 ${section.imageFirst ? 'order-2' : 'order-1'}`}>
+                  <div className={`col-span-6 ${section.imageFirst ? 'order-2' : 'order-1'}`}>
                     <div className="space-y-6">
                       {/* Features */}
                       <div>
@@ -118,12 +118,12 @@ const HowItWorks: React.FC = () => {
               <div className="lg:hidden">
                 <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
                   {/* Image */}
-                  <div className={`w-full mb-6 lg:mb-0 lg:col-span-7 ${section.imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className={`w-full mb-6 lg:mb-0 lg:col-span-6 ${section.imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div className={`${index === 1 ? 'bg-gradient-to-br from-blue-50 to-purple-50' : 'bg-white'} rounded-none sm:rounded-2xl shadow-xl overflow-hidden ${index === 1 ? 'p-4 sm:p-8' : ''} ${index === 2 ? 'border-0 sm:border-2 border-dashed border-blue-300 relative' : ''}`}>
                       <img 
                         src={section.image} 
                         alt={section.title}
-                        className={`w-full h-48 sm:h-64 lg:h-96 ${index === 1 ? 'object-contain' : 'object-cover'}`}
+                        className={`w-full h-auto object-contain`}
                       />
                       {index === 2 && (
                         <div className="absolute -bottom-4 left-2 sm:left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-normal">
@@ -134,7 +134,7 @@ const HowItWorks: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <div className={`px-4 sm:px-0 lg:px-0 lg:col-span-5 ${section.imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div className={`px-4 sm:px-0 lg:px-0 lg:col-span-6 ${section.imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
                     {/* Title + Subtitle (mobile/tablet only) */}
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-left" style={{fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 700}}>
                       {section.title}
