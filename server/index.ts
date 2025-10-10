@@ -43,7 +43,7 @@ app.post('/api/admin/verify', (req, res) => {
 });
 
 // AWS configuration check endpoint (for debugging)
-app.get('/api/admin/aws-config', (req, res) => {
+app.get('/api/admin/aws-config', (_req, res) => {
   const config = {
     aws_region: process.env.AWS_REGION || 'not set',
     aws_credentials: !!(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY),
