@@ -142,7 +142,7 @@ function ConfirmationPage() {
                     {appointmentData.eventTypeName || 'Discovery Call'} Confirmed
                   </h1>
                   <p style={{ color: 'rgba(0, 0, 0, 0.65)', fontSize: '16px' }}>
-                    You are scheduled with {appointmentData.inviteeName || 'Sergio Naranjo'}
+                    You are scheduled with {appointmentData.inviteeName || 'Maria del Mar Martinez'}
                   </p>
                 </div>
               </div>
