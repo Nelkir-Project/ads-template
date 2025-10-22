@@ -49,6 +49,20 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
+            {/* Restaurant Trust Section - Mobile */}
+            <div className="w-full px-4 mt-8">
+              <div className="text-center">
+                <h3 className="text-sm font-medium mb-6 text-gray-600 dark:text-gray-400">
+                  Some of the Restaurants That Trust us in the Tampa Bay Area
+                </h3>
+                <div className="flex items-center justify-center gap-6 flex-wrap">
+                  <img src="/coffee.png" alt="Coffee restaurant" className="h-10 w-auto opacity-70" />
+                  <img src="/avenue.png" alt="Avenue restaurant" className="h-10 w-auto opacity-70" />
+                  <img src="/Malai.png" alt="Malai restaurant" className="h-10 w-auto opacity-70" />
+                  <img src="/Branzini.png" alt="Branzini restaurant" className="h-10 w-auto opacity-70" />
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
