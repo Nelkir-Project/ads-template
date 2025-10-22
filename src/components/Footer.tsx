@@ -13,7 +13,8 @@ const Footer: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center">
           {/* Logo and Contact */}
           <div className="mb-4 sm:mb-0 text-center sm:text-left">
-            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0" />
+            <img src="/Light mode.webp" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0 block dark:hidden" />
+            <img src="/Dark mode.webp" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0 hidden dark:block" />
             <div className="space-y-1">
               <a 
                 href="mailto:hello@localspot.ai" 

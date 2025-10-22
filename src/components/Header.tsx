@@ -15,7 +15,8 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className={`flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-left animate-delay-100' : ''}`}>
-            <img src="/Group 15212.png" alt="LocalSpot" className="h-8 w-auto" />
+            <img src="/Light mode.webp" alt="LocalSpot" className="h-8 w-auto block dark:hidden" />
+            <img src="/Dark mode.webp" alt="LocalSpot" className="h-8 w-auto hidden dark:block" />
           </div>
 
           {/* Desktop Navigation */}
