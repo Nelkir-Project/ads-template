@@ -75,18 +75,19 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 			style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}
 			onClick={handleVideoClick}
 		>
-			<video
-				ref={videoRef}
-				className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
-				muted={false}
-				playsInline
-				loop
-				preload={getPreloadStrategy()}
-				poster={poster}
-				{...{ 'webkit-playsinline': 'true' } as any}
-				onPlay={() => setIsPlaying(true)}
-				onPause={() => setIsPlaying(false)}
-			>
+		<video
+			ref={videoRef}
+			className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
+			muted={false}
+			playsInline
+			loop
+			controls={controls}
+			preload={getPreloadStrategy()}
+			poster={poster}
+			{...{ 'webkit-playsinline': 'true' } as any}
+			onPlay={() => setIsPlaying(true)}
+			onPause={() => setIsPlaying(false)}
+		>
 				{srcs.map((s) => (
 					<source key={s} src={s} type="video/mp4" />
 				))}
