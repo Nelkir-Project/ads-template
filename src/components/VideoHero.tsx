@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { useVideoIntersectionObserver } from '../hooks/useVideoIntersectionObserver'
+import React, { useState, useEffect, useRef } from 'react'
 
 type VideoHeroProps = {
 	className?: string
@@ -40,16 +39,13 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 }) => {
 	const [isMobile, setIsMobile] = useState(false)
 	const [slowConnection, setSlowConnection] = useState(false)
+	const [isPlaying, setIsPlaying] = useState(false)
+	const videoRef = useRef<HTMLVideoElement>(null)
 	
 	useEffect(() => {
 		setIsMobile(isMobileDevice())
 		setSlowConnection(isSlowConnection())
 	}, [])
-
-	const { videoRef } = useVideoIntersectionObserver({ 
-		threshold: 0.3, 
-		enableSound: true 
-	})
 
 	// Adaptive preload strategy:
 	// - Slow connection: none (only load when user clicks play)
@@ -61,8 +57,24 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 		return 'auto'
 	}
 
+	const handleVideoClick = () => {
+		if (!videoRef.current) return
+		
+		if (videoRef.current.paused) {
+			videoRef.current.play()
+			setIsPlaying(true)
+		} else {
+			videoRef.current.pause()
+			setIsPlaying(false)
+		}
+	}
+
 	return (
-		<div className={`relative w-full overflow-hidden bg-black ${containerClassName ?? ''}`} style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+		<div 
+			className={`relative w-full overflow-hidden bg-black cursor-pointer ${containerClassName ?? ''}`} 
+			style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}
+			onClick={handleVideoClick}
+		>
 			<video
 				ref={videoRef}
 				className={`absolute top-0 left-0 w-full h-full object-cover ${className ?? ''}`}
@@ -71,20 +83,26 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 				loop
 				preload={getPreloadStrategy()}
 				poster={poster}
-				controls={controls}
 				{...{ 'webkit-playsinline': 'true' } as any}
-				onLoadedMetadata={() => console.log('[VideoHero] loadedmetadata')}
-				onCanPlay={() => console.log('[VideoHero] canplay')}
-				onError={(e) => {
-					const v = e.currentTarget
-					console.log('[VideoHero] error', { error: v.error, src: v.currentSrc })
-				}}
+				onPlay={() => setIsPlaying(true)}
+				onPause={() => setIsPlaying(false)}
 			>
 				{srcs.map((s) => (
 					<source key={s} src={s} type="video/mp4" />
 				))}
 				Your browser does not support the video tag.
 			</video>
+			
+			{/* Play/Pause overlay icon */}
+			{!isPlaying && (
+				<div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+					<div className="bg-black/50 rounded-full p-4">
+						<svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M8 5v14l11-7z"/>
+						</svg>
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

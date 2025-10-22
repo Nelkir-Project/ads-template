@@ -95,22 +95,19 @@ function ConfirmationPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading confirmation details...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 dark:border-blue-400 mx-auto"></div>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">Loading confirmation details...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 py-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4 py-12">
       <div className="w-full" style={{ maxWidth: '590px' }}>
-        <div className="bg-white rounded-3xl border overflow-hidden" style={{ 
-          borderColor: 'rgba(0, 0, 0, 0.1)',
-          borderWidth: '1px'
-        }}>
+        <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 overflow-hidden">
           <div className="px-16 py-16 flex flex-col gap-12">
             {/* Top Section - Profile + Text */}
             <div className="flex flex-col gap-8">
@@ -138,10 +135,10 @@ function ConfirmationPage() {
 
                 {/* Headings */}
                 <div className="text-center flex flex-col gap-1">
-                  <h1 className="font-normal" style={{ color: 'rgba(0, 0, 0, 0.9)', fontSize: '20px' }}>
+                  <h1 className="font-normal text-gray-900 dark:text-white" style={{ fontSize: '20px' }}>
                     {appointmentData.eventTypeName || 'Discovery Call'} Confirmed
                   </h1>
-                  <p style={{ color: 'rgba(0, 0, 0, 0.65)', fontSize: '16px' }}>
+                  <p className="text-gray-600 dark:text-gray-300" style={{ fontSize: '16px' }}>
                     You are scheduled with {appointmentData.inviteeName || 'Maria del Mar Martinez'}
                   </p>
                 </div>
@@ -150,17 +147,16 @@ function ConfirmationPage() {
               {/* Date and Time Section */}
               {appointmentData.eventStartTime && (
                 <div 
-                  className="rounded px-10 py-6 flex items-center gap-2"
-                  style={{ backgroundColor: '#F9FBFF' }}
+                  className="bg-blue-50 dark:bg-gray-700 rounded px-10 py-6 flex items-center gap-2"
                 >
-                  <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ opacity: 0.8 }}>
+                  <svg className="w-6 h-6 flex-shrink-0 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ opacity: 0.8 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <div className="flex flex-col">
-                    <p className="font-medium" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                    <p className="font-medium text-gray-800 dark:text-gray-200">
                       Date and Time
                     </p>
-                    <p style={{ color: 'rgba(0, 0, 0, 0.7)' }}>
+                    <p className="text-gray-700 dark:text-gray-300">
                       {formatDateTime(appointmentData.eventStartTime)}
                     </p>
                   </div>
@@ -169,7 +165,7 @@ function ConfirmationPage() {
 
               {/* Email Confirmation Message */}
               <div className="text-center">
-                <p style={{ color: 'rgba(0, 0, 0, 1)' }}>
+                <p className="text-gray-900 dark:text-white">
                   A calendar confirmation has been sent to your email address
                 </p>
               </div>
@@ -179,7 +175,7 @@ function ConfirmationPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleGoHome}
-                className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors heading-text"
+                className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors heading-text"
                 style={{ fontSize: '20px' }}
               >
                 Back to Home
@@ -187,7 +183,7 @@ function ConfirmationPage() {
               
               <button
                 onClick={handleReschedule}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors heading-text"
+                className="flex-1 bg-blue-600 dark:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors heading-text"
                 style={{ fontSize: '20px' }}
               >
                 Reschedule Call
@@ -198,9 +194,9 @@ function ConfirmationPage() {
 
         {/* Footer Note */}
         <div className="mt-8 text-center">
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             Need help? Contact us at{' '}
-            <a href="mailto:hello@localspot.com" className="text-blue-600 hover:text-blue-700 font-medium underline">
+            <a href="mailto:hello@localspot.com" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium underline">
               hello@localspot.com
             </a>
           </p>

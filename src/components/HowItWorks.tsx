@@ -49,7 +49,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section ref={elementRef} id="how-it-works" className="bg-white py-12 sm:py-16 lg:py-20">
+    <section ref={elementRef} id="how-it-works" className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="space-y-16 sm:space-y-24 lg:space-y-28">
           {sections.map((section, index) => (
@@ -59,10 +59,10 @@ const HowItWorks: React.FC = () => {
               <div className="hidden lg:block">
                 {/* Section Header - Centered */}
                 <div className="text-center mb-18">
-                  <h2 className="text-4xl font-normal leading-tight mb-4" style={{ color: 'rgba(0, 0, 0, 0.9)' }}>
+                  <h2 className="text-4xl font-normal leading-tight mb-4 text-gray-900 dark:text-white">
                     {section.title}
                   </h2>
-                  <p className="subtitle-text text-xl font-bold leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.65)' }}>
+                  <p className="subtitle-text text-xl font-bold leading-relaxed text-gray-600 dark:text-gray-300">
                     {section.subtitle}
                   </p>
                 </div>
@@ -85,12 +85,12 @@ const HowItWorks: React.FC = () => {
                     <div className="space-y-6">
                       {/* Features */}
                       <div>
-                        <h4 className="font-normal text-gray-900 mb-4">{section.featuresLabel}</h4>
+                        <h4 className="font-normal text-gray-900 dark:text-white mb-4">{section.featuresLabel}</h4>
                         <ul className="space-y-3">
                           {section.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-baseline">
-                              <span className="text-black mr-3 flex-shrink-0">•</span>
-                              <span className="text-gray-700 leading-relaxed">{feature}</span>
+                              <span className="text-black dark:text-white mr-3 flex-shrink-0">•</span>
+                              <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -100,7 +100,7 @@ const HowItWorks: React.FC = () => {
                       <div className="pt-4">
                         <button 
                           onClick={openCalendarBooking}
-                          className="inline-flex items-center text-blue-600 font-normal hover:text-blue-700 transition-colors group"
+                          className="inline-flex items-center text-blue-600 dark:text-blue-400 font-normal hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
                         >
                           Get a Free Demo
                           <svg className="ml-2 w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,14 +119,14 @@ const HowItWorks: React.FC = () => {
                 <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
                   {/* Image */}
                   <div className={`w-full mb-6 lg:mb-0 lg:col-span-6 ${section.imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className={`${index === 1 ? 'bg-gradient-to-br from-blue-50 to-purple-50' : 'bg-white'} rounded-none sm:rounded-2xl shadow-xl overflow-hidden ${index === 1 ? 'p-4 sm:p-8' : ''} ${index === 2 ? 'border-0 sm:border-2 border-dashed border-blue-300 relative' : ''}`}>
+                    <div className={`${index === 1 ? 'bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20' : 'bg-white dark:bg-gray-800'} rounded-none sm:rounded-2xl shadow-xl overflow-hidden ${index === 1 ? 'p-4 sm:p-8' : ''} ${index === 2 ? 'border-0 sm:border-2 border-dashed border-blue-300 dark:border-blue-600 relative' : ''}`}>
                       <img 
                         src={section.image} 
                         alt={section.title}
                         className={`w-full h-auto object-contain`}
                       />
                       {index === 2 && (
-                        <div className="absolute -bottom-4 left-2 sm:left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-normal">
+                        <div className="absolute -bottom-4 left-2 sm:left-4 bg-blue-600 dark:bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-normal">
                           592 ⭐ 343
                         </div>
                       )}
@@ -136,20 +136,20 @@ const HowItWorks: React.FC = () => {
                   {/* Content */}
                   <div className={`px-4 sm:px-0 lg:px-0 lg:col-span-6 ${section.imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
                     {/* Title + Subtitle (mobile/tablet only) */}
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-left" style={{fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 700}}>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 text-left" style={{fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 700}}>
                       {section.title}
                     </h3>
-                    <p className="subtitle-text text-lg font-bold text-gray-600 mb-6 text-left">
+                    <p className="subtitle-text text-lg font-bold text-gray-600 dark:text-gray-300 mb-6 text-left">
                       {section.subtitle}
                     </p>
                     
                     {/* Features */}
                     <div className="space-y-4 px-4">
-                      <h4 className="font-normal text-gray-900">{section.featuresLabel}</h4>
+                      <h4 className="font-normal text-gray-900 dark:text-white">{section.featuresLabel}</h4>
                       <ul className="space-y-0.5">
                         {section.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-baseline text-gray-700">
-                            <span className="text-black mr-3 flex-shrink-0">•</span>
+                          <li key={featureIndex} className="flex items-baseline text-gray-700 dark:text-gray-300">
+                            <span className="text-black dark:text-white mr-3 flex-shrink-0">•</span>
                             <span className="leading-snug">{feature}</span>
                           </li>
                         ))}
@@ -157,7 +157,7 @@ const HowItWorks: React.FC = () => {
                       <div className="pt-4">
                         <button 
                           onClick={openCalendarBooking}
-                          className="inline-flex items-center text-blue-600 font-normal hover:text-blue-700 transition-colors"
+                          className="inline-flex items-center text-blue-600 dark:text-blue-400 font-normal hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                         >
                           Get a Free Demo
                           <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

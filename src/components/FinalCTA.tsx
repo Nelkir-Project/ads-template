@@ -10,27 +10,27 @@ const FinalCTA: React.FC = () => {
   };
 
   return (
-    <section ref={elementRef} className="bg-white py-16 sm:py-20 lg:py-24">
+    <section ref={elementRef} className="bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Headline */}
         <div className={`text-center mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 dark:text-white mb-4">
             Every empty table is a missed opportunity.
           </h2>
-          <p className="subtitle-text text-3xl sm:text-4xl font-normal text-gray-900">
+          <p className="subtitle-text text-3xl sm:text-4xl font-normal text-gray-900 dark:text-white">
             LocalSpot helps you fill them.
           </p>
         </div>
 
         {/* Final CTA */}
-        <div className={`bg-gray-50 rounded-2xl p-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
+        <div className={`bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Column - Text Content */}
             <div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Ready to pack your spot?</h3>
-              <p className="text-gray-600 mb-6">Start turning first-time guests into VIP members</p>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-normal text-gray-900 dark:text-white mb-4">Ready to pack your spot?</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">Start turning first-time guests into VIP members</p>
+              <p className="text-gray-600 dark:text-gray-300">
                 We make you more money than we cost. Guaranteed or Your Money Back.
               </p>
             </div>
@@ -39,7 +39,7 @@ const FinalCTA: React.FC = () => {
             <div className="flex justify-center lg:justify-end">
               <button 
                 onClick={handleGetDemo}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-normal py-3 px-6 rounded-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
+                className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-normal py-3 px-6 rounded-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
                 Get a Free Demo
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
