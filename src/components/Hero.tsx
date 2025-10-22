@@ -10,7 +10,6 @@ const Hero: React.FC = () => {
       {/* Mobile Video - Full width, no margins, directly after header */}
       <div className="lg:hidden w-full mb-8">
         <VideoHero 
-          controls={true} 
           priority={true}
           poster="/mainposter.webp"
         />
@@ -108,7 +107,6 @@ const Hero: React.FC = () => {
             <div className="w-full max-w-4xl mx-auto mb-16">
               <div className="bg-gray-300 dark:bg-gray-700 rounded-lg overflow-hidden">
                 <VideoHero 
-                  controls={true} 
                   priority={true}
                   poster="/mainposter.webp"
                 />

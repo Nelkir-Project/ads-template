@@ -5,7 +5,6 @@ type VideoHeroProps = {
 	containerClassName?: string
 	srcs?: string[]
 	poster?: string
-	controls?: boolean
 	priority?: boolean // If true, preload even on mobile (for above-the-fold content)
 }
 
@@ -34,7 +33,6 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 	containerClassName,
 	srcs = DEFAULT_SRCS,
 	poster,
-	controls = false,
 	priority = false,
 }) => {
 	const [isMobile, setIsMobile] = useState(false)
@@ -57,11 +55,16 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 		return 'auto'
 	}
 
-	const handleVideoClick = () => {
+	const handleVideoClick = (e: React.MouseEvent) => {
+		e.preventDefault()
+		e.stopPropagation()
+		
 		if (!videoRef.current) return
 		
 		if (videoRef.current.paused) {
-			videoRef.current.play()
+			videoRef.current.play().catch(err => {
+				console.error('Error playing video:', err)
+			})
 			setIsPlaying(true)
 		} else {
 			videoRef.current.pause()
@@ -71,9 +74,9 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 
 	return (
 		<div 
-			className={`relative w-full overflow-hidden bg-black ${!controls ? 'cursor-pointer' : ''} ${containerClassName ?? ''}`} 
+			className={`relative w-full overflow-hidden bg-black cursor-pointer ${containerClassName ?? ''}`} 
 			style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}
-			onClick={!controls ? handleVideoClick : undefined}
+			onClick={handleVideoClick}
 		>
 		<video
 			ref={videoRef}
@@ -81,12 +84,13 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 			muted={false}
 			playsInline
 			loop
-			controls={controls}
+			controls={false}
 			preload={getPreloadStrategy()}
 			poster={poster}
 			{...{ 'webkit-playsinline': 'true' } as any}
 			onPlay={() => setIsPlaying(true)}
 			onPause={() => setIsPlaying(false)}
+			onClick={(e) => e.preventDefault()}
 		>
 				{srcs.map((s) => (
 					<source key={s} src={s} type="video/mp4" />
@@ -94,8 +98,8 @@ const VideoHero: React.FC<VideoHeroProps> = ({
 				Your browser does not support the video tag.
 			</video>
 		
-		{/* Play/Pause overlay icon - only show when controls are disabled */}
-		{!controls && !isPlaying && (
+		{/* Play/Pause overlay icon */}
+		{!isPlaying && (
 			<div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 				<div className="bg-black/50 rounded-full p-4">
 					<svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
