@@ -8,48 +8,6 @@ const ResultsSection: React.FC = () => {
     <section ref={elementRef} className="bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Testimonial - Desktop vs Mobile */}
-        <div className={`mb-12 sm:mb-16 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}>
-          
-          {/* Desktop Layout - New Figma Design */}
-          <div className="hidden lg:block">
-            <blockquote className="testimonial-quote text-3xl lg:text-4xl leading-tight mb-16 max-w-5xl text-gray-800 dark:text-gray-200">
-              "I was constantly worried about getting people through the door. With LocalSpot our restaurant stays busy and I finally have the time to focus on training my staff and making service even better".
-            </blockquote>
-            
-            <div className="flex items-center">
-              <img 
-                src="/new.png" 
-                alt="Karolyn" 
-                className="w-15 h-15 rounded-full mr-5 object-cover"
-              />
-              <div>
-                <div className="font-semibold text-gray-900 dark:text-white">Karolyn</div>
-                <div className="text-gray-600 dark:text-gray-400">Restaurant Manager</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile/Tablet Layout */}
-          <div className="lg:hidden">
-            <blockquote className="testimonial-quote text-xl sm:text-2xl text-gray-800 dark:text-gray-200 mb-6 leading-relaxed max-w-4xl">
-              "I was constantly worried about getting people through the door. <span className="font-semibold">With LocalSpot</span> our restaurant stays busy and I finally have the time to focus on training my staff and making service even better".
-            </blockquote>
-            
-            <div className="flex items-center">
-              <img 
-                src="/new.png" 
-                alt="Karolyn" 
-                className="w-12 h-12 rounded-full mr-4 object-cover"
-              />
-              <div>
-                <div className="font-semibold text-gray-900 dark:text-white">Karolyn</div>
-                <div className="text-gray-600 dark:text-gray-400">Restaurant Manager</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Green Tag */}
         <div className={`mb-8 text-center animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-100' : ''}`}>
           <div className="inline-flex items-center bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-6 py-3 rounded-full font-medium">

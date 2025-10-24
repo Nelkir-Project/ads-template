@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import HowItWorks from '../components/HowItWorks'
 import TestimonialSection from '../components/TestimonialSection'
 import ResultsSection from '../components/ResultsSection'
 import LocalSpotPricing from '../components/LocalSpotPricing'
@@ -19,7 +18,6 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <Header />
       <Hero />
-      <HowItWorks />
       <ResultsSection />
       <LocalSpotPricing />
       <QualificationSection />

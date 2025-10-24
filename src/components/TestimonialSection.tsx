@@ -1,29 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialSection: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      // Set video to start at 2 seconds instead of the beginning
-      videoRef.current.currentTime = 1;
-    }
-  }, []);
-
-  const handleVideoClick = () => {
-    if (!videoRef.current) return
-    
-    if (videoRef.current.paused) {
-      videoRef.current.play()
-      setIsPlaying(true)
-    } else {
-      videoRef.current.pause()
-      setIsPlaying(false)
-    }
-  };
 
   return (
     <section ref={elementRef} data-section="testimonials" className="bg-white dark:bg-gray-900 py-12 sm:py-16">
@@ -39,56 +18,6 @@ const TestimonialSection: React.FC = () => {
         <div className={`grid lg:grid-cols-2 gap-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-400' : ''}`}>
           {/* Left Column */}
           <div className="space-y-6">
-             {/* Doreen Foster Review - Video Testimonial */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
-               {/* Name and rating above video */}
-               <div className="flex items-center justify-between mb-4">
-                 <div className="flex items-center">
-                   <div>
-                     <h4 className="font-semibold text-gray-900 dark:text-white">Doreen Foster</h4>
-                     <div className="flex items-center">
-                       {[...Array(5)].map((_, i) => (
-                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                         </svg>
-                       ))}
-                     </div>
-                   </div>
-                 </div>
-                 <img src="/google.png" alt="Google" className="w-6 h-6" />
-               </div>
-               
-               {/* Video below name and rating */}
-               <div className="w-full mb-4 relative cursor-pointer" onClick={handleVideoClick}>
-                 <video 
-                   ref={videoRef}
-                   src="/Testimonial.mp4" 
-                   className="w-full aspect-video object-cover rounded-lg"
-                   muted={false}
-                   preload="metadata"
-                   onPlay={() => setIsPlaying(true)}
-                   onPause={() => setIsPlaying(false)}
-                 >
-                   Your browser does not support the video tag.
-                 </video>
-                 
-                 {/* Play/Pause overlay icon */}
-                 {!isPlaying && (
-                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                     <div className="bg-black/50 rounded-full p-4">
-                       <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                         <path d="M8 5v14l11-7z"/>
-                       </svg>
-                     </div>
-                   </div>
-                 )}
-               </div>
-               
-               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                 "Payfud now Localspot has been very instrumental in the operation of our business. It has really automated much of our customer experience where they can find everything right at the table. Today, everything is about technology, and I feel like Payfud now Localspot has integrated the ability for us to capture data from our customers, we can go behind the scenes, and make any adjustments that are necessary to continue to take our restaurant to the next level".
-               </blockquote>
-             </div>
-
              {/* Sheldon Blake Review */}
              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
@@ -138,6 +67,31 @@ const TestimonialSection: React.FC = () => {
                 "Great company for restaurant marketing and website design. Highly recommended".
               </blockquote>
             </div>
+
+             {/* Peter Konstantakos Review */}
+             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+               <div className="flex items-center justify-between mb-4">
+                 <div className="flex items-center">
+                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
+                     <img src="/peter.png" alt="Peter Konstantakos" className="w-full h-full object-cover" />
+                   </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Peter Konstantakos</h4>
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <img src="/google.png" alt="Google" className="w-6 h-6" />
+              </div>
+              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                "Great company for restaurant marketing and website design. Highly recommended".
+              </blockquote>
+            </div>
           </div>
 
           {/* Right Column */}
@@ -146,9 +100,6 @@ const TestimonialSection: React.FC = () => {
              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
-                     <img src="/holyland.png" alt="Holyland Project" className="w-full h-full object-cover" />
-                   </div>
                    <div>
                      <h4 className="font-semibold text-gray-900 dark:text-white">Holyland Project</h4>
                      <div className="flex items-center">
@@ -165,14 +116,9 @@ const TestimonialSection: React.FC = () => {
                <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                  "I recently started using LocalSpot for my restaurant, and I couldn't be happier with the results! Their automated marketing solutions have transformed how we engage with our customers. The loyalty programs they offer not only increased our repeat business but also created a stronger connection with our patrons."
                </blockquote>
-               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
                  "Overall, LocalSpot has been an invaluable resource for enhancing our marketing strategy and improving operational efficiency. Highly recommended for any restaurant looking to grow its customer base and streamline its processes!"
                </blockquote>
-               
-               {/* Holyland image below text */}
-               <div className="w-full">
-                 <img src="/holyimage.png" alt="Holyland Project" className="w-full aspect-video object-cover rounded-lg" />
-               </div>
              </div>
 
 
@@ -198,31 +144,6 @@ const TestimonialSection: React.FC = () => {
               </div>
               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 "Maria and her team were truly great. Helped me immensely with my restaurant website design. I would highly recommend them. Very friendly and knowledgeable".
-              </blockquote>
-            </div>
-
-             {/* Peter Konstantakos Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
-               <div className="flex items-center justify-between mb-4">
-                 <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
-                     <img src="/peter.png" alt="Peter Konstantakos" className="w-full h-full object-cover" />
-                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Peter Konstantakos</h4>
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <img src="/google.png" alt="Google" className="w-6 h-6" />
-              </div>
-              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                "Great company for restaurant marketing and website design. Highly recommended".
               </blockquote>
             </div>
           </div>
