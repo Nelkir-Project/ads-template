@@ -5,13 +5,13 @@ const TestimonialSection: React.FC = () => {
   const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section ref={elementRef} data-section="testimonials" className="bg-white dark:bg-gray-900 py-12 sm:py-16">
+    <section ref={elementRef} data-section="testimonials" className="bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
 
         {/* Testimonials Title */}
         <div className={`text-center mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-200' : ''}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Testimonials</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Testimonials</h2>
         </div>
 
         {/* Google Reviews Grid */}
@@ -19,14 +19,14 @@ const TestimonialSection: React.FC = () => {
           {/* Left Column */}
           <div className="space-y-6">
              {/* Sheldon Blake Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
+                   <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
                      <img src="/sheldon.png" alt="Sheldon Blake" className="w-full h-full object-cover" />
                    </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Sheldon Blake</h4>
+                    <h4 className="font-semibold text-gray-900">Sheldon Blake</h4>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -38,20 +38,20 @@ const TestimonialSection: React.FC = () => {
                 </div>
                 <img src="/google.png" alt="Google" className="w-6 h-6" />
               </div>
-              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <blockquote className="text-gray-700 leading-relaxed">
                 "Maria was super helpful in helping me with website assistance. She is very knowledgeable in the industry and I highly recommend LocalSpot".
               </blockquote>
             </div>
 
              {/* Marius V Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
+                   <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
                      <img src="/marius.png" alt="Marius V" className="w-full h-full object-cover" />
                    </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Marius V</h4>
+                    <h4 className="font-semibold text-gray-900">Marius V</h4>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -63,20 +63,20 @@ const TestimonialSection: React.FC = () => {
                 </div>
                 <img src="/google.png" alt="Google" className="w-6 h-6" />
               </div>
-              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <blockquote className="text-gray-700 leading-relaxed">
                 "Great company for restaurant marketing and website design. Highly recommended".
               </blockquote>
             </div>
 
              {/* Peter Konstantakos Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
+                   <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
                      <img src="/peter.png" alt="Peter Konstantakos" className="w-full h-full object-cover" />
                    </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Peter Konstantakos</h4>
+                    <h4 className="font-semibold text-gray-900">Peter Konstantakos</h4>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -88,7 +88,7 @@ const TestimonialSection: React.FC = () => {
                 </div>
                 <img src="/google.png" alt="Google" className="w-6 h-6" />
               </div>
-              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <blockquote className="text-gray-700 leading-relaxed">
                 "Great company for restaurant marketing and website design. Highly recommended".
               </blockquote>
             </div>
@@ -97,11 +97,11 @@ const TestimonialSection: React.FC = () => {
           {/* Right Column */}
           <div className="space-y-6">
              {/* Holyland Project Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
                    <div>
-                     <h4 className="font-semibold text-gray-900 dark:text-white">Holyland Project</h4>
+                     <h4 className="font-semibold text-gray-900">Holyland Project</h4>
                      <div className="flex items-center">
                        {[...Array(5)].map((_, i) => (
                          <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -113,24 +113,24 @@ const TestimonialSection: React.FC = () => {
                  </div>
                  <img src="/google.png" alt="Google" className="w-6 h-6" />
                </div>
-               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+               <blockquote className="text-gray-700 leading-relaxed mb-4">
                  "I recently started using LocalSpot for my restaurant, and I couldn't be happier with the results! Their automated marketing solutions have transformed how we engage with our customers. The loyalty programs they offer not only increased our repeat business but also created a stronger connection with our patrons."
                </blockquote>
-               <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+               <blockquote className="text-gray-700 leading-relaxed">
                  "Overall, LocalSpot has been an invaluable resource for enhancing our marketing strategy and improving operational efficiency. Highly recommended for any restaurant looking to grow its customer base and streamline its processes!"
                </blockquote>
              </div>
 
 
              {/* Kevin Mawby Review */}
-             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                <div className="flex items-center justify-between mb-4">
                  <div className="flex items-center">
-                   <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full mr-4 overflow-hidden">
+                   <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
                      <img src="/kevin.png" alt="Kevin Mawby" className="w-full h-full object-cover" />
                    </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Kevin Mawby</h4>
+                    <h4 className="font-semibold text-gray-900">Kevin Mawby</h4>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
@@ -142,7 +142,7 @@ const TestimonialSection: React.FC = () => {
                 </div>
                 <img src="/google.png" alt="Google" className="w-6 h-6" />
               </div>
-              <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <blockquote className="text-gray-700 leading-relaxed">
                 "Maria and her team were truly great. Helped me immensely with my restaurant website design. I would highly recommend them. Very friendly and knowledgeable".
               </blockquote>
             </div>

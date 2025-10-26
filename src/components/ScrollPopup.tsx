@@ -65,11 +65,11 @@ const ScrollPopup = () => {
     <div className={`fixed bottom-2 sm:bottom-4 left-2 right-2 sm:left-4 sm:right-4 z-50 ${
       isVisible ? 'popup-enter' : 'popup-exit'
     }`}>
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 p-3 sm:p-4 max-w-4xl mx-auto relative">
+      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-3 sm:p-4 max-w-4xl mx-auto relative">
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-1 right-1 sm:top-2 sm:right-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1"
+          className="absolute top-1 right-1 sm:top-2 sm:right-2 text-gray-400 hover:text-gray-600 transition-colors p-1"
           aria-label="Close popup"
         >
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,21 +84,21 @@ const ScrollPopup = () => {
             <img 
               src="/PP Maria.jpg" 
               alt="Maria"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-700 object-cover"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
             />
             <img 
               src="/federico.jpeg" 
               alt="Federico"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-700 object-cover"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
             />
           </div>
 
           {/* Content */}
           <div className="flex-1 text-center sm:text-left">
-            <h3 className="font-normal text-gray-900 dark:text-white mb-1">
+            <h3 className="font-normal text-gray-900 mb-1">
               Meet with Maria or Federico for a personalized walkthrough
             </h3>
-            <div className="flex items-center justify-center sm:justify-start text-gray-500 dark:text-gray-400">
+            <div className="flex items-center justify-center sm:justify-start text-gray-500">
               <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -110,7 +110,7 @@ const ScrollPopup = () => {
           <div className="flex-shrink-0 w-full sm:w-auto">
             <button
               onClick={handleBookDemo}
-              className="bg-gray-900 dark:bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md font-normal hover:bg-gray-800 dark:hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 group w-full sm:w-auto"
+              className="bg-gray-900 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-md font-normal hover:bg-gray-800 transition-colors flex items-center justify-center gap-1 group w-full sm:w-auto"
             >
               Book Your Demo
               <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
