@@ -85,7 +85,6 @@ const LocalSpotPricing: React.FC = () => {
                 <p className="text-sm font-medium text-gray-900 mb-1">Total Proven Value: $42,000</p>
                 <div className="flex items-baseline justify-between">
                   <p className="text-lg font-semibold text-gray-900">Get it for $499/month</p>
-                  <p className="text-xs text-gray-600">Annual pre-pay</p>
                 </div>
               </div>
 
@@ -155,7 +154,6 @@ const LocalSpotPricing: React.FC = () => {
                 <p className="text-sm font-medium text-gray-900 mb-1">Total Proven Value: $42,000</p>
                 <div className="flex items-baseline justify-between">
                   <p className="text-xl font-semibold text-gray-900">Get it for $499/month</p>
-                  <p className="text-sm text-gray-600">Annual pre-pay</p>
                 </div>
               </div>
 
