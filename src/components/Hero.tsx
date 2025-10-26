@@ -21,11 +21,11 @@ const Hero: React.FC = () => {
           <div className="text-left relative z-10">
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-gray-900 mb-2 sm:mb-3 leading-tight px-4">
-              Automated Marketing System for Restaurants
+              #1 Automated Marketing System for Restaurants
             </h1>
             
             <p className="text-gray-600 mb-3 sm:mb-4 px-4">
-              Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discover you, return more often, and spends a little more.
+              With LocalSpot, people discovers you and return more often.
             </p>
 
             {/* Customer Trust Indicators */}
@@ -161,12 +161,12 @@ const Hero: React.FC = () => {
           <div className="text-center">
             {/* Main Headline - Figma: opacity 0.9 */}
             <h1 className="text-5xl xl:text-6xl font-normal leading-tight mb-4 text-gray-900">
-              Automated Marketing System for Restaurants
+              #1 Automated Marketing System for Restaurants
             </h1>
             
             {/* Subtitle - Figma: opacity 0.65 */}
             <p className="mb-8 max-w-5xl mx-auto leading-relaxed text-gray-600">
-              Your restaurant deserves to be the local spot everyone loves. With LocalSpot, people discovers you, return more often, and spends a little more.
+              With LocalSpot, people discovers you and return more often.
             </p>
 
             {/* Trust Indicators Bar - positioned above feature cards */}
