@@ -1,29 +1,41 @@
-import React from 'react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import React from 'react'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
 const Footer: React.FC = () => {
-  const { elementRef, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+  const { elementRef, isIntersecting } = useIntersectionObserver({
+    threshold: 0.2,
+  })
 
   return (
     <footer ref={elementRef} className="bg-white">
       {/* Gray separator line */}
       <div className="border-t border-gray-200"></div>
-      
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}>
+
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}
+      >
         <div className="flex flex-col sm:flex-row justify-between items-center">
           {/* Logo and Contact */}
           <div className="mb-4 sm:mb-0 text-center sm:text-left">
-            <img src="/Light mode.webp" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0 block" />
-            <img src="/Dark mode.webp" alt="LocalSpot" className="h-8 w-auto mb-3 mx-auto sm:mx-0 hidden" />
+            <img
+              src="/Light mode.webp"
+              alt="LocalSpot"
+              className="h-8 w-auto mb-3 mx-auto sm:mx-0 block"
+            />
+            <img
+              src="/Dark mode.webp"
+              alt="LocalSpot"
+              className="h-8 w-auto mb-3 mx-auto sm:mx-0 hidden"
+            />
             <div className="space-y-1">
-              <a 
-                href="mailto:hello@localspot.ai" 
+              <a
+                href="mailto:hello@localspot.ai"
                 className="block text-gray-700 hover:text-blue-600 transition-colors"
               >
                 hello@localspot.ai
               </a>
-              <a 
-                href="tel:+17272805723" 
+              <a
+                href="tel:+17272805723"
                 className="block text-gray-700 hover:text-blue-600 transition-colors"
               >
                 +1 (727) 280-5723
@@ -33,14 +45,17 @@ const Footer: React.FC = () => {
 
           {/* Links */}
           <div className="flex space-x-6 sm:space-x-8">
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+            >
               Terms
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+            >
               Privacy
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-              About
             </a>
           </div>
         </div>
@@ -52,7 +67,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

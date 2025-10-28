@@ -1,0 +1,33 @@
+{
+  "stater": {
+    "title": "Starter Plan",
+    "description": "For cafes, pizzerias, and food trucks.",
+    "benefits": [
+      "Custom Professional Website",
+      "eGift Cards",
+      "Online Catering Orders",
+      "Customer Experience Tracking",
+      "Smart Loyalty Program",
+      "Automated Text Messages",
+      "Customer Support"
+    ],
+    "bonus": ["Professional Photoshoot"],
+    "additional": "",
+    "price": "$299/month"
+  },
+  "pro": {
+    "title": "Pro Plan",
+    "description": "For fine dining, and casual restaurants.",
+    "benefits": [
+      "Reservation System with No Cover Fees",
+      "In-restaurant Guest Data Collection",
+      "QR Menu",
+      "Menu Translation",
+      "Pairing Suggestions",
+      "Dedicated Customer Support"
+    ],
+    "bonus": ["x24 Branded QR Menu Kit", "Full Set-up"],
+    "additional": "Includes everything in Starter Plan",
+    "price": "$499/month"
+  }
+}
