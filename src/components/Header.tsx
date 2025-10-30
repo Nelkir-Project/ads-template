@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   return (
     <header
       ref={elementRef}
-      className={`hidden md:block bg-white border-b border-gray-200 sticky top-0 z-50 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}
+      className={`bg-white border-b border-gray-200 sticky top-0 z-50 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -37,19 +37,29 @@ const Header: React.FC = () => {
           >
             <a
               href="#how-it-works"
-              className="text-gray-700 hover:text-gray-900"
+              className="text-gray-700 hover:text-gray-900 underline"
             >
               How it Works
             </a>
-            <a href="#pricing" className="text-gray-700 hover:text-gray-900">
+            <a
+              href="#pricing"
+              className="text-gray-700 hover:text-gray-900 underline"
+            >
               Pricing
             </a>
           </nav>
 
           {/* Desktop CTA Button */}
           <div
-            className={`hidden md:flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300' : ''}`}
+            className={`hidden md:flex items-center animate-on-scroll ${isIntersecting ? 'animate animate-slide-in-right animate-delay-300 gap-6' : ''}`}
           >
+            <a
+              href="https://app.payfud.com/"
+              target="_blank"
+              className="text-gray-700 hover:text-gray-900 underline"
+            >
+              Sign in
+            </a>
             <button
               onClick={openCalendarBooking}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition-colors group"
@@ -125,6 +135,14 @@ const Header: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
+              </a>
+              <a
+                href="https://app.payfud.com/"
+                target="_blank"
+                className="block px-3 py-2 text-gray-700 hover:text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sign in
               </a>
               <div className="pt-4 pb-2 border-t border-gray-200">
                 <button

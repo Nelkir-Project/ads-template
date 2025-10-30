@@ -14,7 +14,7 @@ const ResultsSection: React.FC = () => {
 
   return (
     <section ref={elementRef} className="py-12 sm:py-16 lg:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Green Tag */}
         <div
           className={`mb-12 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up animate-delay-100' : ''}`}
