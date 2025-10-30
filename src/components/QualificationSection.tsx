@@ -11,7 +11,7 @@ const QualificationSection: React.FC = () => {
     <section ref={elementRef} className="bg-white py-16 sm:py-20 lg:py-24">
       {/* Two Column Layout */}
       <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-20 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-20 lg:mb-0 animate-on-scroll ${isIntersecting ? 'animate animate-fade-in-up' : ''}`}
       >
         {/* Left Column - Not For You */}
         <div className="bg-white rounded-2xl p-6 sm:p-8">
